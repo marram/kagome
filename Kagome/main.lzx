@@ -1,0 +1,15 @@
+<canvas width="800" height="600" bgcolor="0xffffe0">
+    <include href="lib" />
+	<include href="resources" />
+
+<!-- Instantiate the centeral circle -->		
+<circle name="o" resource="orangecircle" x="50" y="30"/>
+
+
+<button> Add another 
+	<handler name="onclick">
+		var nc = new circle(canvas);
+		var ncon = new connector(canvas, {from:o,to:nc});
+	</handler>
+</button>		
+</canvas>

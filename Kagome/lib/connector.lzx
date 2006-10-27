@@ -1,0 +1,78 @@
+<library>
+	<class name="baseconnector" extends="view" x="${b.x+b.width/2}" 
+		y="${b.y+b.height/2}" width="1"
+		height="300" bgcolor="0x000000">
+		<!-- Pointers to connected objects  -->
+		<attribute name="from" />
+		<attribute name="to"/>
+		
+		<attribute name="dx"/>
+		<attribute name="dy"/>
+		<handler name="onconstruct">
+			
+			this.b= from;
+			this.e = to;
+		</handler>
+	
+	</class>
+	<class name="connector" extends="baseconnector">
+
+		<handler name="oninit">
+			adjust();
+			sendToBack();
+		</handler>
+		<handler name="onx" reference="b">
+				adjust();
+		</handler>
+		<method event="ony" reference="b">
+				adjust();
+		</method>
+		<method event="onx" reference="e">
+				adjust();
+		</method>
+		<handler name="ony" reference="e">
+				adjust();
+		</handler>
+								
+		<method name="adjust">
+		    __refreshdxdy();
+			setHeight(__calcHeight());
+			setRotation(__calcAngle());
+		</method>
+		<method name="__refreshdxdy">
+			dx = b.x-e.x;
+	        dy = b.y - e.y
+		</method>
+		<method name="__calcHeight">
+			//distance between two points.
+			return Math.sqrt(dx*dx+dy*dy);
+		</method>
+		<method name="__calcAngle">
+		<![CDATA[
+	        angle = 0;
+	 		//Take care of special cases. You don't want to get division by zero errors when tan goes to infinity.
+	        if (dx == 0) {
+	            if(dy == 0)     angle = 0;
+	            else if(dy > 0) angle = Math.PI / 2.0; //90
+	            else            angle = (Math.PI * 3.0) / 2.0; //-90
+	        }
+	        else if(dy == 0) {
+	            if(dx > 0)      angle = 0;
+	            else            angle = Math.PI; //180
+	        }
+	        //done with special cases
+	        else {
+	            if(dx < 0)      angle = Math.atan(dy/dx) + Math.PI;
+	            else if(dy < 0) angle = Math.atan(dy/dx) + (2*Math.PI);
+	            else            angle = Math.atan(dy/dx);
+	        }
+	        /*
+	         * add an offset of 90 because OpenLaszlo views always point downward.
+	         * and then convert to degrees.
+	         */
+	        return (angle * 180) / Math.PI + 90;
+	    ]]>
+		</method>
+		<animator name="a" attribute="rotation" to="360" duration="10000" start="false"/>
+		</class>
+</library>

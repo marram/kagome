@@ -1,0 +1,8 @@
+<library>
+	<class name="circle" onmousedown="dr.apply()"
+		onmouseup="dr.remove()">
+		<attribute name="resource" value="greencircle" />
+		<dragstate name="dr" drag_min_x="$once{parent.x}" drag_max_x="$once{parent.width}" drag_max_y="$once{immediateparent.height}"
+			drag_min_y="$once{parent.y}" />
+	</class>
+</library>

@@ -1,0 +1,4 @@
+<library>
+	<resource name="greencircle" src="green.swf" />
+	<resource name="orangecircle" src="orange.swf" />
+</library>

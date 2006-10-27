@@ -9,14 +9,16 @@
 		<attribute name="dx"/>
 		<attribute name="dy"/>
 		<handler name="onconstruct">
-			
 			this.b= from;
 			this.e = to;
 		</handler>
 	
 	</class>
 	<class name="connector" extends="baseconnector">
-
+		<!--  make sure to asign a resource for arrowhead -->
+		<view name="arrowhead" y="${parent.height-parent.e.width/2-height}" xoffset="${width/2}">
+			<attribute name="resource" value="arrowhead" />
+		</view>
 		<handler name="oninit">
 			adjust();
 			sendToBack();
@@ -40,6 +42,9 @@
 			setRotation(__calcAngle());
 		</method>
 		<method name="__refreshdxdy">
+			/*
+			 * Figure out the distance between start and endpoints
+			 */
 			dx = b.x-e.x;
 	        dy = b.y - e.y
 		</method>

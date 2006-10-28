@@ -1,0 +1,7 @@
+<library>
+
+	<class name="draggable" onmousedown="dr.apply()"
+		onmouseup="dr.remove()">
+	<dragstate name="dr"  />
+	</class>
+</library>

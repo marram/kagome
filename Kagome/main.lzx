@@ -2,14 +2,82 @@
     <include href="lib" />
 	<include href="resources" />
 
-<!-- Instantiate the centeral circle -->		
-<circle name="o" resource="orangecircle" x="50" y="30"/>
-
-
-<button> Add another 
-	<handler name="onclick">
-		var nc = new circle(canvas);
-		var ncon = new connector(canvas, {from:o,to:nc});
+<!-- Instantiate the centeral circle -->	
+	<!-- circle resource="orangecircle" name="o" x="50" y="50"/-->
+<view name="developmentView">
+	<box id="o" x="50" y="50" />
+	<!--  this attribute gets set to the currently selected node. -->
+	<attribute name="selectednode" />
+	<!-- this flag denotes the current mode
+		the mode can be: ADD_CONNECTOR
+		
+	 -->
+	 <attribute name="modeFlag" type="string"/>
+	 
+	<event name="onselectswitch" />
+	<!-- Nodes fire this event in the view when they are clicked. 
+	This will be used to create new connectors. To create a new conenctor, 
+	a user clicks one node, and then clicks another one
+	
+	THIS IS JUST A FIRST STAB. WE MIGHT WANT TO DO SOMETHING ELSE TO DRAW EDGES.
+	 -->
+	<event name="onnodeclicked" />
+		
+	<button> Add node 
+		<handler name="onclick">
+			//var nc = new circle(parent);
+			var nc = new box(this.parent);
+			//var ncon = new connector(this.parent, {from:o,to:nc});
+		</handler>
+	</button>
+	<button x="100">Add connector
+		<handler name="onclick">
+			parent.setAttribute('modeFlag', 'ADD_CONNECTOR');
+			parent.pclickednode = null;
+		</handler>
+	</button>
+	<handler name="onselectswitch">
+		if (this.selectednode)
+			this.selectednode.unhighlight();
 	</handler>
-</button>		
+	<handler name="onselectednode">
+		this.selectednode.highlight();
+	</handler>	
+	<handler name="onnodeclicked" args="clickednode">
+		//are we in the correct mode?
+		if (this.modeFlag == "ADD_CONNECTOR")
+		{
+			//if there was a previously clicked node
+			if (this.pclickednode != null) {
+					//make a connector
+					var ncon = new connector(this.parent, {from:this.pclickednode,to:clickednode});
+					//remove mode
+					this.setAttribute('modeFlag', '');
+				}
+			else {//make this the first clicked node
+				this.pclickednode = clickednode;
+			}
+		}
+		
+	</handler>
+	<handler name="onmodeFlag">
+		Debug.write("current mode is", this.modeFlag);
+		if (this.modeFlag == "ADD_CONNECTOR")
+		{
+			//change the cursor to a crosshair, or something!
+			//TODO: make a swf for a cursor	
+		}
+	</handler>
+</view>
+
+	<!--  this observer listens to what is happening in the view and updates the model -->
+	<node name="observer">
+		<handler name="onselectednode" reference="developmentView">
+			var ref = developmentView;
+			Debug.write("current selected node", ref.selectednode);
+			/*
+			 * TODO: write code to display current properties of node in a dialog
+			 */
+		</handler>
+	</node>	
 </canvas>

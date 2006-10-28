@@ -1,8 +1,14 @@
 <library>
-	<class name="circle" onmousedown="dr.apply()"
-		onmouseup="dr.remove()">
+	<!-- we don't need to include knode here because it is included in library.lzx. However,
+	this means that you can't use circle.lzx wihout including library.lzx
+	 -->
+	<class name="circle" extends="knode">
 		<attribute name="resource" value="greencircle" />
-		<dragstate name="dr" drag_min_x="$once{parent.x}" drag_max_x="$once{parent.width}" drag_max_y="$once{immediateparent.height}"
-			drag_min_y="$once{parent.y}" />
+		<method name="highlight">
+		
+		</method>
+		<method name="unhighlight">
+		
+		</method>
 	</class>
 </library>

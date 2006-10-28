@@ -1,4 +1,7 @@
 <library>
+	<include href="draggable.lzx" />
+	<include href="knode.lzx" />
 	<include href="connector.lzx" />
 	<include href="circle.lzx" />
+	<include href="box.lzx" />
 </library>

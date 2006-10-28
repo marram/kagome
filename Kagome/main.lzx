@@ -4,7 +4,7 @@
 
 <!-- Instantiate the centeral circle -->	
 	<!-- circle resource="orangecircle" name="o" x="50" y="50"/-->
-<view name="developmentView">
+<view name="developmentView" width="100%" height="100%" bgcolor="0xabbabb">
 	<!--  this attribute gets set to the currently selected object (node or edge). -->
 	<attribute name="selectedobj" />
 	<!--  this attribute sets the shape of the nodes that will be drawn.
@@ -69,11 +69,20 @@
 	</handler>
 	<handler name="onmodeFlag">
 		Debug.write("current mode is", this.modeFlag);
+		//TODO: Make this into a case-switch statement as we add more modes.
 		if (this.modeFlag == "ADD_CONNECTOR")
 		{
 			//change the cursor to a crosshair, or something!
 			//TODO: make a swf for a cursor	
 		}
+	</handler>
+	<handler name="onclick">
+		//when we click on the development view somewhere outside an object
+		//unhighlight the currently selected object, if any
+		if (this.selectedobj != null)
+			this.selectedobj.unhighlight();
+		//also release the modeflag
+		this.setAttribute('modeFlag', 'NONE');
 	</handler>
 </view>
 

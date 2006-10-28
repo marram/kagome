@@ -82,7 +82,7 @@
 		<!--  make sure to asign a resource for arrowhead -->
 		<view name="arrowhead" 
 		y="${parent.height-parent.e.width/2-height}" 
-		xoffset="${width/2}" >
+		xoffset="${width/2}" ondblclick="parent.dodblclick()">
 			<attribute name="resource" value="arrowhead" />
 		</view>
 		<view name="highlighter" width="10" height="${parent.height}" xoffset="$once{width/2}" bgcolor="0xffff33" opacity="0.5" visible="false"/>
@@ -98,8 +98,12 @@
 			highlighter.setAttribute('visible', false);
 		</method>
 		<handler name="ondblclick">
+			dodblclick();
+		</handler>
+		<method name="dodblclick">
+			//this was factored out so that it can be used in other parts
 			parent.onselectswitch.sendEvent();
 			parent.setAttribute('selectedobj', this);
-		</handler>
+		</method>
 		</class>
 </library>

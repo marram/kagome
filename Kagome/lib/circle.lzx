@@ -5,10 +5,10 @@
 	<class name="circle" extends="knode">
 		<attribute name="resource" value="greencircle" />
 		<method name="highlight">
-		
+			setResource('orangecircle');
 		</method>
 		<method name="unhighlight">
-		
+			setResource('greencircle');
 		</method>
 	</class>
 </library>

@@ -12,13 +12,6 @@
 			this.b= from;
 			this.e = to;
 		</handler>
-	
-	</class>
-	<class name="connector" extends="baseconnector">
-		<!--  make sure to asign a resource for arrowhead -->
-		<view name="arrowhead" y="${parent.height-parent.e.width/2-height}" xoffset="${width/2}">
-			<attribute name="resource" value="arrowhead" />
-		</view>
 		<handler name="oninit">
 			adjust();
 			sendToBack();
@@ -77,7 +70,36 @@
 	         */
 	        return (angle * 180) / Math.PI + 90;
 	    ]]>
+		</method>	
+	</class>
+	
+	<!--  this connector adds more functionality to the base connector.
+		Such as:
+		1. arrow head to denote direction
+		2. ability to highlight and unhighlight
+	 -->
+	<class name="connector" extends="baseconnector">
+		<!--  make sure to asign a resource for arrowhead -->
+		<view name="arrowhead" 
+		y="${parent.height-parent.e.width/2-height}" 
+		xoffset="${width/2}" >
+			<attribute name="resource" value="arrowhead" />
+		</view>
+		<view name="highlighter" width="10" height="${parent.height}" xoffset="$once{width/2}" bgcolor="0xffff33" opacity="0.5" visible="false"/>
+		<!-- 
+			TODO: factor out some of the shared functionality between nodes and connectors
+			such as highlight, unhighlight, select, etc.
+		 -->
+		<method name="highlight">
+			Debug.write("hgih");
+			highlighter.setAttribute('visible', true);
 		</method>
-		<animator name="a" attribute="rotation" to="360" duration="10000" start="false"/>
+		<method name="unhighlight">
+			highlighter.setAttribute('visible', false);
+		</method>
+		<handler name="ondblclick">
+			parent.onselectswitch.sendEvent();
+			parent.setAttribute('selectedobj', this);
+		</handler>
 		</class>
 </library>

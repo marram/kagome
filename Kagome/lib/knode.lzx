@@ -4,7 +4,7 @@
 		<attribute name="title" type="string" value="untitled" />
 		<handler name="ondblclick">
 			parent.onselectswitch.sendEvent();
-			parent.setAttribute('selectednode', this);
+			parent.setAttribute('selectedobj', this);
 		</handler>
 		<handler name="onclick" >
 			parent.onnodeclicked.sendEvent(this);

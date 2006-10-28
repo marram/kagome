@@ -5,9 +5,15 @@
 <!-- Instantiate the centeral circle -->	
 	<!-- circle resource="orangecircle" name="o" x="50" y="50"/-->
 <view name="developmentView">
-	<box id="o" x="50" y="50" />
-	<!--  this attribute gets set to the currently selected node. -->
-	<attribute name="selectednode" />
+	<!--  this attribute gets set to the currently selected object (node or edge). -->
+	<attribute name="selectedobj" />
+	<!--  this attribute sets the shape of the nodes that will be drawn.
+		For now, it can be:
+		1. circle
+		2. box
+		3. fancy box
+	 -->
+	<attribute name="nodeShapes" type="string" value="box"/>
 	<!-- this flag denotes the current mode
 		the mode can be: ADD_CONNECTOR
 		
@@ -25,9 +31,10 @@
 		
 	<button> Add node 
 		<handler name="onclick">
-			//var nc = new circle(parent);
-			var nc = new box(this.parent);
-			//var ncon = new connector(this.parent, {from:o,to:nc});
+		if (parent.nodeShapes == 'box')
+			var nc = new box(parent);
+		else //default
+			var nc = new circle(parent);
 		</handler>
 	</button>
 	<button x="100">Add connector
@@ -37,11 +44,11 @@
 		</handler>
 	</button>
 	<handler name="onselectswitch">
-		if (this.selectednode)
-			this.selectednode.unhighlight();
+		if (this.selectedobj)
+			this.selectedobj.unhighlight();
 	</handler>
-	<handler name="onselectednode">
-		this.selectednode.highlight();
+	<handler name="onselectedobj">
+		this.selectedobj.highlight();
 	</handler>	
 	<handler name="onnodeclicked" args="clickednode">
 		//are we in the correct mode?
@@ -50,7 +57,7 @@
 			//if there was a previously clicked node
 			if (this.pclickednode != null) {
 					//make a connector
-					var ncon = new connector(this.parent, {from:this.pclickednode,to:clickednode});
+					var ncon = new connector(this, {from:this.pclickednode,to:clickednode});
 					//remove mode
 					this.setAttribute('modeFlag', '');
 				}
@@ -72,9 +79,9 @@
 
 	<!--  this observer listens to what is happening in the view and updates the model -->
 	<node name="observer">
-		<handler name="onselectednode" reference="developmentView">
+		<handler name="onselectedobj" reference="developmentView">
 			var ref = developmentView;
-			Debug.write("current selected node", ref.selectednode);
+			Debug.write("current selected node", ref.selectedobj);
 			/*
 			 * TODO: write code to display current properties of node in a dialog
 			 */

@@ -1,7 +1,7 @@
 <library>
 	<class name="baseconnector" extends="view" x="${b.x+b.width/2}" 
-		y="${b.y+b.height/2}" width="1"
-		height="300" bgcolor="0x000000">
+		y="${b.y+b.height/2}" width="20"
+		height="300">
 		<!-- Pointers to connected objects  -->
 		<attribute name="from" />
 		<attribute name="to"/>
@@ -79,23 +79,30 @@
 		2. ability to highlight and unhighlight
 	 -->
 	<class name="connector" extends="baseconnector">
+		<!--  the color of the connector -->
+		<attribute name="color" type="color" value="0x000000" />
 		<!--  make sure to asign a resource for arrowhead -->
 		<view name="arrowhead" 
 		y="${parent.height-parent.e.width/2-height}" 
-		xoffset="${width/2}" ondblclick="parent.dodblclick()">
+		xoffset="0" ondblclick="parent.dodblclick()">
 			<attribute name="resource" value="arrowhead" />
 		</view>
-		<view name="highlighter" width="10" height="${parent.height}" xoffset="$once{width/2}" bgcolor="0xffff33" opacity="0.5" visible="false"/>
+		<!--  this is the line that actually appears inside the connector -->
+		<view name="line" 
+			  bgcolor="$once{parent.color}"
+			  width="1"
+			  xoffset="$once{-parent.width/2+width}"
+			  height="${parent.height}"
+		/>
 		<!-- 
 			TODO: factor out some of the shared functionality between nodes and connectors
 			such as highlight, unhighlight, select, etc.
 		 -->
 		<method name="highlight">
-			Debug.write("hgih");
-			highlighter.setAttribute('visible', true);
+			setBGColor("0xffff33");
 		</method>
 		<method name="unhighlight">
-			highlighter.setAttribute('visible', false);
+			setBGColor(null);
 		</method>
 		<handler name="ondblclick">
 			dodblclick();

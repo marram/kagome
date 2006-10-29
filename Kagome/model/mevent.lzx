@@ -1,0 +1,16 @@
+<!-- 
+/**
+ *	This class represents an event that causes a Kagome prototype to transition from one node to the other.
+ *
+ *
+ *
+ *
+ *
+ */
+
+ -->
+<library>
+	<class name="mevent" extends="node">
+	
+	</class>
+</library>

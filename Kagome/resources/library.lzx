@@ -15,4 +15,5 @@
 		<frame src="fancy/back.swf" />
 		<frame src="fancy/hback.swf" />
 	</resource>
+	<resource name="concursor" src="cursors/contool.swf" />
 </library>

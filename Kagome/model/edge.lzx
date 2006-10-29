@@ -14,6 +14,10 @@
 		a physical appearance (hence it does not extend view).
 	 -->
 	<class name="edge" extends="node">
-	
+		<!-- pointer refernece to source node-->
+		<attribute name="s" />
+		<!--  target node -->
+		<attribute name="t" />
+		<mevent name="e" />
 	</class>
 </library>

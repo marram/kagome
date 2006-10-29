@@ -61,11 +61,14 @@
 	</handler>
 	<handler name="onmodeFlag">
 		Debug.write("current mode is", this.modeFlag);
-		//TODO: Make this into a case-switch statement as we add more modes.
-		if (this.modeFlag == "ADD_CONNECTOR")
-		{
-			//change the cursor to a crosshair, or something!
-			//TODO: make a swf for a cursor	
+		switch (modeFlag) {
+			case "ADD_CONNECTOR":
+				LzCursor.setCursorGlobal('concursor');
+				break;
+			default:
+				LzCursor.restoreCursor();
+				//LzCursor.unlock();
+				break;
 		}
 	</handler>
 	<handler name="onclick">
@@ -100,5 +103,11 @@
 				break;
 		}
 	</method>
+	<handler name="onmouseover">
+		LzCursor.showHandCursor(false);
+	</handler>
+	<handler name="onmouseout">
+		LzCursor.showHandCursor(true);
+	</handler>
 </class>
 </library>

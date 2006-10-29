@@ -1,7 +1,8 @@
 <canvas width="800" height="600" bgcolor="0xffffe0">
-    <include href="lib" />
+    <include href="model" />
+    <include href="view" />
 	<include href="resources" />
-	<include href="js" />
+
 
 <!-- Instantiate the centeral circle -->	
 	<!-- circle resource="orangecircle" name="o" x="50" y="50"/-->

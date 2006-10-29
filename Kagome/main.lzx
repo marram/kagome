@@ -1,97 +1,16 @@
-<canvas width="800" height="600" bgcolor="0xffffe0">
+<canvas width="100%" height="900">
     <include href="model" />
     <include href="view" />
 	<include href="resources" />
 
-
-<!-- Instantiate the centeral circle -->	
-	<!-- circle resource="orangecircle" name="o" x="50" y="50"/-->
-<view name="developmentView" width="100%" height="100%">
-	<!--  this attribute gets set to the currently selected object (node or edge). -->
-	<attribute name="selectedobj" />
-	<!--  this attribute sets the shape of the nodes that will be drawn.
-		For now, it can be:
-		1. circle
-		2. box
-		3. fancy box
-	 -->
-	<attribute name="nodeShapes" type="string" value="box"/>
-	<!-- this flag denotes the current mode
-		the mode can be: ADD_CONNECTOR
-		
-	 -->
-	 <attribute name="modeFlag" type="string"/>
-	 
-	<event name="onselectswitch" />
-	<!-- Nodes fire this event in the view when they are clicked. 
-	This will be used to create new connectors. To create a new conenctor, 
-	a user clicks one node, and then clicks another one
-	
-	THIS IS JUST A FIRST STAB. WE MIGHT WANT TO DO SOMETHING ELSE TO DRAW EDGES.
-	 -->
-	<event name="onnodeclicked" />
-		
-	<button> Add node 
-		<handler name="onclick">
-		if (parent.nodeShapes == 'box')
-			var nc = new box(parent);
-		else //default
-			var nc = new circle(parent);
-		</handler>
-	</button>
-	<button x="100">Add connector
-		<handler name="onclick">
-			parent.setAttribute('modeFlag', 'ADD_CONNECTOR');
-			parent.pclickednode = null;
-		</handler>
-	</button>
-	<handler name="onselectswitch">
-		if (this.selectedobj)
-			this.selectedobj.unhighlight();
-	</handler>
-	<handler name="onselectedobj">
-		this.selectedobj.highlight();
-	</handler>	
-	<handler name="onnodeclicked" args="clickednode">
-		//are we in the correct mode?
-		if (this.modeFlag == "ADD_CONNECTOR")
-		{
-			//if there was a previously clicked node
-			if (this.pclickednode != null) {
-					//make a connector
-					var ncon = new connector(this, {from:this.pclickednode,to:clickednode});
-					//remove mode
-					this.setAttribute('modeFlag', '');
-				}
-			else {//make this the first clicked node
-				this.pclickednode = clickednode;
-			}
-		}
-		
-	</handler>
-	<handler name="onmodeFlag">
-		Debug.write("current mode is", this.modeFlag);
-		//TODO: Make this into a case-switch statement as we add more modes.
-		if (this.modeFlag == "ADD_CONNECTOR")
-		{
-			//change the cursor to a crosshair, or something!
-			//TODO: make a swf for a cursor	
-		}
-	</handler>
-	<handler name="onclick">
-		//when we click on the development view somewhere outside an object
-		//unhighlight the currently selected object, if any
-		if (this.selectedobj != null)
-			this.selectedobj.unhighlight();
-		//also release the modeflag
-		this.setAttribute('modeFlag', 'NONE');
-	</handler>
-</view>
+<toppane name="topp" width="100%"/>
+<leftpane name="leftp" height="100%"/>
+<devview name="dview" width="100%" height="100%" y="$once{topp.height}" x="$once{leftp.width}" />
 
 	<!--  this observer listens to what is happening in the development view and updates the model -->
 	<node name="observer">
-		<handler name="onselectedobj" reference="developmentView">
-			var ref = developmentView;
+		<handler name="onselectedobj" reference="dview">
+			var ref = dview;
 			Debug.write("current selected node", ref.selectedobj);
 			/*
 			 * TODO: write code to display current properties of node in a dialog

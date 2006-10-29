@@ -9,11 +9,15 @@
 		<handler name="onclick" >
 			parent.onnodeclicked.sendEvent(this);
 		</handler>
+		<method name="clean">
+			//remove all edges where I'm the source or target.
+		</method>
 		<!--  all classes that extend knode have to override this function
 		This function causes the node to highlight itself.
 		 -->
 		<method name="highlight" />
 		<method name="unhighlight" />
+		
 
 	</class>
 </library>

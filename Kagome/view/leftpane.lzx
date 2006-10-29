@@ -1,0 +1,9 @@
+<library>
+	<class name="leftpane">
+		<attribute name="defaultplacement" value="inside" />
+		<view name="inside" width="200" height="100%">
+			<!--  this is where stuff will go -->
+		</view>
+		<view name="vrule" bgcolor="0x8CC63F" width="1" height="100%" x="200" y="70"/>
+	</class>
+</library>

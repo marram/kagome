@@ -1,0 +1,7 @@
+<library>
+	<class name="toppane">
+		<view name="topbar" bgcolor="0xE5E5E5" width="100%" height="15" />
+		<view name="logoview" resource="logoswf" y="15"/>
+		<view name="hrule" bgcolor="0x8CC63F" y="70" width="100%" height="1" />
+	</class>
+</library>

@@ -4,4 +4,8 @@
 	<include href="connector.lzx" />
 	<include href="circle.lzx" />
 	<include href="box.lzx" />
+	<include href="fancybox.lzx" />
+	<include href="toppane.lzx" />
+	<include href="leftpane.lzx" />
+	<include href="devview.lzx" />
 </library>

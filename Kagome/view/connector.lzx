@@ -80,7 +80,7 @@
 	 -->
 	<class name="connector" extends="baseconnector">
 		<!--  the color of the connector -->
-		<attribute name="color" type="color" value="0x000000" />
+		<attribute name="color" type="color" value="0x00ADEF" />
 		<!--  make sure to asign a resource for arrowhead -->
 		<view name="arrowhead" 
 		y="${parent.height-parent.e.width/2-height}" 

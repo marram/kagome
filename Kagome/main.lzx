@@ -19,11 +19,12 @@
 		<handler name="nodeAdded" reference="dview" args="modelnode">
 			
 			var nodeID = this.nodes.push(modelnode);
-			modelnode.uid = nodeID;
+			//use setAttribute so that an onuid event gets fired
+			modelnode.setAttribute('uid',nodeID);
 		</handler>
 		<handler name="edgeAdded" reference="dview" args="modeledge">
 			var edgeID = this.edges.push(modeledge);
-			modeledge.uid = edgeID;
+			modeledge.setAttribute('uid', edgeID);
 		</handler>
 		<handler name="nodeDeleted" reference="dview" args="modelnode">
 			var id = modelnode.uid;

@@ -21,9 +21,16 @@
 	<class name="mnode" extends="node">
 		<!--  unique node identifier -->
 		<attribute name="uid" type="number" />
-		<attribute name="title" value="${parent.title}"/>
+		<attribute name="title"  value="untitled" type="string"  />
 		<!-- 
 		The rest of the attributes come from the template
 		 -->
+		 
+		 
+		 <handler name="onuid">
+		 	setAttribute('title', title+uid);
+		 	Debug.write("uid is ", uid);
+		 </handler>
+
 	</class>
 </library>

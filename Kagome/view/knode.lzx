@@ -7,6 +7,9 @@
 			parent.onselectswitch.sendEvent();
 			parent.setAttribute('selectedobj', this);
 		</handler>
+		<handler name="onmousedown">
+			this.bringToFront();
+		</handler>
 		<handler name="onclick" >
 			parent.onnodeclicked.sendEvent(this);
 		</handler>

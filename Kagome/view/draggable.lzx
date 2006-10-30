@@ -2,6 +2,12 @@
 
 	<class name="draggable" onmousedown="dr.apply()"
 		onmouseup="dr.remove()">
-	<dragstate name="dr"  />
+	<dragstate name="dr"  
+	      drag_min_x="0"
+          drag_max_x="$once{parent.width - this.width}"
+          drag_min_y="0"
+          drag_max_y="$once{parent.height - this.height}"
+          drag_axis="both"
+	/>
 	</class>
 </library>

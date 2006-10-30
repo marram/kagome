@@ -1,5 +1,5 @@
 <library>
-	<class name="leftpane" clip="true">
+	<class name="leftpane">
 		<attribute name="defaultplacement" value="inside" />
 		<attribute name="state" value="OPENED" type="string"/>
 		<view name="inside" width="${parent.width-parent.vrule.width}" height="100%">

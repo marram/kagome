@@ -25,5 +25,14 @@
 			var edgeID = this.edges.push(modeledge);
 			modeledge.uid = edgeID;
 		</handler>
+		<handler name="nodeDeleted" reference="dview" args="modelnode">
+			var id = modelnode.uid;
+			//-1 because id= length, which is less than array index by 1
+			this.nodes[id-1] = null;
+		</handler>
+		<handler name="edgeDeleted" reference="dview" args="modeledge">
+			var id = modeledge.uid;
+			this.edges[id-1] = null
+		</handler>				
 	</graph>	
 </canvas>

@@ -25,7 +25,9 @@
 	<event name="onnodeclicked" />
 	
 	<event name="nodeAdded" />
-	<event name="edgeAdded" />	
+	<event name="edgeAdded" />
+	<event name="nodeDeleted" />
+	<event name="edgeDeleted" />		
 	<button onclick="parent.addNode()"> Add node 
 	</button>
 	<button x="100">Add connector
@@ -81,11 +83,25 @@
 		this.setAttribute('modeFlag', 'NONE');
 	</handler>
 	<method name="deleteSelected">
-		if (this.selectedobj != null) {
+		var obj = this.selectedobj;
+		var type = "";
+		if (obj != null) {
+			if (obj.from != null) {
+				//the object deleted is an edge. 
+				//infor model
+				this.edgeDeleted.sendEvent(obj.modeledge);
+			}
+			else {
+				/*
+				 *	node. inform model
+				 */
+				 this.nodeDeleted.sendEvent(obj.modelnode);
+			}
 			//call clean on the object. For an example, node might want to delete all edges that are connected to them.
-			this.selectedobj.clean();
-			this.__deleteObj(this.selectedobj);
+			obj.clean();
+			this.__deleteObj(obj);
 		}
+		
 	</method>
 	<!--  this is a private function. It gets called via deleteselected -->
 	<method name="__deleteObj" args="obj">

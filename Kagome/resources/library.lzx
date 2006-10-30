@@ -16,4 +16,5 @@
 		<frame src="fancy/hback.swf" />
 	</resource>
 	<resource name="concursor" src="cursors/contool.swf" />
+	<resource name="qmarkswf" src="qmark.swf" />
 </library>

@@ -19,6 +19,11 @@
 		a physical appearance (hence it does not extend view).
 	 -->
 	<class name="mnode" extends="node">
-	
+		<!--  unique node identifier -->
+		<attribute name="uid" type="number" />
+		<attribute name="title" value="${parent.title}"/>
+		<!-- 
+		The rest of the attributes come from the template
+		 -->
 	</class>
 </library>

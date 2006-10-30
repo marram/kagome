@@ -1,0 +1,8 @@
+<library>
+	<class name="graph" extends="node">
+		<handler name="oninit">
+			this.nodes = new Array();
+			this.edges = new Array();
+		</handler>
+	</class>
+</library>

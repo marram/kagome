@@ -1,6 +1,7 @@
 <library>
 <!-- we'll name this knode (Kagome Node), because node is a reserved keyword -->
 	<class name="knode" extends="draggable">
+		<mnode name="modelnode" />
 		<attribute name="title" type="string" value="untitled" />
 		<handler name="ondblclick">
 			parent.onselectswitch.sendEvent();

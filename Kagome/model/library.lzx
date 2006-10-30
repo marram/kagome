@@ -2,4 +2,5 @@
 	<include href="edge.lzx" />
 	<include href="mnode.lzx" />
 	<include href="mevent.lzx" />
+	<include href="graph.lzx" />
 </library>

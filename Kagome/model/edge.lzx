@@ -12,8 +12,12 @@
 	<!-- 
 		This class extends node because it is part of the model and not the view, so it does not need
 		a physical appearance (hence it does not extend view).
+		
+		Don't get confused because the edge "extends node". This is the built-in Laszlo node object!.
 	 -->
 	<class name="edge" extends="node">
+		<!--  unique edge identifier -->
+		<attribute name="uid" type="number" />	
 		<!-- pointer refernece to source node-->
 		<attribute name="s" />
 		<!--  target node -->

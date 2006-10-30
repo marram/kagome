@@ -2,6 +2,7 @@
 	<class name="baseconnector" extends="view" x="${b.x+b.width/2}" 
 		y="${b.y+b.height/2}" width="20"
 		height="300">
+		<edge name="modeledge" />
 		<!-- Pointers to connected objects  -->
 		<attribute name="from" />
 		<attribute name="to"/>
@@ -11,10 +12,14 @@
 		<handler name="onconstruct">
 			this.b= from;
 			this.e = to;
+
 		</handler>
 		<handler name="oninit">
 			adjust();
 			sendToBack();
+			//add pointers to the modelnodes to the modeledge
+			this.modeledge.s = this.b.modelnode;
+			this.modeledge.t = this.e.modelnode;
 		</handler>
 		<handler name="onx" reference="b">
 				adjust();
@@ -87,6 +92,16 @@
 		xoffset="0" ondblclick="parent.dodblclick()">
 			<attribute name="resource" value="arrowhead" />
 		</view>
+		
+		<!-- this view displays an icon on the edge to hint to the type 
+			Note that rotation constraint to make sure the hint is always up straight
+			regardless of the rotation angle of the connector.
+		-->
+		<view name="thint" 
+		resource="qmarkswf" 
+		y="${parent.height/2}" 
+		rotation="${-parent.rotation}"/>
+		
 		<!--  this is the line that actually appears inside the connector -->
 		<view name="line" 
 			  bgcolor="$once{parent.color}"

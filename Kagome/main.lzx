@@ -4,8 +4,8 @@
 	<include href="resources" />
 
 <toppane name="topp" width="100%"/>
-<leftpane name="leftp" height="100%"/>
-<devview name="dview" width="100%" height="100%" y="$once{topp.height}" x="$once{leftp.width}" />
+<leftpane name="leftp" height="100%" width="200"/>
+<devview name="dview" width="100%" height="100%" y="$once{topp.height}" x="${leftp.width}" />
 
 	<!--  this observer listens to what is happening in the development view and updates the model -->
 	<graph name="model">

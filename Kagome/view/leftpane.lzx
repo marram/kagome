@@ -1,9 +1,34 @@
 <library>
-	<class name="leftpane">
+	<class name="leftpane" clip="true">
 		<attribute name="defaultplacement" value="inside" />
-		<view name="inside" width="200" height="100%">
+		<attribute name="state" value="OPENED" type="string"/>
+		<view name="inside" width="${parent.width-parent.vrule.width}" height="100%">
 			<!--  this is where stuff will go -->
 		</view>
-		<view name="vrule" bgcolor="0x8CC63F" width="1" height="100%" x="200" y="70"/>
+		<view name="p" resource="propswf" y="70" align="left">
+		<handler name="onclick">
+			var flag = parent.state;
+			if (flag == "OPENED")
+				parent.close();
+			else if (flag == "CLOSED")
+				parent.open();
+		</handler>
+		
+		</view>
+		<view name="vrule" bgcolor="0x8CC63F" width="1" height="100%" x="${parent.width}" y="70"/>
+		<animator name="opener" attribute="width" from="18" to="200" duration="500" start="false" />
+		<animator name="closer" attribute="width" from="200" to="18" duration="500" start="false" />
+		<method name="open">
+			if (this.state == "CLOSED") {
+				this.opener.doStart();
+				this.state = "OPENED"
+			}
+		</method>
+		<method name="close">
+			if (this.state == "OPENED") {
+				this.closer.doStart();
+				this.state = "CLOSED"
+			}
+		</method>
 	</class>
 </library>

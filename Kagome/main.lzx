@@ -17,7 +17,7 @@
 			 */
 		</handler>
 		<handler name="nodeAdded" reference="dview" args="modelnode">
-			
+			//this is to make sure every node has a unique ID	
 			var nodeID = this.nodes.push(modelnode);
 			//use setAttribute so that an onuid event gets fired
 			modelnode.setAttribute('uid',nodeID);
@@ -27,6 +27,10 @@
 			modeledge.setAttribute('uid', edgeID);
 		</handler>
 		<handler name="nodeDeleted" reference="dview" args="modelnode">
+			/*
+			 * Deleting nodes from the model causes 'null' filled spots in the array.
+			 * Thats cool for now.
+			 */
 			var id = modelnode.uid;
 			//-1 because id= length, which is less than array index by 1
 			this.nodes[id-1] = null;

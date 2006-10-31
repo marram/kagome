@@ -1,7 +1,21 @@
 <library>
 	<class name="toppane">
 		<view name="topbar" bgcolor="0xE5E5E5" width="100%" height="15" />
-		<view name="logoview" resource="logoswf" y="15"/>
-		<view name="hrule" bgcolor="0x8CC63F" y="70" width="100%" height="1" />
+		<view name="logoview" resource="logoswf" y="15" />
+		<view name="hrule" bgcolor="0x8CC63F" y="70" width="100%"
+			height="1" />
+		<view name="control" x="$once{parent.logoview.width + 100}" y="25">
+			<button onclick="canvas.dview.addNode()">Add node</button>
+			<button x="100">
+				Add connector
+				<handler name="onclick">
+					canvas.dview.setAttribute('modeFlag', 'ADD_CONNECTOR');
+					canvas.dview.pclickednode = null;
+				</handler>
+			</button>
+			<button x="300" onclick="canvas.dview.deleteSelected()">
+				Delete selected
+			</button>
+		</view>
 	</class>
 </library>

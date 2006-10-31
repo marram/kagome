@@ -28,15 +28,7 @@
 	<event name="edgeAdded" />
 	<event name="nodeDeleted" />
 	<event name="edgeDeleted" />		
-	<button onclick="parent.addNode()"> Add node 
-	</button>
-	<button x="100">Add connector
-		<handler name="onclick">
-			parent.setAttribute('modeFlag', 'ADD_CONNECTOR');
-			parent.pclickednode = null;
-		</handler>
-	</button>
-	<button x="300" onclick="parent.deleteSelected()"> Delete selected </button>
+
 	
 	<handler name="onselectswitch">
 		if (this.selectedobj)

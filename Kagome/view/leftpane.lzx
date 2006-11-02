@@ -1,11 +1,15 @@
 <library>
-	<class name="leftpane">
+	<class name="leftpane" clip="true">
 		<attribute name="defaultplacement" value="inside" />
 		<attribute name="state" value="OPENED" type="string"/>
-		<view name="inside" width="${parent.width-parent.vrule.width}" height="100%">
+		
+		<simplelayout axis="x" spacing="0" />
+		<view name="p" resource="propswf" y="70">
+		<view name="inside" width="${parent.width-parent.vrule.width}" height="100%" y="70">
 			<!--  this is where stuff will go -->
+			<NodePropertiesPane />
 		</view>
-		<view name="p" resource="propswf" y="70" align="left">
+		<view name="vrule" bgcolor="0x8CC63F" width="1" height="100%" x="${parent.width}" y="70"/>
 		<handler name="onclick">
 			var flag = parent.state;
 			if (flag == "OPENED")
@@ -15,7 +19,7 @@
 		</handler>
 		
 		</view>
-		<view name="vrule" bgcolor="0x8CC63F" width="1" height="100%" x="${parent.width}" y="70"/>
+	
 		<animator name="opener" attribute="width" from="18" to="200" duration="500" start="false" />
 		<animator name="closer" attribute="width" from="200" to="18" duration="500" start="false" />
 		<method name="open">

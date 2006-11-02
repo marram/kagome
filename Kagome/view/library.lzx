@@ -8,4 +8,5 @@
 	<include href="toppane.lzx" />
 	<include href="leftpane.lzx" />
 	<include href="devview.lzx" />
+	<include href="NodePropertiesPane.lzx" />
 </library>

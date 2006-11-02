@@ -3,17 +3,17 @@
 
 		<attribute name="width" value="60" />
 		<view name="inside">
-		<simplelayout axis="x" />
-		<view name="left" align="left" resource="leftswf"/>
-		<view name="back" 
-			resource="backswf" 
-			stretches="both" 
-			width="${parent.parent.titletext.width}"
-			bgcolor="0xfafa00"
-			>
-				
-		</view>
-		<view name="right" resource="rightswf" />
+			<simplelayout axis="x" />
+			<view name="left" align="left" resource="leftswf"/>
+			<view name="back" 
+				resource="backswf" 
+				stretches="both" 
+				width="${parent.parent.titletext.width}"
+				bgcolor="0xfafa00"
+				>
+					
+			</view>
+			<view name="right" resource="rightswf" />
 		</view>
 		<text name="titletext" x="10" y="10" text="${parent.title}" resize="true"/>
 		

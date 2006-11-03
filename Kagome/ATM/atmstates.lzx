@@ -1,0 +1,91 @@
+<library>
+	<class name="atmHomeState" extends="state">
+		<attribute name="b1label" type="string" value="Withdrawl"/>
+		<attribute name="b2label" type="string" value="Deposit"/>
+		<attribute name="b3label" type="string" value="Transfer"/>
+		<attribute name="b4label" type="string" value="Buy Stamps"/>
+		<attribute name="message" type="string" 
+				value="Welcome to the Banque Du Boston ATM."/>	
+		<!-- 
+		<handler name="onclick" reference="b1">
+		</handler>
+		<handler name="onclick" reference="b2">
+		</handler>
+		<handler name="onclick" reference="b3">
+		</handler>
+		<handler name="onclick" reference="b4">
+		</handler>
+		-->
+		<method name="handlebutton1">
+			HomeState.remove();
+			WithdrawlState.apply();
+		</method>
+		<method name="handlebutton2">		
+		</method>
+		<method name="handlebutton3">		
+		</method>
+		<method name="handlebutton4">	
+		</method>
+	</class>
+	<class name="atmWithdrawlState" extends="state">
+		<attribute name="b1label" type="string" value="$20"/>
+		<attribute name="b2label" type="string" value="$60"/>
+		<attribute name="b3label" type="string" value="$100"/>
+		<attribute name="b4label" type="string" value="Cancel"/>
+		<attribute name="message" type="string" 
+				value="Welcome to the Banque Du Boston ATM."/>	
+		<!-- 
+		<handler name="onclick" reference="b1">
+		</handler>
+		<handler name="onclick" reference="b2">
+		</handler>
+		<handler name="onclick" reference="b3">
+		</handler>
+		<handler name="onclick" reference="b4">
+		</handler>
+		-->
+		<method name="handlebutton1">
+			WithdrawlState.remove();
+			TakeMoneyState.apply();	
+		</method>
+		<method name="handlebutton2">
+					WithdrawlState.remove();
+			TakeMoneyState.apply();			
+		</method>
+		<method name="handlebutton3">
+					WithdrawlState.remove();
+			TakeMoneyState.apply();			
+		</method>
+		<method name="handlebutton4">
+			WithdrawlState.remove();
+			HomeState.apply();	
+		</method>
+	</class>
+
+	<class name="atmTakeMoneyState" extends="state">
+		<attribute name="b1label" type="string" value=""/>
+		<attribute name="b2label" type="string" value=""/>
+		<attribute name="b3label" type="string" value=""/>
+		<attribute name="b4label" type="string" value=""/>
+		<attribute name="message" type="string" 
+				value="Please take your money, card and receipt. Thank you for using Banque Du Boston ATM machines."/>	
+		<!-- 
+		<handler name="onclick" reference="b1">
+		</handler>
+		<handler name="onclick" reference="b2">
+		</handler>
+		<handler name="onclick" reference="b3">
+		</handler>
+		<handler name="onclick" reference="b4">
+		</handler>
+		-->
+		<method name="handlebutton1">
+		</method>
+		<method name="handlebutton2">		
+		</method>
+		<method name="handlebutton3">		
+		</method>
+		<method name="handlebutton4">	
+		</method>
+	</class>
+</library>

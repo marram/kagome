@@ -1,0 +1,42 @@
+<library>
+	<class name="EdgePropertiesPane" extends="window" resizable="true" closeable="true">
+		<method name="setEdgeProperties" args="propnode">
+			inside.bt1.setText(propnode.b1text);
+			inside.bt2.setText(propnode.b2text);
+			inside.bt3.setText(propnode.b3text);
+			inside.bt4.setText(propnode.b4text);
+		</method>
+		<method name="applyStuff">
+			canvas.dview.selectedobj.modelnode.b1text = inside.bt1.getText();
+			canvas.dview.selectedobj.modelnode.b2text = inside.bt2.getText();
+			canvas.dview.selectedobj.modelnode.b3text = inside.bt3.getText();
+			canvas.dview.selectedobj.modelnode.b4text = inside.bt4.getText();
+		</method>
+		<view width="200" height="350"  name="inside">
+    		<text>Edge Properties</text>
+    		<text x="20" y="20">Button Label 1</text>
+    		<edittext width="150" x="20" y="40" name="bt1" />
+    		<text x="20" y="70" >Button Label 2</text>
+    		<edittext width="150" x="20" y="90" name="bt2"/>
+    		<text x="20" y="120">Button Label 3</text>
+    		<edittext width="150" x="20" y="140" name="bt3"/>
+    		<text x="20" y="170">Button Label 4</text>
+    		<edittext width="150" x="20" y="190" name="bt4"/>
+    		
+    		<checkbox x="20" y="220" id="checkMe1" text="Logo"/>
+    		<checkbox x="120" y="220" id="checkMe2" text="Battery Meter"/>
+			<checkbox x="20" y="240" id="checkMe3" text="Logo"/>
+    		<checkbox x="120" y="240" id="checkMe4" text="Battery Meter"/>
+    		
+    		<button x = "20" y = "270">
+    			Apply
+    			<handler name="onclick">
+    				classroot.applyStuff();
+    			</handler>
+  			</button>
+  			<button x = "120" y = "270" onclick="animate('x', 100, 1000, true)">
+    			Cancel
+  			</button>
+  		</view> 
+	</class>
+</library>

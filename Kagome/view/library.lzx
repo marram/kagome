@@ -9,4 +9,5 @@
 	<include href="leftpane.lzx" />
 	<include href="devview.lzx" />
 	<include href="NodePropertiesPane.lzx" />
+	<include href="EdgePropertiesPane.lzx" />
 </library>

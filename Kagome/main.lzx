@@ -2,6 +2,7 @@
     <include href="model" />
     <include href="view" />
 	<include href="resources" />
+	<include href="resources/buttons" />
 
 <toppane name="topp" width="100%"/>
 <!-- leftpane name="leftp" height="100%" width="230"/-->

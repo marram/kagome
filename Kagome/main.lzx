@@ -15,6 +15,7 @@
 			var ref = dview;
 			Debug.write("current selected node", ref.selectedobj);
 			ppane.setStuff(ref.selectedobj.modelnode);
+			ref.parent.ppane.setVisible('true');
 		</handler>
 		<handler name="nodeAdded" reference="dview" args="modelnode">
 			//this is to make sure every node has a unique ID	
@@ -41,7 +42,12 @@
 		</handler>				
 	</graph>
 
-<NodePropertiesPane name="ppane" >
+<NodePropertiesPane name="ppane" visible="false">
 	
 </NodePropertiesPane>	
+
+<EdgePropertiesPane name="edgePane" visible="false">
+
+</EdgePropertiesPane>
+
 </canvas>

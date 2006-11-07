@@ -75,7 +75,6 @@
 			// Send deselect event to parent
 			this.ondeselectedobj.sendEvent();
 			this.selectedobj.unhighlight();
-			this.setAttribute('selectedobj', null);
 		}
 		//also release the modeflag
 		this.setAttribute('modeFlag', 'NONE');

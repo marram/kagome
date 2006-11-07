@@ -1,32 +1,26 @@
 <library>
 	<class name="EdgePropertiesPane" extends="window" resizable="true" closeable="true">
 		<method name="setEdgeProperties" args="propnode">
-			inside.bt1.setText(propnode.b1text);
-			inside.bt2.setText(propnode.b2text);
-			inside.bt3.setText(propnode.b3text);
-			inside.bt4.setText(propnode.b4text);
+
 		</method>
 		<method name="applyStuff">
-			canvas.dview.selectedobj.modelnode.b1text = inside.bt1.getText();
-			canvas.dview.selectedobj.modelnode.b2text = inside.bt2.getText();
-			canvas.dview.selectedobj.modelnode.b3text = inside.bt3.getText();
-			canvas.dview.selectedobj.modelnode.b4text = inside.bt4.getText();
+
 		</method>
 		<view width="200" height="350"  name="inside">
-    		<text>Edge Properties</text>
-    		<text x="20" y="20">Button Label 1</text>
-    		<edittext width="150" x="20" y="40" name="bt1" />
-    		<text x="20" y="70" >Button Label 2</text>
-    		<edittext width="150" x="20" y="90" name="bt2"/>
-    		<text x="20" y="120">Button Label 3</text>
-    		<edittext width="150" x="20" y="140" name="bt3"/>
-    		<text x="20" y="170">Button Label 4</text>
-    		<edittext width="150" x="20" y="190" name="bt4"/>
+    		<simplelayout axis="y" spacing="5"/>
+    		<text> Edge Properties </text>
+    		<text> Source </text>
+    		<radiogroup id="group1">
+    		<radiobutton value="1" text="Button "  selected="true"/>
+    		<radiobutton value="2" text="Timer" />
+  			</radiogroup>
     		
-    		<checkbox x="20" y="220" id="checkMe1" text="Logo"/>
-    		<checkbox x="120" y="220" id="checkMe2" text="Battery Meter"/>
-			<checkbox x="20" y="240" id="checkMe3" text="Logo"/>
-    		<checkbox x="120" y="240" id="checkMe4" text="Battery Meter"/>
+    		<combobox id="cbox" editable="false">
+    		<textlistitem text="Button 1"  value="1" />
+    		<textlistitem text="Button 2"  value="2" />
+    		<textlistitem text="Button 3"  value="3" />
+    		<textlistitem text="Button 4"  value="4" />
+  			</combobox>
     		
     		<button x = "20" y = "270">
     			Apply

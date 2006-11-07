@@ -3,11 +3,30 @@
     <include href="view" />
 	<include href="resources" />
 	<include href="resources/buttons" />
+	
+<menubar style="$once{mystyle}">
+	<bluestyle name="mystyle"/>
+	<menu text="File" width="100">
+		<menuitem text="New" onselect=""/>
+		<menuitem text="Open" onselect=""/>
+		<menuitem text="Save" onselect=""/>
+		<menuseparator/>           
+		<menuitem text="Quit" onselect=""/>   
+	</menu> 
+    <menu text="Edit" width="100">
+		<menuitem text="Copy" onselect=""/>
+		<menuitem text="Paste" onselect=""/>
+    </menu>
+    <menu text="View" width="100">
+		<menuitem text="Zoom In" onselect=""/>
+		<menuitem text="Zoom Out" onselect=""/>
+	</menu> 
+</menubar>
 
 <toppane name="topp" width="100%"/>
 <!-- leftpane name="leftp" height="100%" width="230"/-->
 
-<devview name="dview" width="100%" height="100%" y="$once{topp.height}" x="${leftp.width}" />
+<devview name="dview" width="100%" height="100%" y="$once{topp.height}" x="${leftp.width}"/>
 
 	<!--  this observer listens to what is happening in the development view and updates the model -->
 	<graph name="model">
@@ -19,6 +38,7 @@
 				ref.parent.edgePane.setVisible(true);
 				ref.parent.edgePane.setX(ref.selectedobj.x + 50);
 				ref.parent.edgePane.setY(ref.selectedobj.y + 50);
+				edgePane.setEdgeProperties(ref.selectedobj.modeledge);
 			}
 			else {
 				ref.parent.edgePane.setVisible(false);
@@ -64,5 +84,9 @@
 
 <EdgePropertiesPane name="edgePane" visible="false">
 </EdgePropertiesPane>
+
+<window name="flashPreview" closeable="true" width="1200" height="800" visible="false">
+	<view resource="atm"/>
+</window>
 
 </canvas>

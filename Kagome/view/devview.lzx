@@ -23,6 +23,8 @@
 	THIS IS JUST A FIRST STAB. WE MIGHT WANT TO DO SOMETHING ELSE TO DRAW EDGES.
 	 -->
 	<event name="onnodeclicked" />
+
+	<event name="ondeselectedobj" />
 	
 	<event name="nodeAdded" />
 	<event name="edgeAdded" />
@@ -69,8 +71,12 @@
 	<handler name="onclick">
 		//when we click on the development view somewhere outside an object
 		//unhighlight the currently selected object, if any
-		if (this.selectedobj != null)
+		if (this.selectedobj != null) {
+			// Send deselect event to parent
+			this.ondeselectedobj.sendEvent();
 			this.selectedobj.unhighlight();
+			this.setAttribute('selectedobj', null);
+		}
 		//also release the modeflag
 		this.setAttribute('modeFlag', 'NONE');
 	</handler>

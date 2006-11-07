@@ -20,6 +20,7 @@
 			//add pointers to the modelnodes to the modeledge
 			this.modeledge.s = this.b.modelnode;
 			this.modeledge.t = this.e.modelnode;
+			this.modeledge.sourceButton = "?";
 		</handler>
 		<handler name="onx" reference="b">
 				adjust();
@@ -97,10 +98,13 @@
 			Note that rotation constraint to make sure the hint is always up straight
 			regardless of the rotation angle of the connector.
 		-->
-		<view name="thint" 
-		resource="qmarkswf" 
+		<view name="thint"  
 		y="${parent.height/2}" 
-		rotation="${-parent.rotation}"/>
+		rotation="${-parent.rotation}"
+		resource="../resources/qmark.swf">
+		
+
+		</view>
 		
 		<!--  this is the line that actually appears inside the connector -->
 		<view name="line" 

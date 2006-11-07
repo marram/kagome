@@ -22,6 +22,7 @@
 		<attribute name="s" />
 		<!--  target node -->
 		<attribute name="t" />
+		<attribute name="sourceButton" />
 		<mevent name="e" />
 	</class>
 </library>

@@ -47,17 +47,11 @@
     		<text> Button Label 4 </text>
     		<edittext width = "150" name = "bt4" />
     		
-    		
-    		
-    		
     		<button x = "20" y = "270">
     			Apply
     			<handler name="onclick">
     				classroot.applyStuff();
     			</handler>
-  			</button>
-  			<button x = "120" y = "270" onclick="animate('x', 100, 1000, true)">
-    			Cancel
   			</button>
   		</view> 
 	</class>

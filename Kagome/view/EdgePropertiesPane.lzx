@@ -1,12 +1,12 @@
 <library>
 	<class name="EdgePropertiesPane" extends="window" resizable="true" closeable="true">
 		<method name="setEdgeProperties" args="propedge">
-			inside.cbox.setValue(propedge.sourceButton);
+			inside.buttonSelect.setText(propedge.sourceButton);
 		</method>
 		<method name="applyStuff">
-		canvas.dview.selectedobj.modeledge.setAttribute('sourceButton', inside.cbox.value);
+		canvas.dview.selectedobj.modeledge.setAttribute('sourceButton', inside.buttonSelect.getText());
 		</method>
-		<view width="200" height="250"  name="inside">
+		<view width="200" height="200"  name="inside">
     		<simplelayout axis="y" spacing="5"/>
     		<text> Edge Properties </text>
     		
@@ -15,13 +15,16 @@
     		<radiobutton value="1" text="Button "  selected="true"/>
   			</radiogroup>
     		
-    		<combobox name="cbox" editable="false">
+    		<text> Source Button Number </text>
+    		<edittext width = "150" name = "buttonSelect" />
+    		
+    		<!--  <combobox name="cbox" editable="false">
     		<textlistitem text="-" value="0" />
     		<textlistitem text="Button 1"  value="1" />
     		<textlistitem text="Button 2"  value="2" />
     		<textlistitem text="Button 3"  value="3" />
     		<textlistitem text="Button 4"  value="4" />
-  			</combobox>
+  			</combobox>-->
     		
     		<button x = "20" y = "270">
     			Apply
@@ -29,9 +32,7 @@
     				classroot.applyStuff();
     			</handler>
   			</button>
-  			<button x = "120" y = "270" onclick="animate('x', 100, 1000, true)">
-    			Cancel
-  			</button>
+
   		</view> 
 	</class>
 </library>

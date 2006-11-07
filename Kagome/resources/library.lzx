@@ -18,6 +18,4 @@
 	<resource name="concursor" src="cursors/contool.swf" />
 	<resource name="qmarkswf" src="qmark.swf" />
 	<resource name="propswf" src="properties.swf" />
-
-	<resource name="atm" src="atm.swf"/>
 </library>

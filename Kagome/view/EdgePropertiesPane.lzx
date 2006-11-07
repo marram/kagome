@@ -1,12 +1,12 @@
 <library>
-	<class name="EdgePropertiesPane" extends="window" resizable="true" closeable="true">
+	<class name="EdgePropertiesPane" extends="window" resizable="false" closeable="true">
 		<method name="setEdgeProperties" args="propedge">
 			inside.buttonSelect.setText(propedge.sourceButton);
 		</method>
 		<method name="applyStuff">
 		canvas.dview.selectedobj.modeledge.setAttribute('sourceButton', inside.buttonSelect.getText());
 		</method>
-		<view width="200" height="200"  name="inside">
+		<view width="300" height="330"  name="inside">
     		<simplelayout axis="y" spacing="5"/>
     		<text> Edge Properties </text>
     		
@@ -25,6 +25,9 @@
     		<textlistitem text="Button 3"  value="3" />
     		<textlistitem text="Button 4"  value="4" />
   			</combobox>-->
+  			
+  			<text>Source Screen </text>
+    		<view align="center" resource="minipreview"/>
     		
     		<button x = "20" y = "270">
     			Apply

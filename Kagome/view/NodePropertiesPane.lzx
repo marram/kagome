@@ -1,5 +1,5 @@
 <library>
-	<class name="NodePropertiesPane" extends="window" resizable="true" closeable="true">
+	<class name="NodePropertiesPane" extends="window" resizable="false" closeable="true">
 		<method name="setStuff" args="propnode">
 			inside.title.setText(propnode.title);
 			inside.bt1.setText(propnode.b1text);
@@ -16,9 +16,13 @@
 			
 
 		</method>
-		<view width="300" height="350"  name="inside">
+		<view width="300" height="500" name="inside">
+    		
     		<simplelayout axis="y" spacing="5"/>
     		<text>Node Properties</text>
+    		
+    		<view align="center" resource="minipreview"/>
+    		
     		<!-- <text x="20" y="20">Button Label 1</text>
     		<edittext width="150" x="20" y="40" name="bt1" />
     		<text x="20" y="70" >Button Label 2</text>

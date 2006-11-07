@@ -26,7 +26,10 @@
 <toppane name="topp" width="100%"/>
 <!-- leftpane name="leftp" height="100%" width="230"/-->
 
-<devview name="dview" width="100%" height="100%" y="$once{topp.height}" x="${leftp.width}" oninit="dview.addNode()"/>
+<devview name="dview" width="100%" height="100%" y="$once{topp.height}" x="${leftp.width}" oninit="dview.addNode()">
+	<text><b><i>Development Area</i></b></text>
+</devview>
+
 
 	<!--  this observer listens to what is happening in the development view and updates the model -->
 	<graph name="model">
@@ -107,7 +110,8 @@
 
         <tabpane text="ATM" inset_left="20" inset_top="20" inset_bottom="20" inset_right="20" selected="true">
             <simplelayout spacing="20"/>
-            
+			<text>The preview icons for the ATM templates are not yet available.</text>
+			<text>Selecting OK will start a new project with the default ATM template.</text>            
         </tabpane>
 
         <tabpane text="Cell Phone" inset_left="20" inset_top="20" inset_bottom="20" inset_right="20">
@@ -123,7 +127,7 @@
     </tabs>
 	<view align="right">
 		<simplelayout spacing="20" axis="x"/>
-	    <button onclick="parent.parent.parent.close()" enabled="false">OK</button>
+	    <button onclick="parent.parent.parent.close()">OK</button>
 	    <button onclick="parent.backProjectChooser()">Cancel</button>
 	    <method name="backProjectChooser">
 			parent.parent.parent.projectChooser.open();

@@ -1,12 +1,10 @@
 <library>
 	<class name="EdgePropertiesPane" extends="window" resizable="true" closeable="true">
 		<method name="setEdgeProperties" args="propedge">
-			//inside.title.setText(propedge.title);
-			//inside.cbox.setValue(propedge.buttonSource);
+			inside.cbox.setValue(propedge.sourceButton);
 		</method>
 		<method name="applyStuff">
-			canvas.dview.selectedobj.modeledge.setAttribute('sourceButton', inside.group1.value);
-
+		canvas.dview.selectedobj.modeledge.setAttribute('sourceButton', inside.cbox.value);
 		</method>
 		<view width="200" height="250"  name="inside">
     		<simplelayout axis="y" spacing="5"/>
@@ -17,8 +15,8 @@
     		<radiobutton value="1" text="Button "  selected="true"/>
   			</radiogroup>
     		
-    		<combobox id="cbox" editable="false">
-    		<textlistitem text="-" value="-1" />
+    		<combobox name="cbox" editable="false">
+    		<textlistitem text="-" value="0" />
     		<textlistitem text="Button 1"  value="1" />
     		<textlistitem text="Button 2"  value="2" />
     		<textlistitem text="Button 3"  value="3" />

@@ -21,7 +21,7 @@
 				</basebutton>
 			</view>
 			<view name="play" x="${parent.create.width+50}" y="33" >
-				<basebutton resource="playicon" width="32" height="32" stretches="both"/>
+				<basebutton resource="playicon" width="32" height="32" stretches="both" onclick="canvas.flashPreview.open()"/>
 			</view>
 			<view name="share" x="${parent.play.x + parent.play.width+50}" y="33" >
 				<basebutton resource="flashicon" width="32" height="32" stretches="both"/>

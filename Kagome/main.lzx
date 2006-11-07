@@ -17,17 +17,22 @@
 			if (ref.selectedobj.from != null) {
 				ref.parent.ppane.setVisible(false);
 				ref.parent.edgePane.setVisible(true);
-			} else {
+				ref.parent.edgePane.setX(ref.selectedobj.x + 50);
+				ref.parent.edgePane.setY(ref.selectedobj.y + 50);
+			}
+			else {
 				ref.parent.edgePane.setVisible(false);
 				ref.parent.ppane.setVisible(true);
+				ref.parent.ppane.setX(ref.selectedobj.x + 70);
+				ref.parent.ppane.setY(ref.selectedobj.y + 70);
 				ppane.setStuff(ref.selectedobj.modelnode);
 			}
 		</handler>
 		<handler name="ondeselectedobj" reference="dview">
 			var ref = dview;
 			Debug.write("Does is get here", ref.selectedobj);
-			ref.parent.edgePane.setVisible(false);
 			ref.parent.ppane.setVisible(false);
+			ref.parent.edgePane.setVisible(false);
 		</handler>	
 		<handler name="nodeAdded" reference="dview" args="modelnode">
 			//this is to make sure every node has a unique ID	
@@ -54,7 +59,7 @@
 		</handler>				
 	</graph>
 
-<NodePropertiesPane name="ppane" visible="false">
+<NodePropertiesPane name="ppane" x="${dview.selectedobj.x}" visible="false">
 </NodePropertiesPane>
 
 <EdgePropertiesPane name="edgePane" visible="false">

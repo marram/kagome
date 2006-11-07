@@ -16,7 +16,7 @@
 			
 
 		</method>
-		<view width="200" height="350"  name="inside">
+		<view width="300" height="350"  name="inside">
     		<simplelayout axis="y" spacing="5"/>
     		<text>Node Properties</text>
     		<!-- <text x="20" y="20">Button Label 1</text>

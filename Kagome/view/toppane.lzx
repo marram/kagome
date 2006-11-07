@@ -1,13 +1,11 @@
 <library>
 	<class name="toppane">
 		<view name="topbar" width="100%" height="20" />
-		<view name="logoview" resource="logoswf" y="20" />
-		<view name="hrule" bgcolor="0x8CC63F" y="70" width="100%"
-			height="1" />
-		
+		<view name="hrule" bgcolor="#B3B3B3" y="80" width="100%" height="3" />
+		<view name="logoview" resource="logoswf" y="25" x="10" />
 		
 		<view name="buttons" x="$once{parent.logoview.width + 100}" height="70">
-			<view name="create" y="33" >
+			<view name="create" y="40" >
 				<basebutton resource="cnodeicon" onclick="canvas.dview.addNode()">Add node</basebutton>
 				<basebutton x="32" resource="cedgeicon">
 					Add connector
@@ -20,15 +18,16 @@
 					Delete selected
 				</basebutton>
 			</view>
-			<view name="play" x="${parent.create.width+50}" y="33" >
-				<basebutton resource="playicon" width="32" height="32" stretches="both" onclick="canvas.flashPreview.open()"/>
+			<view name="play" x="${parent.create.width+50}" y="40" >
+				<basebutton resource="playicon" width="32" height="32" stretches="both" onclick="canvas.preview.setVisible(true)"/>
 			</view>
-			<view name="share" x="${parent.play.x + parent.play.width+50}" y="33" >
+			<view name="share" x="${parent.play.x + parent.play.width+50}" y="40" >
 				<basebutton resource="flashicon" width="32" height="32" stretches="both"/>
 			</view>
-			<view name="createT" resource="createswf" x="$once{parent.create.x}" y="15"/>
-			<view name="playT" resource="playswf" x="$once{parent.play.x}" y="15"/>
-			<view name="shareT" resource="shareswf" x="$once{parent.share.x}" y="15"/>
+			<view name="createT" resource="createswf" x="$once{parent.create.x+25}" y="22"/>
+			<view name="playT" resource="playswf" x="$once{parent.play.x+3}" y="22"/>
+			<view name="shareT" resource="shareswf" x="$once{parent.share.x+3}" y="22"/>
 		</view>
+		
 	</class>
 </library>

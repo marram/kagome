@@ -2,7 +2,7 @@
 	<resource name="greencircle" src="green.swf" />
 	<resource name="orangecircle" src="orange.swf" />
 	<resource name="arrowhead" src="arrow.swf" />
-	<resource name="logoswf" src="logo.swf" />
+	<resource name="logoswf" src="logo_small.swf" />
 	<resource name="leftswf">
 		<frame src="fancy/left.swf" />
 		<frame src="fancy/hleft.swf" />
@@ -19,6 +19,6 @@
 	<resource name="qmarkswf" src="qmark.swf" />
 	<resource name="propswf" src="properties.swf" />
 	
-	<resource name="ATMpreview" src="preview_static.png" />
+	<resource name="ATMpreview" src="preview_static.jpg" />
 	<resource name="minipreview" src="ATM_mini_preview.png" />
 </library>

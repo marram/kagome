@@ -14,9 +14,21 @@
 		<handler name="onselectedobj" reference="dview">
 			var ref = dview;
 			Debug.write("current selected node", ref.selectedobj);
-			ppane.setStuff(ref.selectedobj.modelnode);
-			ref.parent.ppane.setVisible('true');
+			if (ref.selectedobj.from != null) {
+				ref.parent.ppane.setVisible(false);
+				ref.parent.edgePane.setVisible(true);
+			} else {
+				ref.parent.edgePane.setVisible(false);
+				ref.parent.ppane.setVisible(true);
+				ppane.setStuff(ref.selectedobj.modelnode);
+			}
 		</handler>
+		<handler name="ondeselectedobj" reference="dview">
+			var ref = dview;
+			Debug.write("Does is get here", ref.selectedobj);
+			ref.parent.edgePane.setVisible(false);
+			ref.parent.ppane.setVisible(false);
+		</handler>	
 		<handler name="nodeAdded" reference="dview" args="modelnode">
 			//this is to make sure every node has a unique ID	
 			var nodeID = this.nodes.push(modelnode);
@@ -43,11 +55,9 @@
 	</graph>
 
 <NodePropertiesPane name="ppane" visible="false">
-	
-</NodePropertiesPane>	
+</NodePropertiesPane>
 
 <EdgePropertiesPane name="edgePane" visible="false">
-
 </EdgePropertiesPane>
 
 </canvas>

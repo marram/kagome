@@ -1,10 +1,10 @@
 <library>
 	<class name="EdgePropertiesPane" extends="window" resizable="false" closeable="true">
 		<method name="setEdgeProperties" args="propedge">
-			inside.buttonSelect.setText(propedge.sourceButton);
+			inside.buttonSelect.selectItem(propedge.sourceButton);
 		</method>
 		<method name="applyStuff">
-		canvas.dview.selectedobj.modeledge.setAttribute('sourceButton', inside.buttonSelect.getText());
+		canvas.dview.selectedobj.modeledge.setAttribute('sourceButton', inside.buttonSelect.getValue());
 		</method>
 		<view width="300" height="330"  name="inside">
     		<simplelayout axis="y" spacing="5"/>
@@ -16,7 +16,16 @@
   			</radiogroup>
     		
     		<text> Source Button Number </text>
-    		<edittext width = "150" name = "buttonSelect" />
+    		<!-- edittext width = "150" name = "buttonSelect" /-->
+    		<combobox name="buttonSelect">
+    			<handler name="oninit">
+    				addItem("?", null);
+    				addItem("1", 1);
+    				addItem("2", 2);
+    				addItem("3", 3);
+    				addItem("4", 4);
+    			</handler>
+    		</combobox>
     		
     		<!--  <combobox name="cbox" editable="false">
     		<textlistitem text="-" value="0" />

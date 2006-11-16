@@ -42,11 +42,12 @@
 		this.selectedobj.highlight();
 	</handler>	
 	<handler name="onnodeclicked" args="clickednode">
+	<![CDATA[
 		//are we in the correct mode?
 		if (this.modeFlag == "ADD_CONNECTOR")
 		{
 			//if there was a previously clicked node
-			if (this.pclickednode != null) {
+			if ((this.pclickednode != null) && (this.pclickednode != clickednode)) {
 					//make a connector
 					var ncon = new connector(this, {from:this.pclickednode,to:clickednode});
 					//remove mode
@@ -57,7 +58,7 @@
 				this.pclickednode = clickednode;
 			}
 		}
-		
+	]]>	
 	</handler>
 	<handler name="onmodeFlag">
 		Debug.write("current mode is", this.modeFlag);

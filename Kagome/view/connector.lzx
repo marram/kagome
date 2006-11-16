@@ -101,10 +101,13 @@
 		<view name="thint"  
 		y="${parent.height/2}" 
 		rotation="${-parent.rotation}"
-		resource="../resources/qmark.swf">
-		
-
+		>
+			<text fontsize="15" text="${parent.parent.modeledge.sourceButton}">
+				
+			</text>
 		</view>
+
+		
 		
 		<!--  this is the line that actually appears inside the connector -->
 		<view name="line" 

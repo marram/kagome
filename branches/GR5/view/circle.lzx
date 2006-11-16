@@ -1,0 +1,14 @@
+<library>
+	<!-- we don't need to include knode here because it is included in library.lzx. However,
+	this means that you can't use circle.lzx wihout including library.lzx
+	 -->
+	<class name="circle" extends="knode">
+		<attribute name="resource" value="greencircle" />
+		<method name="highlight">
+			setResource('orangecircle');
+		</method>
+		<method name="unhighlight">
+			setResource('greencircle');
+		</method>
+	</class>
+</library>

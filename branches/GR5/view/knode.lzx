@@ -1,0 +1,27 @@
+<library>
+<!-- we'll name this knode (Kagome Node), because node is a reserved keyword -->
+	<class name="knode" extends="draggable">
+		<mnode name="modelnode" />
+		<attribute name="title" value="${modelnode.title}"/>
+		<handler name="ondblclick">
+			parent.onselectswitch.sendEvent();
+			parent.setAttribute('selectedobj', this);
+		</handler>
+		<handler name="onmousedown">
+			this.bringToFront();
+		</handler>
+		<handler name="onclick" >
+			parent.onnodeclicked.sendEvent(this);
+		</handler>
+		<method name="clean">
+			//remove all edges where I'm the source or target.
+		</method>
+		<!--  all classes that extend knode have to override this function
+		This function causes the node to highlight itself.
+		 -->
+		<method name="highlight" />
+		<method name="unhighlight" />
+		
+
+	</class>
+</library>

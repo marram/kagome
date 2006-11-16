@@ -1,0 +1,10 @@
+<canvas debug="true">
+	<include href="../resources" />
+	<include href="../view" />
+	<fancybox name="fb"/>
+	<window>
+		<simplelayout axis="y" />
+		<button onclick="fb.highlight()"> highlight </button>
+		<button onclick="fb.unhighlight()"> unhighlight </button>
+	</window>
+</canvas>

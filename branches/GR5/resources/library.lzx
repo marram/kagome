@@ -1,0 +1,24 @@
+<library>
+	<resource name="greencircle" src="green.swf" />
+	<resource name="orangecircle" src="orange.swf" />
+	<resource name="arrowhead" src="arrow.swf" />
+	<resource name="logoswf" src="logo_small.swf" />
+	<resource name="leftswf">
+		<frame src="fancy/left.swf" />
+		<frame src="fancy/hleft.swf" />
+	</resource>
+	<resource name="rightswf">
+		<frame src="fancy/right.swf" />
+		<frame src="fancy/hright.swf" />
+	</resource>
+	<resource name="backswf">
+		<frame src="fancy/back.swf" />
+		<frame src="fancy/hback.swf" />
+	</resource>
+	<resource name="concursor" src="cursors/contool.swf" />
+	<resource name="qmarkswf" src="qmark.swf" />
+	<resource name="propswf" src="properties.swf" />
+	
+	<resource name="ATMpreview" src="preview_static.jpg" />
+	<resource name="minipreview" src="ATM_mini_preview.png" />
+</library>

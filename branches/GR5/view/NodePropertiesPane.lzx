@@ -1,0 +1,62 @@
+<library>
+	<class name="NodePropertiesPane" extends="window" resizable="false" closeable="true">
+		<method name="setStuff" args="propnode">
+			inside.title.setText(propnode.title);
+			inside.bt1.setText(propnode.b1text);
+			inside.bt2.setText(propnode.b2text);
+			inside.bt3.setText(propnode.b3text);
+			inside.bt4.setText(propnode.b4text);
+		</method>
+		<method name="applyStuff">
+			canvas.dview.selectedobj.modelnode.setAttribute('title', inside.title.getText());
+			canvas.dview.selectedobj.modelnode.setAttribute('b1text', inside.bt1.getText());
+			canvas.dview.selectedobj.modelnode.setAttribute('b2text', inside.bt2.getText());
+			canvas.dview.selectedobj.modelnode.setAttribute('b3text', inside.bt3.getText());
+			canvas.dview.selectedobj.modelnode.setAttribute('b4text', inside.bt4.getText());
+			
+
+		</method>
+		<view width="300" height="500" name="inside">
+    		
+    		<simplelayout axis="y" spacing="5"/>
+    		<text>Node Properties</text>
+    		
+    		<view align="center" resource="minipreview"/>
+    		
+    		<!-- <text x="20" y="20">Button Label 1</text>
+    		<edittext width="150" x="20" y="40" name="bt1" />
+    		<text x="20" y="70" >Button Label 2</text>
+    		<edittext width="150" x="20" y="90" name="bt2"/>
+    		<text x="20" y="120">Button Label 3</text>
+    		<edittext width="150" x="20" y="140" name="bt3"/>
+    		<text x="20" y="170">Button Label 4</text>
+    		<edittext width="150" x="20" y="190" name="bt4"/>
+    		
+    		<checkbox x="20" y="220" id="checkMe1" text="Logo"/>
+    		<checkbox x="120" y="220" id="checkMe2" text="Battery Meter"/>
+			<checkbox x="20" y="240" id="checkMe3" text="Logo"/>
+    		<checkbox x="120" y="240" id="checkMe4" text="Battery Meter"/>
+    		
+    		 -->
+    		
+    		<text> Node Title </text>
+    		<edittext width = "150" name = "title" />
+    		
+    		<text> Button Label 1 </text>
+    		<edittext width = "150" name = "bt1" />
+    		<text> Button Label 2 </text>
+    		<edittext width = "150" name = "bt2" />
+    		<text> Button Label 3 </text>
+    		<edittext width = "150" name = "bt3" />
+    		<text> Button Label 4 </text>
+    		<edittext width = "150" name = "bt4" />
+    		
+    		<button x = "20" y = "270">
+    			Apply
+    			<handler name="onclick">
+    				classroot.applyStuff();
+    			</handler>
+  			</button>
+  		</view> 
+	</class>
+</library>

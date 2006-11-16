@@ -1,0 +1,138 @@
+<library>
+	<class name="baseconnector" extends="view" x="${b.x+b.width/2}" 
+		y="${b.y+b.height/2}" width="20"
+		height="300">
+		<edge name="modeledge" />
+		<!-- Pointers to connected objects  -->
+		<attribute name="from" />
+		<attribute name="to"/>
+		
+		<attribute name="dx"/>
+		<attribute name="dy"/>
+		<handler name="onconstruct">
+			this.b= from;
+			this.e = to;
+
+		</handler>
+		<handler name="oninit">
+			adjust();
+			sendToBack();
+			//add pointers to the modelnodes to the modeledge
+			this.modeledge.s = this.b.modelnode;
+			this.modeledge.t = this.e.modelnode;
+			this.modeledge.sourceButton = "?";
+		</handler>
+		<handler name="onx" reference="b">
+				adjust();
+		</handler>
+		<method event="ony" reference="b">
+				adjust();
+		</method>
+		<method event="onx" reference="e">
+				adjust();
+		</method>
+		<handler name="ony" reference="e">
+				adjust();
+		</handler>
+								
+		<method name="adjust">
+		    __refreshdxdy();
+			setHeight(__calcHeight());
+			setRotation(__calcAngle());
+		</method>
+		<method name="__refreshdxdy">
+			/*
+			 * Figure out the distance between start and endpoints
+			 */
+			dx = b.x-e.x;
+	        dy = b.y - e.y
+		</method>
+		<method name="__calcHeight">
+			//distance between two points.
+			return Math.sqrt(dx*dx+dy*dy);
+		</method>
+		<method name="__calcAngle">
+		<![CDATA[
+	        angle = 0;
+	 		//Take care of special cases. You don't want to get division by zero errors when tan goes to infinity.
+	        if (dx == 0) {
+	            if(dy == 0)     angle = 0;
+	            else if(dy > 0) angle = Math.PI / 2.0; //90
+	            else            angle = (Math.PI * 3.0) / 2.0; //-90
+	        }
+	        else if(dy == 0) {
+	            if(dx > 0)      angle = 0;
+	            else            angle = Math.PI; //180
+	        }
+	        //done with special cases
+	        else {
+	            if(dx < 0)      angle = Math.atan(dy/dx) + Math.PI;
+	            else if(dy < 0) angle = Math.atan(dy/dx) + (2*Math.PI);
+	            else            angle = Math.atan(dy/dx);
+	        }
+	        /*
+	         * add an offset of 90 because OpenLaszlo views always point downward.
+	         * and then convert to degrees.
+	         */
+	        return (angle * 180) / Math.PI + 90;
+	    ]]>
+		</method>	
+	</class>
+	
+	<!--  this connector adds more functionality to the base connector.
+		Such as:
+		1. arrow head to denote direction
+		2. ability to highlight and unhighlight
+	 -->
+	<class name="connector" extends="baseconnector">
+		<!--  the color of the connector -->
+		<attribute name="color" type="color" value="0x00ADEF" />
+		<!--  make sure to asign a resource for arrowhead -->
+		<view name="arrowhead" 
+		y="${parent.height-parent.e.width/2-height}" 
+		xoffset="0" ondblclick="parent.dodblclick()">
+			<attribute name="resource" value="arrowhead" />
+		</view>
+		
+		<!-- this view displays an icon on the edge to hint to the type 
+			Note that rotation constraint to make sure the hint is always up straight
+			regardless of the rotation angle of the connector.
+		-->
+		<view name="thint"  
+		y="${parent.height/2}" 
+		rotation="${-parent.rotation}"
+		>
+			<text fontsize="15" text="${parent.parent.modeledge.sourceButton}">
+				
+			</text>
+		</view>
+
+		
+		
+		<!--  this is the line that actually appears inside the connector -->
+		<view name="line" 
+			  bgcolor="$once{parent.color}"
+			  width="1"
+			  xoffset="$once{-parent.width/2+width}"
+			  height="${parent.height}"
+		/>
+		<!-- 
+			TODO: factor out some of the shared functionality between nodes and connectors
+			such as highlight, unhighlight, select, etc.
+		 -->
+		<method name="highlight">
+			setBGColor("0xffff33");
+		</method>
+		<method name="unhighlight">
+			setBGColor(null);
+		</method>
+		<handler name="ondblclick">
+			dodblclick();
+		</handler>
+		<method name="dodblclick">
+			//this was factored out so that it can be used in other parts
+			parent.onselectswitch.sendEvent();
+			parent.setAttribute('selectedobj', this);
+		</method>
+		</class>
+</library>

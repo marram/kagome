@@ -1,0 +1,31 @@
+<library>
+	<!-- Resources for toppane buttons -->
+	<resource name="cnodeicon">
+		<frame src="cnode1.png" />
+		<frame src="cnode2.png" />
+		<frame src="cnode3.png" />
+	</resource>
+	<resource name="cedgeicon">
+		<frame src="cedge1.png" />
+		<frame src="cedge2.png" />
+		<frame src="cedge3.png" />
+	</resource>
+	<resource name="delicon">
+		<frame src="del1.png" />
+		<frame src="del2.png" />
+		<frame src="del3.png" />
+	</resource>
+	<resource name="playicon">
+		<frame src="play1.swf" />
+		<frame src="play2.swf" />
+		<frame src="play3.swf" />
+	</resource>
+	<resource name="flashicon">
+		<frame src="flash1.swf" />
+		<frame src="flash2.swf" />
+		<frame src="flash3.swf" />
+	</resource>
+	<resource name="createswf" src="create_png.png" />
+	<resource name="playswf" src="play_png.png" />
+	<resource name="shareswf" src="share_png.png" />
+</library>

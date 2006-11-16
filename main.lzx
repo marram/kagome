@@ -1,0 +1,145 @@
+<canvas width="100%" height="900" oninit="projectChooser.open()">
+    <include href="model" />
+    <include href="view" />
+	<include href="resources" />
+	<include href="resources/buttons" />
+	
+<bluestyle name="mystyle"/>
+<menubar style="$once{mystyle}">
+	<menu text="File" width="100">
+		<menuitem text="New" onselect=""/>
+		<menuitem text="Open" onselect=""/>
+		<menuitem text="Save" onselect=""/>
+		<menuseparator/>           
+		<menuitem text="Quit" onselect=""/>   
+	</menu> 
+    <menu text="Edit" width="100">
+		<menuitem text="Copy" onselect=""/>
+		<menuitem text="Paste" onselect=""/>
+    </menu>
+    <menu text="View" width="100">
+		<menuitem text="Zoom In" onselect=""/>
+		<menuitem text="Zoom Out" onselect=""/>
+	</menu> 
+</menubar>
+
+<toppane name="topp" width="100%"/>
+<!-- leftpane name="leftp" height="100%" width="230"/-->
+
+<devview name="dview" width="100%" height="100%" y="$once{topp.height}" x="${leftp.width}" oninit="dview.addNode()">
+	<text><b><i>Development Area</i></b></text>
+</devview>
+
+
+	<!--  this observer listens to what is happening in the development view and updates the model -->
+	<graph name="model">
+		<handler name="onselectedobj" reference="dview">
+			var ref = dview;
+			Debug.write("current selected node", ref.selectedobj);
+			if (ref.selectedobj.from != null) {
+				ref.parent.ppane.setVisible(false);
+				ref.parent.edgePane.setVisible(true);
+				ref.parent.edgePane.setX(ref.selectedobj.x + 50);
+				ref.parent.edgePane.setY(ref.selectedobj.y + 50);
+				edgePane.setEdgeProperties(ref.selectedobj.modeledge);
+			}
+			else {
+				ref.parent.edgePane.setVisible(false);
+				ref.parent.ppane.setVisible(true);
+				ref.parent.ppane.setX(ref.selectedobj.x + 70);
+				ref.parent.ppane.setY(ref.selectedobj.y + 70);
+				ppane.setStuff(ref.selectedobj.modelnode);
+			}
+		</handler>
+		<handler name="ondeselectedobj" reference="dview">
+			var ref = dview;
+			Debug.write("Does is get here", ref.selectedobj);
+			ref.parent.ppane.setVisible(false);
+			ref.parent.edgePane.setVisible(false);
+		</handler>	
+		<handler name="nodeAdded" reference="dview" args="modelnode">
+			//this is to make sure every node has a unique ID	
+			var nodeID = this.nodes.push(modelnode);
+			//use setAttribute so that an onuid event gets fired
+			modelnode.setAttribute('uid',nodeID);
+			modelnode.setAttribute('x', modelnode.uid * 50);
+			Debug.write("modelnode.uid", modelnode.uid);
+		</handler>
+		<handler name="edgeAdded" reference="dview" args="modeledge">
+			var edgeID = this.edges.push(modeledge);
+			modeledge.setAttribute('uid', edgeID);
+		</handler>
+		<handler name="nodeDeleted" reference="dview" args="modelnode">
+			/*
+			 * Deleting nodes from the model causes 'null' filled spots in the array.
+			 * Thats cool for now.
+			 */
+			var id = modelnode.uid;
+			//-1 because id= length, which is less than array index by 1
+			this.nodes[id-1] = null;
+		</handler>
+		<handler name="edgeDeleted" reference="dview" args="modeledge">
+			var id = modeledge.uid;
+			this.edges[id-1] = null
+		</handler>				
+	</graph>
+
+<NodePropertiesPane name="ppane" x="${dview.selectedobj.x}" visible="false">
+</NodePropertiesPane>
+
+<EdgePropertiesPane name="edgePane" visible="false">
+</EdgePropertiesPane>
+
+<modaldialog name="projectChooser" width="400" height="200" allowdrag="false" title="Choose Project...">
+	<view align="center" layout="axis:y; spacing:30">
+		<text>Please select one: </text>
+		<button width="300" onclick="parent.openTemplateChooser()" isdefault="true">Start New Project</button>
+		<button width="300" onclick="parent.parent.close()">Open Existing Project</button>
+		<method name="openTemplateChooser">
+			parent.parent.templateChooser.open();
+			parent.close();
+		</method>
+	</view>
+    <simplelayout spacing="5"/>
+</modaldialog>
+
+<modaldialog name="templateChooser" width="600" height="500" allowdrag="false" title="Choose a template...">
+   <view align="center" width="100%" height="100%"> 
+    <simplelayout spacing="20"/>
+    <tabs align="center" height="90%" width="95%">
+
+        <tabpane text="ATM" inset_left="20" inset_top="20" inset_bottom="20" inset_right="20" selected="true">
+            <simplelayout spacing="20"/>
+			<text>The preview icons for the ATM templates are not yet available.</text>
+			<text>Selecting OK will start a new project with the default ATM template.</text>            
+        </tabpane>
+
+        <tabpane text="Cell Phone" inset_left="20" inset_top="20" inset_bottom="20" inset_right="20">
+            <simplelayout spacing="20"/>
+			<text>No Cell Phone templates are available at this time.</text>
+        </tabpane>
+        
+        <tabpane text="Medical Device" inset_left="20" inset_top="20" inset_bottom="20" inset_right="20">
+            <simplelayout spacing="20"/>
+			<text>No Medical Device templates are available at this time.</text>
+        </tabpane>
+        
+    </tabs>
+	<view align="right">
+		<simplelayout spacing="20" axis="x"/>
+	    <button onclick="parent.parent.parent.close()">OK</button>
+	    <button onclick="parent.backProjectChooser()">Cancel</button>
+	    <method name="backProjectChooser">
+			parent.parent.parent.projectChooser.open();
+			parent.parent.close();
+		</method>
+    </view>
+    </view>
+</modaldialog>
+
+<window name="preview" x="300" y="200" width="815" height="550" visible="false" closeable="true" onclick="preview.setVisible(false)">
+	<view align="center" resource="ATMpreview" />
+</window>
+
+
+</canvas>

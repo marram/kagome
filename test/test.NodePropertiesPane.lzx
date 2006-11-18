@@ -1,0 +1,8 @@
+<canvas debug="true">
+	<include href="../resources" />
+	<include href="../view" />
+	<NodePropertiesPane name="fb"/>
+	<window>
+		<simplelayout axis="y" />
+	</window>
+</canvas>

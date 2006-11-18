@@ -1,27 +1,30 @@
 <library>
-	<class name="leftpane" clip="true">
+	<class name="leftpane">
 		<attribute name="defaultplacement" value="inside" />
 		<attribute name="state" value="OPENED" type="string"/>
-		
-		<simplelayout axis="x" spacing="0" />
-		<view name="p" resource="propswf" y="70">
-		<view name="inside" width="${parent.width-parent.vrule.width}" height="100%" y="70">
-			<!--  this is where stuff will go -->
-			<NodePropertiesPane />
+		<attribute name="clip" value="true" />
+<NodePropertiesPane id="ppane"  visible="false">
+</NodePropertiesPane>
+
+<EdgePropertiesPane id="edgePane" visible="false">
+</EdgePropertiesPane>	
+		<view name="p" resource="propswf">
+			<handler name="onclick">
+				var flag = parent.state;
+				if (flag == "OPENED")
+					parent.close();
+				else if (flag == "CLOSED")
+					parent.open();
+			</handler>	
 		</view>
-		<view name="vrule" bgcolor="0x8CC63F" width="1" height="100%" x="${parent.width}" y="70"/>
-		<handler name="onclick">
-			var flag = parent.state;
-			if (flag == "OPENED")
-				parent.close();
-			else if (flag == "CLOSED")
-				parent.open();
-		</handler>
-		
+		<view name="inside" width="${parent.width-parent.vrule.width}" height="100%">
+
 		</view>
+		<view name="vrule" bgcolor="0x8CC63F" width="1" height="${parent.height}" x="${parent.width-width}"/>
+
 	
-		<animator name="opener" attribute="width" from="18" to="200" duration="500" start="false" />
-		<animator name="closer" attribute="width" from="200" to="18" duration="500" start="false" />
+		<animator name="opener" attribute="width" from="18" to="300" duration="500" start="false" />
+		<animator name="closer" attribute="width" from="300" to="18" duration="500" start="false" />
 		<method name="open">
 			if (this.state == "CLOSED") {
 				this.opener.doStart();
@@ -34,5 +37,7 @@
 				this.state = "CLOSED"
 			}
 		</method>
+	
+
 	</class>
 </library>

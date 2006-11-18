@@ -2,7 +2,7 @@
 	<resource name="greencircle" src="green.swf" />
 	<resource name="orangecircle" src="orange.swf" />
 	<resource name="arrowhead" src="arrow.swf" />
-	<resource name="logoswf" src="logo_small.swf" />
+	<resource name="logoswf" src="logo.swf" />
 	<resource name="leftswf">
 		<frame src="fancy/left.swf" />
 		<frame src="fancy/hleft.swf" />

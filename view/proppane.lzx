@@ -1,0 +1,10 @@
+<library>
+	<include href="incubator/roundrect.lzx" />
+		<class name="proppane" extends="roundrect"
+			backgroundStartColor="0xA2DDF2"
+			backgroundStopColor="0x2BAAE1"
+			borderRadius="15"
+			borderColor="0xffffff"
+			>
+			</class>
+</library>

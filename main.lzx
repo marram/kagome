@@ -4,28 +4,15 @@
 	<include href="resources" />
 	<include href="resources/buttons" />
 	
+	<script src="JS/json.js" />
+	
 <bluestyle name="mystyle"/>
-<menubar style="$once{mystyle}">
-	<menu text="File" width="100">
-		<menuitem text="New" onselect=""/>
-		<menuitem text="Open" onselect=""/>
-		<menuitem text="Save" onselect=""/>
-		<menuseparator/>           
-		<menuitem text="Quit" onselect=""/>   
-	</menu> 
-    <menu text="Edit" width="100">
-		<menuitem text="Copy" onselect=""/>
-		<menuitem text="Paste" onselect=""/>
-    </menu>
-    <menu text="View" width="100">
-		<menuitem text="Zoom In" onselect=""/>
-		<menuitem text="Zoom Out" onselect=""/>
-	</menu> 
-</menubar>
+<kmenubar />
 
+
+
+<leftpane name="leftp" height="100%" width="300" y="${topp.height-10}"/>
 <toppane name="topp" width="100%"/>
-<!-- leftpane name="leftp" height="100%" width="230"/-->
-
 <devview name="dview" width="100%" height="100%" y="$once{topp.height}" x="${leftp.width}" oninit="dview.addNode()">
 	<text><b><i>Development Area</i></b></text>
 </devview>
@@ -37,17 +24,17 @@
 			var ref = dview;
 			Debug.write("current selected node", ref.selectedobj);
 			if (ref.selectedobj.from != null) {
-				ref.parent.ppane.setVisible(false);
-				ref.parent.edgePane.setVisible(true);
-				ref.parent.edgePane.setX(ref.selectedobj.x + 50);
-				ref.parent.edgePane.setY(ref.selectedobj.y + 50);
+				ppane.setVisible(false);
+				edgePane.setVisible(true);
+				//edgePane.setX(ref.selectedobj.x + 50);
+				//edgePane.setY(ref.selectedobj.y + 50);
 				edgePane.setEdgeProperties(ref.selectedobj.modeledge);
 			}
 			else {
-				ref.parent.edgePane.setVisible(false);
-				ref.parent.ppane.setVisible(true);
-				ref.parent.ppane.setX(ref.selectedobj.x + 70);
-				ref.parent.ppane.setY(ref.selectedobj.y + 70);
+				edgePane.setVisible(false);
+				ppane.setVisible(true);
+				//ppane.setX(ref.selectedobj.x + 70);
+				//ppane.setY(ref.selectedobj.y + 70);
 				ppane.setStuff(ref.selectedobj.modelnode);
 			}
 		</handler>
@@ -84,13 +71,9 @@
 		</handler>				
 	</graph>
 
-<NodePropertiesPane name="ppane" x="${dview.selectedobj.x}" visible="false">
-</NodePropertiesPane>
 
-<EdgePropertiesPane name="edgePane" visible="false">
-</EdgePropertiesPane>
 
-<modaldialog name="projectChooser" width="400" height="200" allowdrag="false" title="Choose Project...">
+<!-- modaldialog name="projectChooser" width="400" height="200" allowdrag="false" title="Choose Project...">
 	<view align="center" layout="axis:y; spacing:30">
 		<text>Please select one: </text>
 		<button width="300" onclick="parent.openTemplateChooser()" isdefault="true">Start New Project</button>
@@ -135,7 +118,7 @@
 		</method>
     </view>
     </view>
-</modaldialog>
+</modaldialog-->
 
 <window name="preview" x="300" y="200" width="815" height="550" visible="false" closeable="true" onclick="preview.setVisible(false)">
 	<view align="center" resource="ATMpreview" />

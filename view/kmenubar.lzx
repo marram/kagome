@@ -1,0 +1,20 @@
+<library>
+	<bluestyle name="mystyle" />
+	<class name="kmenubar" extends="menubar" style="$once{mystyle}">
+		<menu text="File" width="100">
+			<menuitem text="New" onselect="" />
+			<menuitem text="Open" onselect="" />
+			<menuitem text="Save" onselect="" />
+			<menuseparator />
+			<menuitem text="Quit" onselect="" />
+		</menu>
+		<menu text="Edit" width="100">
+			<menuitem text="Copy" onselect="" />
+			<menuitem text="Paste" onselect="" />
+		</menu>
+		<menu text="View" width="100">
+			<menuitem text="Zoom In" onselect="" />
+			<menuitem text="Zoom Out" onselect="" />
+		</menu>
+	</class>
+</library>

@@ -1,5 +1,6 @@
 <library>
-	<class name="NodePropertiesPane" extends="window" resizable="false" closeable="true">
+	<include href="proppane.lzx" />
+	<class name="NodePropertiesPane" extends="proppane" width="300" height="500">
 		<method name="setStuff" args="propnode">
 			inside.title.setText(propnode.title);
 			inside.bt1.setText(propnode.b1text);
@@ -14,7 +15,6 @@
 			canvas.dview.selectedobj.modelnode.setAttribute('b3text', inside.bt3.getText());
 			canvas.dview.selectedobj.modelnode.setAttribute('b4text', inside.bt4.getText());
 			
-
 		</method>
 		<view width="300" height="500" name="inside">
     		

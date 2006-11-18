@@ -10,4 +10,6 @@
 	<include href="devview.lzx" />
 	<include href="NodePropertiesPane.lzx" />
 	<include href="EdgePropertiesPane.lzx" />
+	<include href="kmenubar.lzx" />
+	<include href="proppane.lzx" />
 </library>

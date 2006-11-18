@@ -1,7 +1,8 @@
 <library>
 	<class name="toppane">
 		<view name="topbar" width="100%" height="20" />
-		<view name="hrule" bgcolor="#B3B3B3" y="80" width="100%" height="3" />
+				<view name="hrule" bgcolor="0x8CC63F" y="75" width="100%"
+			height="1" />
 		<view name="logoview" resource="logoswf" y="25" x="10" />
 		
 		<view name="buttons" x="$once{parent.logoview.width + 100}" height="70">

@@ -2,14 +2,22 @@
 	<include href="proppane.lzx" />
 	<class name="NodePropertiesPane" extends="proppane" width="300" height="500">
 		<method name="setStuff" args="propnode">
-			inside.title.setText(propnode.title);
+			inside.title.setText(propnode.nodetitle);
+			
+			inside.screentitle.setText(propnode.screentitle);
+			inside.screentext.setText(propnode.screentext);
+			
 			inside.bt1.setText(propnode.b1text);
 			inside.bt2.setText(propnode.b2text);
 			inside.bt3.setText(propnode.b3text);
 			inside.bt4.setText(propnode.b4text);
 		</method>
 		<method name="applyStuff">
-			canvas.dview.selectedobj.modelnode.setAttribute('title', inside.title.getText());
+			canvas.dview.selectedobj.modelnode.setAttribute('nodetitle', inside.nodetitle.getText());
+			
+			canvas.dview.selectedobj.modelnode.setAttribute('screentitle', inside.screentitle.getText());
+			canvas.dview.selectedobj.modelnode.setAttribute('screentext', inside.screentext.getText());
+			
 			canvas.dview.selectedobj.modelnode.setAttribute('b1text', inside.bt1.getText());
 			canvas.dview.selectedobj.modelnode.setAttribute('b2text', inside.bt2.getText());
 			canvas.dview.selectedobj.modelnode.setAttribute('b3text', inside.bt3.getText());
@@ -18,10 +26,15 @@
 		</method>
 		<view width="300" height="500" name="inside">
     		
-    		<simplelayout axis="y" spacing="5"/>
+    		<wrappinglayout axis="x" spacing="5"/>
     		<text>Node Properties</text>
     		
-    		<view align="center" resource="minipreview"/>
+    		<view align="center" resource="minipreview">
+    			<text id = "lp1" x="45" y="100" text="${parent.parent.bt1.text}"/>
+    			<text id = "lp2" x="45" y="125" text="${parent.parent.bt2.text}"/>
+    			<text id = "lp3" x="150" y="100" text="${parent.parent.bt3.text}"/>
+    			<text id = "lp4" x="150" y="125" text="${parent.parent.bt4.text}"/>
+    		</view>
     		
     		<!-- <text x="20" y="20">Button Label 1</text>
     		<edittext width="150" x="20" y="40" name="bt1" />
@@ -40,7 +53,16 @@
     		 -->
     		
     		<text> Node Title </text>
-    		<edittext width = "150" name = "title" />
+    		<edittext width = "150" name = "nodetitle">
+    			<method event= "ontext">
+    				
+    			</method>
+    		</edittext>
+    		
+    		<text> Screen Title </text>
+    		<edittext width = "150" name = "screentitle" />
+    		<text> Screen Text </text>
+    		<edittext width = "150" name = "screentext" />
     		
     		<text> Button Label 1 </text>
     		<edittext width = "150" name = "bt1" />

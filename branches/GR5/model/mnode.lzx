@@ -26,7 +26,9 @@
 		The rest of the attributes come from the template
 		 -->
 		 <attribute name="uid" type="number" />
-		 <attribute name="title"  type="string"  value="untitled"/>
+		 <attribute name="nodetitle"  type="string"  value="untitled"/>
+		 <attribute name="screentitle"  type="string"/>
+		 <attribute name="screentext"  type="string"/>
 		 <attribute name="b1text" type="string"/>
 		 <attribute name="b2text" type="string" />
 		 <attribute name="b3text" type="string" />

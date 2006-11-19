@@ -29,18 +29,17 @@
 		 <attribute name="nodetitle"  type="string"  value="untitled"/>
 		 <attribute name="screentitle"  type="string"/>
 		 <attribute name="screentext"  type="string"/>
-		 <attribute name="b1text" type="string"/>
-		 <attribute name="b2text" type="string" />
-		 <attribute name="b3text" type="string" />
-		 <attribute name="b4text" type="string" />
+		 <attribute name="b1text" type="string" value=""/>
+		 <attribute name="b2text" type="string" value=""/>
+		 <attribute name="b3text" type="string" value=""/>
+		 <attribute name="b4text" type="string" value=""/>
 		 <handler name="onuid">
 		 	setAttribute('title', title+uid);
 		 	Debug.write("uid is ", uid);
 		 </handler>
 		 <!--  this class will return a dictionary with all the attributes so that we can JSON them -->
 		 <method name="getJSAttrs">
-		 	var ret = {title: title, b1text: b1text, b2text: b2text, b3text: b3text, b4text: b4text};
-		 	return ret;
+		 	return {uid: uid, title: title, b1text: b1text, b2text: b2text, b3text: b3text, b4text: b4text};
 		 </method>
 	</class>
 </library>

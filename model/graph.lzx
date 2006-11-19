@@ -4,5 +4,28 @@
 			this.nodes = new Array();
 			this.edges = new Array();
 		</handler>
+		<method name="getJSAttrs">
+		<![CDATA[
+			var nodeArr = Array();
+			for (var i=0; i < nodes.length; i++)
+			{
+				nodeArr.push(nodes[i].getJSAttrs());
+			}
+			
+			var edgeArr = Array();
+			for (var i=0; i < edges.length; i++)
+			{
+				edgeArr.push(edges[i].getJSAttrs());
+			}	
+			
+			var ret = {nodes: nodeArr, edges: edgeArr};		
+			return ret;
+			//return nodeArr;
+		]]>
+		</method>
+		<method name="upload" args="ds">
+			ds.setQueryString({graph: JSON.stringify(getJSAttrs())});
+			ds.doRequest();
+		</method>
 	</class>
 </library>

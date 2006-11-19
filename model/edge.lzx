@@ -22,7 +22,16 @@
 		<attribute name="s" />
 		<!--  target node -->
 		<attribute name="t" />
+		<!--  This is the source button. In the future, this would
+		need to be moved to an mevent object to abstract the node
+		transition mechanism away from the edge and into an mevent object
+		so that we can have more powerful edges that might not rely on
+		button presses.
+		 -->
 		<attribute name="sourceButton" />
+		<method name="getJSAttrs">
+			return {from: s.uid, to: t.uid, sourceButton: sourceButton};
+		</method>
 		<mevent name="e" />
 	</class>
 </library>

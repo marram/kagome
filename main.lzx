@@ -8,18 +8,22 @@
 	
 <bluestyle name="mystyle"/>
 <kmenubar />
+ <!--  This is the PHP script of servlet that would receive
+ 		model data from Kagome.
+  -->
+  <dataset name="kServer" src="http://localhost/KagomePHP/" request="false" method="post"/>
 
 
 
 <leftpane name="leftp" height="100%" width="300" y="${topp.height-10}"/>
 <toppane name="topp" width="100%"/>
-<devview name="dview" width="100%" height="100%" y="$once{topp.height}" x="${leftp.width}" oninit="dview.addNode()">
+<devview name="dview" width="100%" height="100%" y="$once{topp.height}" x="${leftp.width}">
 	<text><b><i>Development Area</i></b></text>
 </devview>
 
 
 	<!--  this observer listens to what is happening in the development view and updates the model -->
-	<graph name="model">
+	<graph name="model" oninit="dview.addNode()">
 		<handler name="onselectedobj" reference="dview">
 			var ref = dview;
 			Debug.write("current selected node", ref.selectedobj);

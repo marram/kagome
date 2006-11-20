@@ -8,7 +8,7 @@
 		2. box
 		3. fancy box
 	 -->
-	<attribute name="nodeShapes" type="string" value="fancybox"/>
+	<attribute name="nodeShapes" type="string" value="roundrectnode"/>
 	<!-- this flag denotes the current mode
 		the mode can be: ADD_CONNECTOR
 		
@@ -117,6 +117,9 @@
 			case 'fancybox':
 				var nc = new fancybox(this, attr);
 				break;
+			case 'roundrectnode':
+				var nc = new roundrectnode(this, attr);
+				break;				
 			default:
 				var nc= new circle(this, attr);
 				break;

@@ -3,7 +3,7 @@
 	<class name="ktext" extends="text" width="90" clip="true"
 		fontsize="10" />
 	<class name="NodePropertiesPane" extends="proppane" width="280"
-		height="460" paneTitle="Node Properties">
+		height="460" paneTitle="Screen Properties">
 		<method name="setStuff" args="propnode">
 			inside.nodetitle.setText(propnode.title);
 

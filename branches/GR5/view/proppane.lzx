@@ -8,7 +8,7 @@
 			borderColor="0xffffff"
 			>
 			<attribute name="paneTitle" type="string" value="Properties"/>
-			<attribute name="defaultplacement" value="inside" />
+			<attribute name="defaultplacement" value="in" />
 			<roundrect 
 			backgroundStartColor="0xFF8930"
 			backgroundStopColor="0xFFE630"
@@ -24,7 +24,7 @@
 			<text name="ttext" y="${-10}" text="${classroot.paneTitle}" width="$once{parent.width}">
 			</text>
 			</roundrect>
-			<view name="inside" y="${25}"/>
+			<view name="in" y="${25}"/>
 			<view name="buttons" x="12"
 				width="$once{parent.width-40}">
 				<roundrectbutton height="20" text="Apply">

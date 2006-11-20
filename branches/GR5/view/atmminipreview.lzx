@@ -1,19 +1,33 @@
 <library>
+<!-- 
+	This is a class to render the preview of an ATM screen.
+	You can instantiate it and set the button text attributes one by one, or you can give it a modelnode instead.
+	Examples:
+			<atmminipreview name="preview" align="center" resource="minipreview"
+			 	bt1="${parent.bt1.text}"
+			 	bt2="${parent.bt2.text}"
+			 	bt3="${parent.bt3.text}"
+			 	bt4="${parent.bt4.text}"
+			 />
+			 
+			 
+ -->
 			<class name="atmminipreview">
-				<attribute name="bt1" value="dfd"/>
-				<attribute name="bt2" />
-				<attribute name="bt3" />
-				<attribute name="bt4" />
-				<attribute name="screenText" />
-				<attribute name="modelnode" />
+				<!-- Give attributes initial values to remove warnings from Debug window -->
+				<attribute name="bt1" type="string" value=""/>
+				<attribute name="bt2" type="string" value=""/>
+				<attribute name="bt3" type="string" value=""/>
+				<attribute name="bt4" type="string" value=""/>
+				<attribute name="screenText" type="string" value=""/>
+				<attribute name="modelnode"/>
 				
-				<text id="lp1" x="45" y="100"
+				<text name="lp1" x="45" y="100"
 					text="${parent.bt1}" />
-				<text id="lp2" x="45" y="125"
+				<text name="lp2" x="45" y="125"
 					text="${parent.bt2}" />
-				<text id="lp3" x="150" y="100"
+				<text name="lp3" x="150" y="100"
 					text="${parent.bt3}" />
-				<text id="lp4" x="150" y="125"
+				<text name="lp4" x="150" y="125"
 					text="${parent.bt4}" />
 				<handler name="oninit">
 					if (modelnode != null)

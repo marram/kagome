@@ -1,7 +1,10 @@
 <library>
 	<class name="baseconnector" extends="view" x="${b.x+b.width/2}" 
 		y="${b.y+b.height/2}" width="20"
-		height="300">
+		height="300"
+		xoffset="${width/2}"
+		yoffset="${width/2}"
+		>
 		<edge name="modeledge" />
 		<!-- Pointers to connected objects  -->
 		<attribute name="from" />
@@ -34,6 +37,12 @@
 		<handler name="ony" reference="e">
 				adjust();
 		</handler>
+		<handler name="onwidth" reference="b">
+			adjust();
+		</handler>
+		<method event="onwidth" reference="e">
+			adjust();
+		</method>	
 								
 		<method name="adjust">
 		    __refreshdxdy();
@@ -44,8 +53,12 @@
 			/*
 			 * Figure out the distance between start and endpoints
 			 */
-			dx = b.x-e.x;
-	        dy = b.y - e.y
+			var x1 = b.x+b.width/2;
+			var y1 = b.y+b.height/2;
+			var x2 = e.x+e.width/2;
+			var y2 = e.y+e.height/2;
+			dx = x1-x2;
+	        dy = y1 - y2
 		</method>
 		<method name="__calcHeight">
 			//distance between two points.
@@ -89,9 +102,54 @@
 		<attribute name="color" type="color" value="0x00ADEF" />
 		<!--  make sure to asign a resource for arrowhead -->
 		<view name="arrowhead" 
-		y="${parent.height-parent.e.width/2-height}" 
+
 		xoffset="0" ondblclick="parent.dodblclick()">
 			<attribute name="resource" value="arrowhead" />
+			<handler name="onrotation" reference="parent">
+			<![CDATA[
+				/*
+				 *	we want the arrow to to be at the edge of the target node
+				 *	the constraint y="${parent.height-parent.e.width/2-height}" 
+				 *  makes the arrow head location be on a circle perimeter.
+				 *  this is to fix it so that it would follow a rectangular perimeter.
+				 */
+				 
+				// follow the top and bottom edges of the target node 
+				var angle = parent.rotation-90;
+				var thresholdAngle = Math.atan((classroot.to.width/2)/(classroot.to.height/2));
+				var tAngleDeg = thresholdAngle*180/Math.PI;
+				if (
+					(angle >= (90-tAngleDeg)) & (angle <= (90+tAngleDeg))
+					|
+					(angle >= (270-tAngleDeg)) & (angle <= (270+tAngleDeg))
+					) {
+					var a = classroot.to.height/2;
+					var theta = Math.abs(angle-90); 
+					var b = a*Math.tan(toRad(theta));
+					var hyp = Math.sqrt(a*a+ b*b);
+					setAttribute("y", parent.height-hyp-this.height/2);
+				}
+				//else follow the left and right edges of the target node.
+				else {
+					thresholdAngle = Math.atan((classroot.to.height/2)/(classroot.to.width/2));
+					tAngleDeg = thresholdAngle*180/Math.PI;
+					//Debug.write(angle, tAngleDeg);
+					var a = classroot.to.width/2;
+					var theta = Math.abs(angle); 
+					var b = a*Math.tan(toRad(theta));
+					var hyp = Math.sqrt(a*a+ b*b);
+					setAttribute("y", parent.height-hyp-this.height/2);
+				}
+
+				function toDeg(radians) {
+					return radians*180/Math.PI;
+				}
+				
+				function toRad(degrees) {
+					return degrees*Math.PI/180;
+				}
+			]]>	
+			</handler>
 		</view>
 		
 		<!-- this view displays an icon on the edge to hint to the type 
@@ -127,7 +185,7 @@
 			such as highlight, unhighlight, select, etc.
 		 -->
 		<method name="highlight">
-			setBGColor("0xffff33");
+			setBGColor("0xFFE630");
 		</method>
 		<method name="unhighlight">
 			setBGColor(null);

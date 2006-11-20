@@ -121,6 +121,7 @@
 				var nc = new roundrectnode(this, attr);
 				break;				
 			default:
+				setAttribute(nodeShapes, 'circle');
 				var nc= new circle(this, attr);
 				break;
 		}

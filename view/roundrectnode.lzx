@@ -1,0 +1,40 @@
+<library>
+	<class name="roundrectnode" extends="knode">
+		<attribute name="width" value="${titletext.width+10}" />
+		<attribute name="height" value="35" />
+		<roundrect name="inside" 
+					width="${parent.width}" 
+					height="${parent.height}"
+					backgroundStartColor="0xA2DDF2"
+					backgroundStopColor="0xA2DDF2"
+					borderRadius="6"
+					borderColor="0x2BAAE1"
+					borderWidth="3"
+					backgroundGradientOrientation="horizontal"
+					>
+			
+			<handler name="onwidth">
+				//for some reason, the roundrect doesn't redraw when dimensions chang
+				drawStructure();
+			</handler>
+			<handler name="onheight">
+				drawStructure();
+			</handler>	
+		</roundrect>
+		<text name="titletext" x="5" y="8" text="${parent.title}" resize="true"/>
+		
+		<method name="highlight" >			
+			inside.setAttribute("backgroundStartColor", 0xFFE630);
+			inside.setAttribute("backgroundStopColor", 0xFFE630);
+			inside.setAttribute("borderColor", 0xFF8930);
+			inside.drawStructure();
+		</method>
+		<method name="unhighlight">
+			inside.setAttribute("backgroundStartColor", 0xA2DDF2);
+			inside.setAttribute("backgroundStopColor", 0xA2DDF2);
+			inside.setAttribute("borderColor", 0x2BAAE1);
+			inside.drawStructure();			
+		</method>
+	
+	</class>
+</library>

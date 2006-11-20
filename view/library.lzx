@@ -13,4 +13,7 @@
 	<include href="kmenubar.lzx" />
 	<include href="proppane.lzx" />
 	<include href="atmminipreview.lzx" />
+	<include href="projectchooser.lzx" />
+	<include href="templatechooser.lzx" />
+	<include href="roundrectnode.lzx" />
 </library>

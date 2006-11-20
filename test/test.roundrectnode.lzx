@@ -1,7 +1,7 @@
 <canvas debug="true">
-	<include href="../model" />
+
 	<include href="../view" />
-	<fancybox name="fb"/>
+	<roundrectnode title="untitled node" name="fb"/>
 	<window>
 		<simplelayout axis="y" />
 		<button onclick="fb.highlight()"> highlight </button>

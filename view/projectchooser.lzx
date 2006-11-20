@@ -1,0 +1,14 @@
+<library>
+<class name="projectchooser" extends="modaldialog" width="400" height="200" allowdrag="false" title="Choose Project...">
+	<view align="center" layout="axis:y; spacing:30">
+	    <simplelayout spacing="5"/>
+		<text>Please select one: </text>
+		<button width="300" onclick="parent.openTemplateChooser()" isdefault="true">Start New Project</button>
+		<button width="300" onclick="parent.parent.close()">Open Existing Project</button>
+		<method name="openTemplateChooser">
+			parent.parent.templateChooser.open();
+			parent.close();
+		</method>
+	</view>
+</class>
+</library>

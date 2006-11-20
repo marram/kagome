@@ -2,7 +2,6 @@
 	<class name="EdgePropertiesPane" extends="proppane" width="280"
 		height="460" paneTitle="Edge Properties">
 		<method name="setEdgeProperties" args="propedge">
-			inside.buttonSelect.selectItem(propedge.sourceButton);
 			inside.preview.setAttribute('modelnode', propedge.s);
 			inside.buttonSelect.empty();
 			inside.buttonSelect.addItem("?", null);
@@ -10,6 +9,8 @@
     		inside.buttonSelect.addItem("2 " + propedge.s.b2text, 2);
     		inside.buttonSelect.addItem("3 " + propedge.s.b3text, 3);
     		inside.buttonSelect.addItem("4 " + propedge.s.b4text, 4);
+    		inside.buttonSelect.selectItem(propedge.sourceButton);
+    		Debug.write(propedge.sourceButton);
 		</method>
 		<method name="applyStuff">
 		canvas.dview.selectedobj.modeledge.setAttribute('sourceButton', inside.buttonSelect.getValue());

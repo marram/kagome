@@ -82,8 +82,8 @@
 	</graph>
 
 
-<projectchooser name="projectChooser" />
-<templatechooser name="templateChooser" />
+<!-- projectchooser name="projectChooser" />
+<templatechooser name="templateChooser" /-->
 
 <window name="preview" x="300" y="200" width="815" height="550" visible="false" closeable="true" onclick="preview.setVisible(false)">
 	<view align="center" resource="ATMpreview" />

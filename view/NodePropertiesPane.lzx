@@ -3,7 +3,7 @@
 	<class name="ktext" extends="text" width="90" clip="true"
 		fontsize="10" />
 	<class name="NodePropertiesPane" extends="proppane" width="280"
-		height="460">
+		height="460" paneTitle="Node Properties">
 		<method name="setStuff" args="propnode">
 			inside.nodetitle.setText(propnode.title);
 
@@ -34,11 +34,9 @@
 			inside.bt4.getText());
 
 		</method>
-		<view width="280" height="390" name="inside">
+		<view width="260" height="390" name="inside">
 
 			<wrappinglayout axis="x" spacing="2" />
-			<text>Node Properties</text>
-
 			<!--  Mini preview in a seperate class like Eric and Mahmoud
 				discussed
 			 -->
@@ -71,20 +69,6 @@
 			<edittext width="150" name="bt4" />
 
 		</view>
-		    		
-    		<view name="buttons" x="50">
-    		<button >
-    			Apply
-    			<handler name="onclick">
-    				classroot.applyStuff();
-    			</handler>
-  			</button>
-    		<button align="right">
-    			Cancel
-    			<handler name="onclick">
-    				classroot.setStuff();
-    			</handler>
-  			</button>  			
-  			</view>
+
 	</class>
 </library>

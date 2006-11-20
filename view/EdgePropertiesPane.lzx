@@ -1,16 +1,22 @@
 <library>
 	<class name="EdgePropertiesPane" extends="proppane" width="280"
-		height="460">
+		height="460" paneTitle="Edge Properties">
 		<method name="setEdgeProperties" args="propedge">
 			inside.buttonSelect.selectItem(propedge.sourceButton);
+			inside.preview.setAttribute('modelnode', propedge.s);
+			inside.buttonSelect.empty();
+			inside.buttonSelect.addItem("?", null);
+    		inside.buttonSelect.addItem("1: " + propedge.s.b1text, 1);
+    		inside.buttonSelect.addItem("2: " + propedge.s.b2text, 2);
+    		inside.buttonSelect.addItem("3: " + propedge.s.b3text, 3);
+    		inside.buttonSelect.addItem("4: " + propedge.s.b4text, 4);
 		</method>
 		<method name="applyStuff">
 		canvas.dview.selectedobj.modeledge.setAttribute('sourceButton', inside.buttonSelect.getValue());
+		
 		</method>
-		<view width="300" height="330"  name="inside">
+		<view width="260" height="390"  name="inside">
     		<simplelayout axis="y" spacing="5"/>
-    		<text> Edge Properties </text>
-    		
     		<text> Source </text>
     		<radiogroup id="group1">
     		<radiobutton value="1" text="Button "  selected="true"/>
@@ -18,34 +24,22 @@
     		
     		<text> Source Button Number </text>
     		<!-- edittext width = "150" name = "buttonSelect" /-->
-    		<combobox name="buttonSelect">
+    		<combobox name="buttonSelect" width="200">
     			<handler name="oninit">
-    				addItem("?", null);
-    				addItem("1", 1);
-    				addItem("2", 2);
-    				addItem("3", 3);
-    				addItem("4", 4);
+				//moved them to setEdgeProperties
     			</handler>
+    			<method name="empty">
+    				removeItemAt(4);
+    				removeItemAt(3);
+    				removeItemAt(2);
+    				removeItemAt(1);
+    				removeItemAt(0);
+    			</method>
     		</combobox>
-    		
-    		<!--  <combobox name="cbox" editable="false">
-    		<textlistitem text="-" value="0" />
-    		<textlistitem text="Button 1"  value="1" />
-    		<textlistitem text="Button 2"  value="2" />
-    		<textlistitem text="Button 3"  value="3" />
-    		<textlistitem text="Button 4"  value="4" />
-  			</combobox>-->
   			
   			<text>Source Screen </text>
-    		<view align="center" resource="minipreview"/>
-    		
-    		<button x = "20" y = "270">
-    			Apply
-    			<handler name="onclick">
-    				classroot.applyStuff();
-    			</handler>
-  			</button>
-
+    		<atmminipreview name="preview" resource="minipreview"/>
   		</view> 
+		
 	</class>
 </library>

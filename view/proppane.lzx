@@ -1,10 +1,43 @@
 <library>
 	<include href="incubator/roundrect.lzx" />
+	<include href="incubator/roundrectbutton.lzx" />
 		<class name="proppane" extends="roundrect"
 			backgroundStartColor="0xA2DDF2"
 			backgroundStopColor="0x2BAAE1"
 			borderRadius="15"
 			borderColor="0xffffff"
 			>
-			</class>
+			<attribute name="paneTitle" type="string" value="Properties"/>
+			<attribute name="defaultplacement" value="inside" />
+			<roundrect 
+			backgroundStartColor="0xFF8930"
+			backgroundStopColor="0xFFE630"
+			borderRadius="8"
+			borderColor="0xffffff"
+			width="$once{parent.width - 30}" 
+			height="20"
+			x="3"
+			y="3"
+			name="trr"
+			backgroundGradientOrientation="horizontal"
+			>
+			<text name="ttext" y="${-10}" text="${classroot.paneTitle}" width="$once{parent.width}">
+			</text>
+			</roundrect>
+			<view name="inside" y="${25}"/>
+			<view name="buttons" x="12"
+				width="$once{parent.width-40}">
+				<roundrectbutton height="20" text="Apply">
+					<handler name="onclick">
+						classroot.applyStuff();
+					</handler>
+				</roundrectbutton>
+				<roundrectbutton align="right" height="20"
+					text="Cancel">
+					<handler name="onclick">
+						classroot.setStuff();
+					</handler>
+				</roundrectbutton>
+			</view>
+		</class>
 </library>

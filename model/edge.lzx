@@ -28,7 +28,7 @@
 		so that we can have more powerful edges that might not rely on
 		button presses.
 		 -->
-		<attribute name="sourceButton" />
+		<attribute name="sourceButton" value="null"/>
 		<method name="getJSAttrs">
 			return {from: s.uid, to: t.uid, sourceButton: sourceButton};
 		</method>

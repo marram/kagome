@@ -20,7 +20,7 @@
 			//add pointers to the modelnodes to the modeledge
 			this.modeledge.s = this.b.modelnode;
 			this.modeledge.t = this.e.modelnode;
-			this.modeledge.sourceButton = "?";
+			//this.modeledge.sourceButton = null;
 		</handler>
 		<handler name="onx" reference="b">
 				adjust();
@@ -102,7 +102,13 @@
 		y="${parent.height/2}" 
 		rotation="${-parent.rotation}"
 		>
-			<text fontsize="15" text="${parent.parent.modeledge.sourceButton}">
+			<text fontsize="15" text="${classroot.modeledge.sourceButton}">
+			<handler name="oninit">
+				if (classroot.modeledge.sourceButton == null)
+				{
+					setText("?");
+				}
+			</handler>
 				
 			</text>
 		</view>

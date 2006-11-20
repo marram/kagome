@@ -6,10 +6,10 @@
 			inside.preview.setAttribute('modelnode', propedge.s);
 			inside.buttonSelect.empty();
 			inside.buttonSelect.addItem("?", null);
-    		inside.buttonSelect.addItem("1: " + propedge.s.b1text, 1);
-    		inside.buttonSelect.addItem("2: " + propedge.s.b2text, 2);
-    		inside.buttonSelect.addItem("3: " + propedge.s.b3text, 3);
-    		inside.buttonSelect.addItem("4: " + propedge.s.b4text, 4);
+    		inside.buttonSelect.addItem("1 " + propedge.s.b1text, 1);
+    		inside.buttonSelect.addItem("2 " + propedge.s.b2text, 2);
+    		inside.buttonSelect.addItem("3 " + propedge.s.b3text, 3);
+    		inside.buttonSelect.addItem("4 " + propedge.s.b4text, 4);
 		</method>
 		<method name="applyStuff">
 		canvas.dview.selectedobj.modeledge.setAttribute('sourceButton', inside.buttonSelect.getValue());
@@ -17,12 +17,12 @@
 		</method>
 		<view width="260" height="390"  name="inside">
     		<simplelayout axis="y" spacing="5"/>
-    		<text> Source </text>
+    		<text>Event: </text>
     		<radiogroup id="group1">
-    		<radiobutton value="1" text="Button "  selected="true"/>
+    		<radiobutton value="1" text="Button press"  selected="true"/>
   			</radiogroup>
     		
-    		<text> Source Button Number </text>
+    		<text> Source Button: </text>
     		<!-- edittext width = "150" name = "buttonSelect" /-->
     		<combobox name="buttonSelect" width="200">
     			<handler name="oninit">

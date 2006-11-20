@@ -1,5 +1,6 @@
 <library>
-	<class name="EdgePropertiesPane" extends="window" resizable="false" closeable="true">
+	<class name="EdgePropertiesPane" extends="proppane" width="280"
+		height="460">
 		<method name="setEdgeProperties" args="propedge">
 			inside.buttonSelect.selectItem(propedge.sourceButton);
 		</method>

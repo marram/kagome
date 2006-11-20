@@ -124,6 +124,8 @@
 			this.setAttribute('coord', this.coord+40);
 			//send notification that a node was added. Note that we're sending the model part of the node along with the event
 			this.nodeAdded.sendEvent(nc.modelnode);
+			//return a reference to the just added node.
+			return nc;
 	</method>
 	<handler name="onmouseover">
 		LzCursor.showHandCursor(false);

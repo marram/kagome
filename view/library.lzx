@@ -12,4 +12,5 @@
 	<include href="EdgePropertiesPane.lzx" />
 	<include href="kmenubar.lzx" />
 	<include href="proppane.lzx" />
+	<include href="atmminipreview.lzx" />
 </library>

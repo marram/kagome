@@ -3,11 +3,7 @@
 		<attribute name="defaultplacement" value="inside" />
 		<attribute name="state" value="OPENED" type="string"/>
 		<attribute name="clip" value="true" />
-<NodePropertiesPane id="ppane"  visible="false">
-</NodePropertiesPane>
-
-<EdgePropertiesPane id="edgePane" visible="false">
-</EdgePropertiesPane>	
+		<attribute name="initWidth" value="$once{width}" />
 		<view name="p" resource="propswf">
 			<handler name="onclick">
 				var flag = parent.state;
@@ -23,8 +19,8 @@
 		<view name="vrule" bgcolor="0x8CC63F" width="1" height="${parent.height}" x="${parent.width-width}"/>
 
 	
-		<animator name="opener" attribute="width" from="18" to="300" duration="500" start="false" />
-		<animator name="closer" attribute="width" from="300" to="18" duration="500" start="false" />
+		<animator name="opener" attribute="width" from="18" to="${parent.initWidth}" duration="500" start="false" />
+		<animator name="closer" attribute="width" from="${parent.initWidth}" to="18" duration="500" start="false" />
 		<method name="open">
 			if (this.state == "CLOSED") {
 				this.opener.doStart();
@@ -37,7 +33,10 @@
 				this.state = "CLOSED"
 			}
 		</method>
-	
+<NodePropertiesPane id="ppane"  visible="false" x="$once{parent.p.width}">
+</NodePropertiesPane>
 
+<EdgePropertiesPane id="edgePane" visible="false">
+</EdgePropertiesPane>
 	</class>
 </library>

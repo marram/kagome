@@ -6,8 +6,7 @@
 	
 	<script src="JS/json.js" />
 	
-<bluestyle name="mystyle"/>
-<kmenubar />
+<kmenubar name="mb"/>
  <!--  This is the PHP script of servlet that would receive
  		model data from Kagome.
   -->

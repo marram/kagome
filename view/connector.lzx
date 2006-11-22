@@ -138,7 +138,7 @@
 					var theta = Math.abs(angle); 
 					var b = a*Math.tan(toRad(theta));
 					var hyp = Math.sqrt(a*a+ b*b);
-					setAttribute("y", parent.height-hyp-this.height/2);
+					setAttribute("y", parent.height-hyp-this.height/2+2);
 				}
 
 				function toDeg(radians) {

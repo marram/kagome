@@ -5,10 +5,10 @@
 		<roundrect name="inside" 
 					width="${parent.width}" 
 					height="${parent.height}"
-					backgroundStartColor="0xA2DDF2"
-					backgroundStopColor="0xA2DDF2"
+					backgroundStartColor="$once{nodeblue}"
+					backgroundStopColor="$once{nodeblue}"
 					borderRadius="6"
-					borderColor="0x2BAAE1"
+					borderColor="$once{nodedarkblue}"
 					borderWidth="3"
 					backgroundGradientOrientation="horizontal"
 					>
@@ -24,15 +24,15 @@
 		<text name="titletext" x="5" y="8" text="${parent.title}" resize="true"/>
 		
 		<method name="highlight" >			
-			inside.setAttribute("backgroundStartColor", 0xFFE630);
-			inside.setAttribute("backgroundStopColor", 0xFFE630);
-			inside.setAttribute("borderColor", 0xFF8930);
+			inside.setAttribute("backgroundStartColor", nodehi);
+			inside.setAttribute("backgroundStopColor", nodehi);
+			inside.setAttribute("borderColor", nodehib);
 			inside.drawStructure();
 		</method>
 		<method name="unhighlight">
-			inside.setAttribute("backgroundStartColor", 0xA2DDF2);
-			inside.setAttribute("backgroundStopColor", 0xA2DDF2);
-			inside.setAttribute("borderColor", 0x2BAAE1);
+			inside.setAttribute("backgroundStartColor", nodeblue);
+			inside.setAttribute("backgroundStopColor", nodeblue);
+			inside.setAttribute("borderColor", nodedarkblue);
 			inside.drawStructure();			
 		</method>
 	

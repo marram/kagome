@@ -2,16 +2,16 @@
 	<include href="incubator/roundrect.lzx" />
 	<include href="incubator/roundrectbutton.lzx" />
 		<class name="proppane" extends="roundrect"
-			backgroundStartColor="0xA2DDF2"
-			backgroundStopColor="0x2BAAE1"
+			backgroundStartColor="$once{kblue1}"
+			backgroundStopColor="$once{kblue2}"
 			borderRadius="15"
 			borderColor="0xffffff"
 			>
 			<attribute name="paneTitle" type="string" value="Properties"/>
 			<attribute name="defaultplacement" value="in" />
 			<roundrect 
-			backgroundStartColor="0xFF8930"
-			backgroundStopColor="0xFFE630"
+			backgroundStartColor="$once{korange}"
+			backgroundStopColor="$once{kyellow}"
 			borderRadius="8"
 			borderColor="0xffffff"
 			width="$once{parent.width - 30}" 

@@ -1,0 +1,22 @@
+<library>
+	<!-- 
+		This file contains the color definitions for Kagome
+	 -->
+	<script>
+		
+		var nodeblue = 0xA2DDF2;		//roundrectnode background color
+		var nodedarkblue = 0x2BAAE1;	//roundrectnode border color
+		
+		var kblue1 =  0xA2DDF2			//gradient start in proppane
+		var kblue2 =  0x2BAAE1			//gradient stop in proppane
+		
+		var korange = 0xFF8930;
+		var kyellow = 0xFFE630;
+		
+		var nodehi	= 0xFFE630;			//highlight color for roundrectnode		
+		var nodehib	= 0xFF8930;			//highlight color for roundrectnode border
+		
+		var kbluelite = 0xCFE7FF;
+		var korangelite = 0xFFCD2C;
+	</script>
+</library>

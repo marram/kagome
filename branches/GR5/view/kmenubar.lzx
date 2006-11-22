@@ -1,5 +1,14 @@
 <library>
-	<bluestyle name="mystyle" />
+	<class name="kagomestyle" extends="style"
+        canvascolor="$once{kbluelite}"
+        basecolor="$once{kbluelite}"
+        bgcolor="$once{kblue2}"
+        textfieldcolor="$once{kbluelite}" textcolor="black" texthilitecolor="iceblue1"
+        textselectedcolor="$once{kbluelite1}"  textdisabledcolor="$once{kblue1}"
+        hilitecolor="$once{korangelite}" selectedcolor="$once{korangelite}"
+        bordercolor="$once{korangelite}" bordersize="1"/>
+        
+    <kagomestyle name="mystyle" />
 	<class name="kmenubar" extends="menubar" style="$once{mystyle}">
 		<menu text="File" width="100">
 			<menuitem text="New" onselect="" />
@@ -9,8 +18,10 @@
 			<menuitem text="Quit" onselect="" />
 		</menu>
 		<menu text="Edit" width="100">
+			<menuitem text="Cut" onselect="" />
 			<menuitem text="Copy" onselect="" />
 			<menuitem text="Paste" onselect="" />
+			<menuitem text="Delete" onselect="" />
 		</menu>
 		<menu text="View" width="100">
 			<menuitem text="Zoom In" onselect="" />

@@ -1,0 +1,22 @@
+<library>
+	<class name="kmodaldialog" visible="false">
+		<method name="close">
+			LzModeManager.release(this);	
+			this.blanket.destroy();
+			this.destroy();
+		</method>
+		<method name="open">
+			setAttribute('visible', true);
+			logo.bringToFront();
+			//put it in the middle of the page
+			setX(canvas.width/2-width/2);
+			setY(canvas.height/2-height);
+			Debug.write(x,y);
+			
+			//blanket everything else.
+			this.blanket = new LzView(canvas,{bgcolor: 0x000000, opacity:0.8, width: canvas.width, height: canvas.height});
+			bringToFront();	
+			LzModeManager.makeModal(this);	
+		</method>
+	</class>
+</library>

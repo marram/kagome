@@ -10,7 +10,7 @@
 			logo.bringToFront();
 			//put it in the middle of the page
 			setX(canvas.width/2-width/2);
-			setY(canvas.height/2-height);
+			setY(canvas.height/2-160);
 			Debug.write(x,y);
 			
 			//blanket everything else.

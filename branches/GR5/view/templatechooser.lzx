@@ -1,35 +1,86 @@
 <library>
-<class name="templatechooser" extends="modaldialog" width="600" height="500" allowdrag="false" title="Choose a template...">
-   <view align="center" width="100%" height="100%"> 
-    <simplelayout spacing="20"/>
-    <tabs align="center" height="90%" width="95%">
+<class name="category" extends="roundrectbutton"
+			width="130"
+			height="30"
+			x="36"
+			
+>	
+	<attribute name="selected" value="false" />
+	<handler name="onclick">
+		if (this.selected == true)
+			parent.parent.unselect(this);
+		else
+			parent.parent.select(this);
+	</handler>
+	<handler name="oninit">
+		parent.parent.unselect(this);
+	</handler>
+</class>
 
-        <tabpane text="ATM" inset_left="20" inset_top="20" inset_bottom="20" inset_right="20" selected="true">
-            <simplelayout spacing="20"/>
-			<text>The preview icons for the ATM templates are not yet available.</text>
-			<text>Selecting OK will start a new project with the default ATM template.</text>            
-        </tabpane>
 
-        <tabpane text="Cell Phone" inset_left="20" inset_top="20" inset_bottom="20" inset_right="20">
-            <simplelayout spacing="20"/>
-			<text>No Cell Phone templates are available at this time.</text>
-        </tabpane>
-        
-        <tabpane text="Medical Device" inset_left="20" inset_top="20" inset_bottom="20" inset_right="20">
-            <simplelayout spacing="20"/>
-			<text>No Medical Device templates are available at this time.</text>
-        </tabpane>
-        
-    </tabs>
-	<view align="right">
-		<simplelayout spacing="20" axis="x"/>
-	    <button onclick="parent.parent.parent.close()">OK</button>
-	    <button onclick="parent.backProjectChooser()">Cancel</button>
-	    <method name="backProjectChooser">
-			parent.parent.parent.projectChooser.open();
-			parent.parent.close();
-		</method>
-    </view>
-    </view>
+<class name="templatechooser" extends="kmodaldialog" width="448">
+	<view x="148" resource="logoswf" yoffset="48" name="logo" />
+	<view x="148" height="300" width="300">
+		<roundrect width="$once{parent.width}" height="$once{parent.height}"
+			backgroundStartColor="$once{kblue1}"
+			backgroundStopColor="$once{kblue1}"
+			borderRadius="15"
+			borderColor="0xffffff"
+		>
+
+		</roundrect>
+		<view width="$once{parent.width-40}" x="20" height="40" y="$once{parent.height-height}">
+			<roundrectbutton text="OK" height="20">
+				<handler name="onclick">
+					classroot.close();
+				</handler>			
+			</roundrectbutton>
+			<roundrectbutton text="Cancel" height="20" align="right">
+				<handler name="onclick">
+					classroot.close();
+				</handler>
+			</roundrectbutton>
+		</view>
+	</view>
+	<vbox xoffset="148" x="0" width="150" height="160" clip="true" y="20">
+		<category text="ATM" />
+		<category text="Cellular Phone"/>
+		<category text="Medical Device"/>
+		<category />
+	</vbox>
+	<method name="select" args="button">
+			if (this.selected != null) {
+				unselect(this.selected);
+				Debug.write("unselected");
+			}
+			var c = kblue1;
+			button._rr.setAttribute("backgroundStartColor", c);
+			button._rr.setAttribute("backgroundStopColor", c);
+			button.setAttribute("downStartColor", c);
+			button.setAttribute("downStopColor", c);
+			button.setAttribute("upStartColor", c);
+			button.setAttribute("upStopColor", c);
+			button.setAttribute("overStartColor", c);
+			button.setAttribute("overStopColor", c);
+			button._rr.drawStructure();
+			Debug.write("button pressed");
+			this.selected = button;
+	</method>
+	<method name="unselect" args="button">
+			//return things to default
+			var c = 0xffffff;
+			button.setAttribute("overStartColor", 0xffffab);
+			button.setAttribute("overStopColor", c);	
+			button.setAttribute("downStartColor", c);
+			button.setAttribute("downStopColor", c);
+			button.setAttribute("upStartColor", c);
+			button.setAttribute("upStopColor", c);
+			button._rr.setAttribute("backgroundStartColor", c);
+			button._rr.setAttribute("backgroundStopColor", c);
+			button._rr.drawStructure();
+			button.setAttribute("selected", false);	
+			
+	</method>
+    
 </class>
 </library>

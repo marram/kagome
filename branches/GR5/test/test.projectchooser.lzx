@@ -1,0 +1,7 @@
+<canvas>
+	<include href="../view/projectchooser.lzx" />
+	<include href="../view/kagomecolors.lzx" />
+	<include href="incubator/roundrectbutton.lzx" />
+	<include href="../resources" />
+	<projectchooser name="p" x="200" y="300"/>
+</canvas>

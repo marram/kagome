@@ -1,14 +1,31 @@
 <library>
-<class name="projectchooser" extends="modaldialog" width="400" height="200" allowdrag="false" title="Choose Project...">
-	<view align="center" layout="axis:y; spacing:30">
-	    <simplelayout spacing="5"/>
-		<text>Please select one: </text>
-		<button width="300" onclick="parent.openTemplateChooser()" isdefault="true">Start New Project</button>
-		<button width="300" onclick="parent.parent.close()">Open Existing Project</button>
+	
+<class name="projectchooser" width="400" height="140" extends="kmodaldialog">
+	<view resource="logoswf" yoffset="48" name="logo" />
+	<roundrect align="center" x="0" height="$once{parent.height}" width="${parent.width}"
+				backgroundStartColor="$once{kblue1}"
+			backgroundStopColor="$once{kblue2}"
+			borderRadius="8"
+			borderWidth="0"
+			borderColor="0xffffff"
+	>
+		<vbox spacing="5" height="100" width="$once{parent.width - 2*parent.borderRadius}">
+		<text y="20">What would you like to do? </text>
+		<roundrectbutton width="300" height="20" onclick="classroot.openTemplateChooser()" isdefault="true"  align="center">Start New Project</roundrectbutton>
+		<roundrectbutton width="300" height="20" onclick="classroot.close()"   align="center">Open Existing Project</roundrectbutton>		
+		</vbox>
+	</roundrect>
+
 		<method name="openTemplateChooser">
-			parent.parent.templateChooser.open();
-			parent.close();
+			canvas.templateChooser.open();
+			this.close();
 		</method>
-	</view>
+		<method name="onwidth">
+		
+		</method>
+		<method name="onheight">
+		
+		</method>
+
 </class>
 </library>

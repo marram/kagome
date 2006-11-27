@@ -4,6 +4,7 @@
 		<attribute name="state" value="OPENED" type="string"/>
 		<attribute name="clip" value="true" />
 		<attribute name="initWidth" value="$once{width}" />
+
 		<roundrect name="p" width="18" height="100">
 			<handler name="onclick">
 				var flag = parent.state;
@@ -33,10 +34,7 @@
 				this.state = "CLOSED"
 			}
 		</method>
-<NodePropertiesPane id="ppane"  visible="false" x="$once{parent.p.width}">
-</NodePropertiesPane>
 
-<EdgePropertiesPane id="edgePane" visible="false" x="$once{parent.p.width}">
-</EdgePropertiesPane>
+
 	</class>
 </library>

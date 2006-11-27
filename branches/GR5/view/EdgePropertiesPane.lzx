@@ -14,10 +14,15 @@
 		</method>
 		<method name="applyStuff">
 		canvas.dview.selectedobj.modeledge.setAttribute('sourceButton', inside.buttonSelect.getValue());
-		
+		canvas.dview.selectedobj.changeTarget(inside.targetcb.getValue().parent);
+		</method>
+		<method name="updateTargetNodesList">
+			this.inside.targetcb.update();
 		</method>
 		<view width="260" height="390"  name="inside">
     		<simplelayout axis="y" spacing="5"/>
+  			<text>Source Screen Preview</text>
+    		<atmminipreview name="preview" resource="minipreview"/>
     		<text>Event: </text>
     		<radiogroup id="group1">
     		<radiobutton value="1" text="Button press"  selected="true"/>
@@ -37,9 +42,33 @@
     				removeItemAt(0);
     			</method>
     		</combobox>
-  			
-  			<text>Source Screen </text>
-    		<atmminipreview name="preview" resource="minipreview"/>
+    		<text> Target Screen: </text>
+    		<combobox name="targetcb" width="200">
+    			<attribute name="counter" type="number" value="0"/>
+    			<method name="fill">
+	    			<![CDATA[
+	    				for (var i=0; i< canvas.model.nodes.length; i++) {
+	    					var n = canvas.model.nodes[i];
+	    					if ((n!=null) && (n != parent.preview.modelnode)) {
+		    					this.addItem(n.title, n);
+		    					this.counter++;
+		    					Debug.write(parent.preview.modelnode.uid);
+	    					}
+	    				}
+	    			]]>	
+    			</method>
+    			<method name="empty">
+	    			<![CDATA[
+	    				for (var i=this.counter-1; i>= 0; i--) {
+							removeItemAt(i);
+	    				}
+	    			]]>	
+    			</method>
+    			<method name="update">
+    			    empty();
+    				fill();
+    			</method>
+    		</combobox>
   		</view> 
 		
 	</class>

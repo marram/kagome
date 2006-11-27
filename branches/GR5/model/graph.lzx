@@ -27,5 +27,15 @@
 			ds.setQueryString({graph: JSON.stringify(getJSAttrs())});
 			ds.doRequest();
 		</method>
+		<method name="getNodesList">
+		/*
+		 * This method returns a list o
+		 */
+		</method>
+		
+		<method name="getNode" args="uid">
+			//returns a node given a UID
+			return this.nodes[uid];
+		</method>
 	</class>
 </library>

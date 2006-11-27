@@ -2,6 +2,13 @@
 	<class name="roundrectnode" extends="knode">
 		<attribute name="width" value="${titletext.width+10}" />
 		<attribute name="height" value="35" />
+		
+          	<animator name="anm_width_in" attribute="height" to="460" duration="500" start="false"/>
+		    <animator name="anm_height_in" attribute="width" to="280" duration="500" start="false"/>
+			
+          	<animator name="anm_width_out" attribute="height" to="35" duration="500" start="false"/>
+		    <animator name="anm_height_out" attribute="width" to="${parent.titletext.width+10}" duration="500" start="false"/>
+		
 		<roundrect name="inside" 
 					width="${parent.width}" 
 					height="${parent.height}"
@@ -13,6 +20,10 @@
 					backgroundGradientOrientation="horizontal"
 					>
 			
+			<NodePropertiesPane id="testnodePane" visible="false"
+					width="${parent.width}" 
+					height="${parent.height}"/>
+			
 			<handler name="onwidth">
 				//for some reason, the roundrect doesn't redraw when dimensions chang
 				drawStructure();
@@ -20,6 +31,9 @@
 			<handler name="onheight">
 				drawStructure();
 			</handler>	
+			
+
+
 		</roundrect>
 		<text name="titletext" x="5" y="8" text="${parent.title}" resize="true"/>
 		
@@ -27,12 +41,21 @@
 			inside.setAttribute("backgroundStartColor", nodehi);
 			inside.setAttribute("backgroundStopColor", nodehi);
 			inside.setAttribute("borderColor", nodehib);
+
+			this.anm_width_in.doStart();
+			this.anm_height_in.doStart();
+			inside.testnodePane.setVisible(true);
+
 			inside.drawStructure();
 		</method>
 		<method name="unhighlight">
 			inside.setAttribute("backgroundStartColor", nodeblue);
 			inside.setAttribute("backgroundStopColor", nodeblue);
 			inside.setAttribute("borderColor", nodedarkblue);
+
+			this.anm_width_out.doStart();
+			this.anm_height_out.doStart();
+
 			inside.drawStructure();			
 		</method>
 	

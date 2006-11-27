@@ -1,6 +1,6 @@
 <library>
-	<class name="baseconnector" extends="view" x="${b.x+b.width/2}" 
-		y="${b.y+b.height/2}" width="20"
+	<class name="baseconnector" extends="view" x="${from.x+from.width/2}" 
+		y="${from.y+from.height/2}" width="20"
 		height="300"
 		xoffset="${width/2}"
 		yoffset="${width/2}"
@@ -13,23 +13,21 @@
 		<attribute name="dx"/>
 		<attribute name="dy"/>
 		<method name="changeTarget" args="target">
-			this.e = target;
+			this.to = target;
 			this.modeledge.t = target.modelnode;
 			refreshConstraints();
 			adjust();
 		</method>
 		<handler name="onconstruct">
-			this.b= from;
-			this.e = to;
-
+			this.from = from;
+			this.to = to;
 		</handler>
 		<handler name="oninit">
 			adjust();
 			sendToBack();
 			//add pointers to the modelnodes to the modeledge
-			this.modeledge.s = this.b.modelnode;
-			this.modeledge.t = this.e.modelnode;
-			//this.modeledge.sourceButton = null;
+			this.modeledge.s = this.from.modelnode;
+			this.modeledge.t = this.to.modelnode;
 			refreshConstraints();
 		</handler>
 		<method name="refreshConstraints">
@@ -38,12 +36,12 @@
 			 * an edge is bound to
 			 */
 			var adjustDel = new LzDelegate(this, "adjust");
-			adjustDel.register(b, "onx");
-			adjustDel.register(b, "ony");
-			adjustDel.register(e, "onx");
-			adjustDel.register(e, "ony");			
-  			adjustDel.register(b, "onwidth");
-  			adjustDel.register(e, "onwidth");
+			adjustDel.register(from, "onx");
+			adjustDel.register(from, "ony");
+			adjustDel.register(to, "onx");
+			adjustDel.register(to, "ony");			
+  			adjustDel.register(from, "onwidth");
+  			adjustDel.register(to, "onwidth");
 		</method>
 								
 		<method name="adjust">
@@ -55,10 +53,10 @@
 			/*
 			 * Figure out the distance between start and endpoints
 			 */
-			var x1 = b.x+b.width/2;
-			var y1 = b.y+b.height/2;
-			var x2 = e.x+e.width/2;
-			var y2 = e.y+e.height/2;
+			var x1 = from.x+from.width/2;
+			var y1 = from.y+from.height/2;
+			var x2 = to.x+to.width/2;
+			var y2 = to.y+to.height/2;
 			dx = x1-x2;
 	        dy = y1 - y2
 		</method>
@@ -117,14 +115,14 @@
 				 */
 				// follow the top and bottom edges of the target node 
 				var angle = parent.rotation-90;
-				var thresholdAngle = Math.atan((classroot.e.width/2)/(classroot.e.height/2));
+				var thresholdAngle = Math.atan((classroot.to.width/2)/(classroot.to.height/2));
 				var tAngleDeg = thresholdAngle*180/Math.PI;
 				if (
 					(angle >= (90-tAngleDeg)) & (angle <= (90+tAngleDeg))
 					|
 					(angle >= (270-tAngleDeg)) & (angle <= (270+tAngleDeg))
 					) {
-					var a = classroot.e.height/2;
+					var a = classroot.to.height/2;
 					var theta = Math.abs(angle-90); 
 					var b = a*Math.tan(toRad(theta));
 					var hyp = Math.sqrt(a*a+ b*b);
@@ -132,10 +130,10 @@
 				}
 				//else follow the left and right edges of the target node.
 				else {
-					thresholdAngle = Math.atan((classroot.e.height/2)/(classroot.e.width/2));
+					thresholdAngle = Math.atan((classroot.to.height/2)/(classroot.to.width/2));
 					tAngleDeg = thresholdAngle*180/Math.PI;
 					//Debug.write(angle, tAngleDeg);
-					var a = classroot.e.width/2;
+					var a = classroot.to.width/2;
 					var theta = Math.abs(angle); 
 					var b = a*Math.tan(toRad(theta));
 					var hyp = Math.sqrt(a*a+ b*b);

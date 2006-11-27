@@ -17,6 +17,11 @@
 	 
 	 <attribute name="coord" type="number" value="100" />
 	 
+	 <!-- 
+	 	Attributes that track the mouse. These will be used to constrain the mouse follower view to within the bounds of dview
+	  -->
+	 <attribute name="mousex" type="number" value="${getMouse('x')}" />
+	 <attribute name="mousey" type="number" value="${getMouse('y')}" />
 	<event name="onselectswitch" />
 	<!-- Nodes fire this event in the view when they are clicked. 
 	This will be used to create new connectors. To create a new conenctor, 
@@ -40,13 +45,31 @@
 	</handler>
 	<handler name="onselectedobj">
 		this.selectedobj.highlight();
-	</handler>	
+	</handler>
+	<!-- 
+		This is a view that always follows the mouse. It has zero width and height so that it doesn't interfere with mouse clicks .. etc.
+		I made this declarati
+	 -->
+	<view name="mfollower" width="0" height="0" bgcolor="0xabcabc">
+		<handler name="onmousex" reference="parent">
+			//The +10 offset is so that the newly created edge does not intercept mouse clicks
+			if (parent.mousex >= 0) {
+				setX(parent.mousex + 10);
+				}
+		</handler>
+		<handler name="onmousey" reference="parent">
+			if (parent.mousey >= 0) {
+				setY(parent.mousey + 10);
+				}		
+		</handler>		
+	</view>
+		
 	<handler name="onnodeclicked" args="clickednode">
 	<![CDATA[
 		//are we in the correct mode?
 		if (this.modeFlag == "ADD_CONNECTOR")
 		{
-			//if there was a previously clicked node
+			//if there was a previously clicked node. Also make sure that user cannot create self edges (where the same node is source and target).
 			if ((this.pclickednode != null) && (this.pclickednode != clickednode)) {
 					//make a connector
 					var ncon = new connector(this, {from:this.pclickednode,to:clickednode});
@@ -56,6 +79,7 @@
 				}
 			else {//make this the first clicked node
 				this.pclickednode = clickednode;
+				this.followingCon = new connector(this, {from:this.pclickednode,to:this.mfollower});			
 			}
 		}
 	]]>	
@@ -66,7 +90,13 @@
 			case "ADD_CONNECTOR":
 				LzCursor.setCursorGlobal('concursor');
 				break;
+			
 			default:
+				//is there an edge that is following the cursor?
+				if (this.followingCon != null) {
+					this.followingCon.destroy();
+					Debug.write("follower destroyed");
+				}
 				LzCursor.restoreCursor();
 				break;
 		}
@@ -81,6 +111,7 @@
 		}
 		//also release the modeflag
 		this.setAttribute('modeFlag', 'NONE');
+		Debug.write("dview clicked");
 	</handler>
 	<method name="deleteSelected">
 		var obj = this.selectedobj;

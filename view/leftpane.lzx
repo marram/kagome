@@ -5,7 +5,10 @@
 		<attribute name="clip" value="true" />
 		<attribute name="initWidth" value="$once{width}" />
 
-		<roundrect name="p" width="18" height="100">
+		<roundrect name="p" width="18" height="100%"
+			backgroundStartColor="$once{korange}"
+			backgroundStopColor="$once{kyellow}"
+		>
 			<handler name="onclick">
 				var flag = parent.state;
 				if (flag == "OPENED")
@@ -17,8 +20,6 @@
 		<view name="inside" width="${parent.width-parent.vrule.width}" height="100%">
 
 		</view>
-		<view name="vrule" bgcolor="0x8CC63F" width="1" height="${parent.height}" x="${parent.width-width}"/>
-
 	
 		<animator name="opener" attribute="width" from="18" to="${parent.initWidth}" duration="500" start="false" />
 		<animator name="closer" attribute="width" from="${parent.initWidth}" to="18" duration="500" start="false" />

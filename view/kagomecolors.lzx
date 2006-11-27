@@ -7,8 +7,8 @@
 		var nodeblue = 0xA2DDF2;		//roundrectnode background color
 		var nodedarkblue = 0x2BAAE1;	//roundrectnode border color
 		
-		var kblue1 =  0xA2DDF2			//gradient start in proppane
-		var kblue2 =  0x2BAAE1			//gradient stop in proppane
+		var kblue1 =  0xA2DDF2;			//gradient start in proppane
+		var kblue2 =  0x2BAAE1;			//gradient stop in proppane
 		
 		var korange = 0xFF8930;
 		var kyellow = 0xFFE630;

@@ -90,7 +90,8 @@
 		<handler name="edgeDeleted" reference="dview" args="modeledge">
 			var id = modeledge.uid;
 			this.edges[id-1] = null
-		</handler>				
+		</handler>
+
 	</graph>
 
 

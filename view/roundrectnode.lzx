@@ -2,17 +2,9 @@
 	<class name="roundrectnode" extends="knode">
 		<attribute name="width" value="${titletext.width+10}" />
 		<attribute name="height" value="35" />
-		<attribute name="oldX" value="${this.x}" />
-		<attribute name="oldY" value="${this.y}" />
 		
-		
-			<animator name="anm_x_in" attribute="x" to="${this.x+this.width/2-230}" duration="500" start="false"/>
-			<animator name="anm_y_in" attribute="y" to="${this.x+this.width/2-230}" duration="500" start="false"/>
           	<animator name="anm_width_in" attribute="height" to="460" duration="500" start="false"/>
 		    <animator name="anm_height_in" attribute="width" to="280" duration="500" start="false"/>
-
-			<animator name="anm_x_out" attribute="x" to="${this.oldX}" duration="500" start="false"/>
-			<animator name="anm_y_out" attribute="y" to="${this.oldY}" duration="500" start="false"/>
           	<animator name="anm_width_out" attribute="height" to="35" duration="500" start="false"/>
 		    <animator name="anm_height_out" attribute="width" to="${parent.titletext.width+10}" duration="500" start="false"/>
 		
@@ -26,10 +18,6 @@
 					borderWidth="3"
 					backgroundGradientOrientation="horizontal"
 					>
-			
-			<NodePropertiesPane id="testnodePane" visible="false"
-					width="${parent.width}" 
-					height="${parent.height}"/>
 			
 			<handler name="onwidth">
 				//for some reason, the roundrect doesn't redraw when dimensions chang
@@ -51,12 +39,8 @@
 
 			this.anm_width_in.doStart();
 			this.anm_height_in.doStart();
-			this.anm_x_in.doStart();
-			this.anm_y_in.doStart();
 
-			inside.testnodePane.setVisible(true);
-
-			inside.drawStructure();
+			inside.drawStructure();			
 		</method>
 		<method name="unhighlight">
 			inside.setAttribute("backgroundStartColor", nodeblue);
@@ -65,10 +49,8 @@
 
 			this.anm_width_out.doStart();
 			this.anm_height_out.doStart();
-			this.anm_x_out.doStart();
-			this.anm_y_out.doStart();
 
-			inside.drawStructure();			
+			inside.drawStructure();
 		</method>
 	
 	</class>

@@ -11,6 +11,13 @@
     		inside.buttonSelect.addItem("4 " + propedge.s.b4text, 4);
     		inside.buttonSelect.selectItem(propedge.sourceButton);
     		inside.targetcb.selectItem(propedge.t);
+			inside.previewscreen.screentitle.setText(canvas.dview.selectedobj.modeledge.s.screentitle);
+			inside.previewscreen.screentext.setText(canvas.dview.selectedobj.modeledge.s.screentext);
+			inside.previewscreen.lp1.setText(canvas.dview.selectedobj.modeledge.s.b1text);
+			inside.previewscreen.lp2.setText(canvas.dview.selectedobj.modeledge.s.b2text);
+			inside.previewscreen.lp3.setText(canvas.dview.selectedobj.modeledge.s.b3text);
+			inside.previewscreen.lp4.setText(canvas.dview.selectedobj.modeledge.s.b4text);
+			
 		</method>
 		<method name="applyStuff">
 		canvas.dview.selectedobj.modeledge.setAttribute('sourceButton', inside.buttonSelect.getValue());
@@ -28,9 +35,11 @@
 		</handler>
 		<view width="260" height="390"  name="inside">
     		<simplelayout axis="y" spacing="5"/>
+    		
   			<text>Source Screen Preview</text>
     		<atmminipreview name="preview" resource="minipreview"/>
     		<text>Event: </text>
+
     		<radiogroup id="group1">
     		<radiobutton value="1" text="Button press"  selected="true"/>
   			</radiogroup>
@@ -49,6 +58,7 @@
     				removeItemAt(0);
     			</method>
     		</combobox>
+
     		<text> Target Screen: </text>
     		<combobox name="targetcb" width="200">
     			<attribute name="counter" type="number" value="0"/>
@@ -78,5 +88,6 @@
     		</combobox>
   		</view> 
 		
+
 	</class>
 </library>

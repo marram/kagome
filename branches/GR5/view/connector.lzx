@@ -101,12 +101,12 @@
 	 -->
 	<class name="connector" extends="baseconnector">
 		<!--  the color of the connector -->
-		<attribute name="color" type="color" value="0x00ADEF" />
+		<attribute name="color" type="color" value="${kblue2}" />
 		<!--  make sure to asign a resource for arrowhead -->
 		<view name="arrowhead" 
 
 		xoffset="0" ondblclick="parent.dodblclick()">
-			<attribute name="resource" value="arrowhead" />
+			<attribute name="resource" value="arrowheadswf" />
 			<handler name="onrotation" reference="parent">
 			<![CDATA[
 				/*
@@ -115,17 +115,16 @@
 				 *  makes the arrow head location be on a circle perimeter.
 				 *  this is to fix it so that it would follow a rectangular perimeter.
 				 */
-				 
 				// follow the top and bottom edges of the target node 
 				var angle = parent.rotation-90;
-				var thresholdAngle = Math.atan((classroot.to.width/2)/(classroot.to.height/2));
+				var thresholdAngle = Math.atan((classroot.e.width/2)/(classroot.e.height/2));
 				var tAngleDeg = thresholdAngle*180/Math.PI;
 				if (
 					(angle >= (90-tAngleDeg)) & (angle <= (90+tAngleDeg))
 					|
 					(angle >= (270-tAngleDeg)) & (angle <= (270+tAngleDeg))
 					) {
-					var a = classroot.to.height/2;
+					var a = classroot.e.height/2;
 					var theta = Math.abs(angle-90); 
 					var b = a*Math.tan(toRad(theta));
 					var hyp = Math.sqrt(a*a+ b*b);
@@ -133,10 +132,10 @@
 				}
 				//else follow the left and right edges of the target node.
 				else {
-					thresholdAngle = Math.atan((classroot.to.height/2)/(classroot.to.width/2));
+					thresholdAngle = Math.atan((classroot.e.height/2)/(classroot.e.width/2));
 					tAngleDeg = thresholdAngle*180/Math.PI;
 					//Debug.write(angle, tAngleDeg);
-					var a = classroot.to.width/2;
+					var a = classroot.e.width/2;
 					var theta = Math.abs(angle); 
 					var b = a*Math.tan(toRad(theta));
 					var hyp = Math.sqrt(a*a+ b*b);
@@ -177,7 +176,7 @@
 		
 		<!--  this is the line that actually appears inside the connector -->
 		<view name="line" 
-			  bgcolor="$once{parent.color}"
+			  bgcolor="${parent.color}"
 			  width="1"
 			  xoffset="$once{-parent.width/2+width}"
 			  height="${parent.height}"
@@ -187,9 +186,16 @@
 			such as highlight, unhighlight, select, etc.
 		 -->
 		<method name="highlight">
-			setBGColor("0xFFE630");
+			arrowhead.setResource("arrowheadhswf");
+			line.setAttribute('width', 3);
+			line.sendToBack();
+			setAttribute('color', kyellow);
+			setBGColor(korange);
 		</method>
 		<method name="unhighlight">
+			arrowhead.setResource("arrowheadswf");
+			line.setAttribute('width', 1);
+			setAttribute('color', kblue2);
 			setBGColor(null);
 		</method>
 		<handler name="ondblclick">

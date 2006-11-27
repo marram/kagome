@@ -5,9 +5,7 @@
 	<class name="NodePropertiesPane" extends="proppane" width="280"
 		height="460" paneTitle="Screen Properties">
 		<method name="setStuff" args="propnode">
-			inside.nodetitle.setText(propnode.title);
 
-			//inside.screentitle.setText(propnode.screentitle);
 			inside.screentext.setText(propnode.screentext);
 
 			inside.bt1.setText(propnode.b1text);
@@ -16,6 +14,7 @@
 			inside.bt4.setText(propnode.b4text);
 		</method>
 		<method name="applyStuff">
+
 			canvas.dview.selectedobj.modelnode.setAttribute('title',
 			inside.nodetitle.getText());
 
@@ -33,7 +32,10 @@
 			canvas.dview.selectedobj.modelnode.setAttribute('b4text',
 			inside.bt4.getText());
 
+
 		</method>
+
+
 		<view width="260" height="390" name="inside">
 
 			<wrappinglayout axis="x" spacing="2" />

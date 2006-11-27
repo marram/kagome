@@ -12,6 +12,12 @@
 		
 		<attribute name="dx"/>
 		<attribute name="dy"/>
+		<method name="changeTarget" args="target">
+			this.e = target;
+			this.modeledge.t = target.modelnode;
+			refreshConstraints();
+			adjust();
+		</method>
 		<handler name="onconstruct">
 			this.b= from;
 			this.e = to;
@@ -24,25 +30,21 @@
 			this.modeledge.s = this.b.modelnode;
 			this.modeledge.t = this.e.modelnode;
 			//this.modeledge.sourceButton = null;
+			refreshConstraints();
 		</handler>
-		<handler name="onx" reference="b">
-				adjust();
-		</handler>
-		<method event="ony" reference="b">
-				adjust();
+		<method name="refreshConstraints">
+			/*
+			 * So I'm going to express the connector constraints in script rather than tags so that we can easily change the nodes
+			 * an edge is bound to
+			 */
+			var adjustDel = new LzDelegate(this, "adjust");
+			adjustDel.register(b, "onx");
+			adjustDel.register(b, "ony");
+			adjustDel.register(e, "onx");
+			adjustDel.register(e, "ony");			
+  			adjustDel.register(b, "onwidth");
+  			adjustDel.register(e, "onwidth");
 		</method>
-		<method event="onx" reference="e">
-				adjust();
-		</method>
-		<handler name="ony" reference="e">
-				adjust();
-		</handler>
-		<handler name="onwidth" reference="b">
-			adjust();
-		</handler>
-		<method event="onwidth" reference="e">
-			adjust();
-		</method>	
 								
 		<method name="adjust">
 		    __refreshdxdy();

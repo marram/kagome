@@ -47,7 +47,7 @@
 			 	bt4="${parent.bt4.text}"
 			 />
 
-			<ktext>Node Title</ktext>
+			<ktext>Screen Title</ktext>
 			<edittext width="150" name="nodetitle">
 				<method event="ontext">
 

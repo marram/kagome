@@ -26,6 +26,7 @@
 		The rest of the attributes come from the template
 		 -->
 		 <attribute name="uid" type="number" />
+
 		 <attribute name="title"  type="string"  value="untitled"/>
 		 <attribute name="screentitle"  type="string" value=""/>
 		 <attribute name="screentext"  type="string" value=""/>
@@ -33,6 +34,7 @@
 		 <attribute name="b2text" type="string" value=""/>
 		 <attribute name="b3text" type="string" value=""/>
 		 <attribute name="b4text" type="string" value=""/>
+
 		 <handler name="onuid">
 		 	setAttribute('title', title+uid);
 		 	Debug.write("uid is ", uid);

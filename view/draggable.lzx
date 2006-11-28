@@ -1,7 +1,6 @@
 <library>
 
-	<class name="draggable" onmousedown="dr.apply()"
-		onmouseup="dr.remove()">
+	<class name="draggable" onmousedown="dr.apply()" onmouseup="dr.remove()">
 	<dragstate name="dr"  
 	      drag_min_x="0"
           drag_max_x="$once{parent.width - this.width}"

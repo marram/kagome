@@ -2,6 +2,7 @@
 	<include href="base/" />
 	<include href="kagomecolors.lzx" />
 	<include href="draggable.lzx" />
+	<include href="bigdraggable.lzx" />
 	<include href="knode.lzx" />
 	<include href="connector.lzx" />
 	<include href="circle.lzx" />

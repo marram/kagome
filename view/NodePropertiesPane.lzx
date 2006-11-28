@@ -5,7 +5,7 @@
 	<class name="NodePropertiesPane" extends="proppane" width="280"
 		height="460" paneTitle="Screen Properties">
 		<method name="setStuff" args="propnode">
-
+			inside.nodetitle.setText(propnode.title);
 			inside.screentext.setText(propnode.screentext);
 
 			inside.bt1.setText(propnode.b1text);

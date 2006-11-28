@@ -91,9 +91,7 @@
 			var id = modeledge.uid;
 			this.edges[id-1] = null
 		</handler>
-
 	</graph>
-
 
 <projectchooser name="projectChooser" />
 <templatechooser name="templateChooser" />

@@ -1,5 +1,5 @@
 <library>
-	<class name="devview">
+	<class name="devview" extends = "bigdraggable">
 	
 	<NodePropManipulation name="nManipulation" visible="false">
 	</NodePropManipulation>
@@ -19,7 +19,7 @@
 	 -->
 	 <attribute name="modeFlag" type="string"/>
 	 
-	 <attribute name="coord" type="number" value="100" />
+	 <attribute name="coord" type="number" value="1000" />
 	 
 	 <!-- 
 	 	Attributes that track the mouse. These will be used to constrain the mouse follower view to within the bounds of dview
@@ -41,7 +41,10 @@
 	<event name="edgeAdded" />
 	<event name="nodeDeleted" />
 	<event name="edgeDeleted" />		
-
+	
+	<handler name="oninit">
+		this.sendToBack();
+	</handler>
 	
 	<handler name="onselectswitch">
 		if (this.selectedobj)
@@ -117,6 +120,7 @@
 		this.setAttribute('modeFlag', 'NONE');
 		Debug.write("dview clicked");
 	</handler>
+	
 	<method name="deleteSelected">
 		var obj = this.selectedobj;
 		var type = "";

@@ -30,6 +30,20 @@
 			}
 		</handler>
 		
+		<handler name="onstate" reference="canvas.leftp">
+			if (this.highlighted == true) {
+				if (canvas.leftp.state == "CLOSED") {
+					this.anm_width_in.doStart();
+					this.anm_height_in.doStart();
+				}
+				else {
+					this.anm_width_out.doStart();
+					this.anm_height_out.doStart();
+					parent.nManipulation.setVisible(false);
+				}
+			}
+		</handler>
+		
 		<roundrect name="inside" 
 					width="${parent.width}" 
 					height="${parent.height}"
@@ -58,10 +72,12 @@
 			inside.setAttribute("backgroundStartColor", nodehi);
 			inside.setAttribute("backgroundStopColor", nodehi);
 			inside.setAttribute("borderColor", nodehib);
-
-			this.anm_width_in.doStart();
-			this.anm_height_in.doStart();
-
+			
+			if (canvas.leftp.state == "CLOSED") {
+				this.anm_width_in.doStart();
+				this.anm_height_in.doStart();
+			}
+			
 			inside.drawStructure();			
 		</method>
 		<method name="unhighlight">
@@ -71,9 +87,11 @@
 			inside.setAttribute("backgroundStartColor", nodeblue);
 			inside.setAttribute("backgroundStopColor", nodeblue);
 			inside.setAttribute("borderColor", nodedarkblue);
-
-			this.anm_width_out.doStart();
-			this.anm_height_out.doStart();			
+				
+			if (canvas.leftp.state == "CLOSED") {			
+				this.anm_width_out.doStart();
+				this.anm_height_out.doStart();
+			}
 
 			inside.drawStructure();
 		</method>

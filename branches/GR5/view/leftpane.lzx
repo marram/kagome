@@ -26,13 +26,13 @@
 		<method name="open">
 			if (this.state == "CLOSED") {
 				this.opener.doStart();
-				this.state = "OPENED"
+				this.setAttribute("state", "OPENED");
 			}
 		</method>
 		<method name="close">
 			if (this.state == "OPENED") {
 				this.closer.doStart();
-				this.state = "CLOSED"
+				this.setAttribute("state", "CLOSED");
 			}
 		</method>
 

@@ -13,6 +13,8 @@
 			if (width == 280) {
 				parent.nManipulation.bringToFront();
 				parent.nManipulation.setVisible(true);
+				parent.nManipulation.setAttribute("x", this.x);
+				parent.nManipulation.setAttribute("y", this.y);
 			}
 		</handler>
 		
@@ -47,13 +49,11 @@
 				drawStructure();
 			</handler>	
 			
-
-
 		</roundrect>
 		<text name="titletext" x="5" y="8" text="${parent.title}" resize="true"/>
 		
 		<method name="highlight" >			
-			
+			this.highlighted = true;
 
 			inside.setAttribute("backgroundStartColor", nodehi);
 			inside.setAttribute("backgroundStopColor", nodehi);
@@ -65,11 +65,13 @@
 			inside.drawStructure();			
 		</method>
 		<method name="unhighlight">
+			parent.nManipulation.setVisible(false);
+			this.highlighted = false;
+		
 			inside.setAttribute("backgroundStartColor", nodeblue);
 			inside.setAttribute("backgroundStopColor", nodeblue);
 			inside.setAttribute("borderColor", nodedarkblue);
 
-			parent.nManipulation.setVisible(false);
 			this.anm_width_out.doStart();
 			this.anm_height_out.doStart();			
 

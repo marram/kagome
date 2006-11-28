@@ -9,6 +9,7 @@
 		</handler>
 		<handler name="onmousedown">
 			this.bringToFront();
+			parent.nManipulation.bringToFront();
 		</handler>
 		<handler name="onclick" >
 			parent.onnodeclicked.sendEvent(this);

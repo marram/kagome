@@ -1,5 +1,9 @@
 <library>
 	<class name="devview">
+	
+	<NodePropManipulation name="nManipulation" visible="false">
+	</NodePropManipulation>
+	
 	<!--  this attribute gets set to the currently selected object (node or edge). -->
 	<attribute name="selectedobj" />
 	<!--  this attribute sets the shape of the nodes that will be drawn.

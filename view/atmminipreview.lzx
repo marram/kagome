@@ -11,7 +11,36 @@
 			 />
 			 
 			 
- -->
+ -->		
+ 			<!--  a button cover so that you can choose a button on the ATM -->
+ 			<class name="bcover" extends="view" bgcolor="0xabcabc" opacity="0.5" width="100" height="20" visible="false">
+ 				<!-- 
+ 					I first implemented this using states but it didnt work too well. Using methods instead.
+ 				 -->
+				<method name="pos1">
+					setAttribute('visible', true);
+					setAttribute('x', 5);
+					setAttribute('y', 100);
+				</method>	
+				<method name="pos2">
+					setAttribute('visible', true);
+					setAttribute('x', 5);
+					setAttribute('y', 125);
+				</method>
+				<method name="pos3">
+					setAttribute('visible', true);
+					setAttribute('x', 147);
+					setAttribute('y', 100);
+				</method>
+				<method name="pos4">
+					setAttribute('visible', true);
+					setAttribute('x', 147);
+					setAttribute('y', 125);
+				</method>
+				<method name="none">
+					setAttribute('visible', false);
+				</method>			 								
+ 			</class>
 			<class name="atmminipreview">
 				<!-- Give attributes initial values to remove warnings from Debug window -->
 				<attribute name="bt1" type="string" value=""/>
@@ -20,7 +49,7 @@
 				<attribute name="bt4" type="string" value=""/>
 				<attribute name="screenText" type="string" value=""/>
 				<attribute name="modelnode"/>
-				
+				<bcover name="buttonCover"/>
 				<text name="lp1" x="45" y="100"
 					text="${parent.bt1}" />
 				<text name="lp2" x="45" y="125"
@@ -43,5 +72,25 @@
 					setAttribute("bt3", modelnode.b3text);
 					setAttribute("bt4", modelnode.b4text);
 				</handler>
+				<method name="setButton" args="num">
+					Debug.write("Setting button to", num);
+					switch (num) {
+						case 1:
+							buttonCover.pos1();
+							break;
+						case 2:
+							buttonCover.pos2();
+							break;
+						case 3:
+							buttonCover.pos3();
+							break;
+						case 4:
+							buttonCover.pos4();
+							break;
+						default:
+							buttonCover.none();
+							break;
+					}
+				</method>
 			</class>
 </library>

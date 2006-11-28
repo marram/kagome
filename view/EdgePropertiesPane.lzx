@@ -9,7 +9,12 @@
     		inside.buttonSelect.addItem("2 " + propedge.s.b2text, 2);
     		inside.buttonSelect.addItem("3 " + propedge.s.b3text, 3);
     		inside.buttonSelect.addItem("4 " + propedge.s.b4text, 4);
-    		inside.buttonSelect.selectItem(propedge.sourceButton);
+    		if (propedge.sourceButton != null) {
+    			inside.buttonSelect.selectItem(propedge.sourceButton);
+    		}
+    		else {
+    			inside.buttonSelect.select(inside.buttonSelect.getItemAt(0));
+    		}
     		inside.targetcb.selectItem(propedge.t);
 			inside.previewscreen.screentitle.setText(canvas.dview.selectedobj.modeledge.s.screentitle);
 			inside.previewscreen.screentext.setText(canvas.dview.selectedobj.modeledge.s.screentext);
@@ -57,6 +62,9 @@
     				removeItemAt(1);
     				removeItemAt(0);
     			</method>
+    			<handler name="onvalue">
+    				parent.preview.setButton(this.value);
+    			</handler>
     		</combobox>
 
     		<text> Target Screen: </text>

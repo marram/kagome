@@ -16,12 +16,13 @@
     			inside.buttonSelect.select(inside.buttonSelect.getItemAt(0));
     		}
     		inside.targetcb.selectItem(propedge.t);
-			inside.previewscreen.screentitle.setText(canvas.dview.selectedobj.modeledge.s.screentitle);
-			inside.previewscreen.screentext.setText(canvas.dview.selectedobj.modeledge.s.screentext);
-			inside.previewscreen.lp1.setText(canvas.dview.selectedobj.modeledge.s.b1text);
-			inside.previewscreen.lp2.setText(canvas.dview.selectedobj.modeledge.s.b2text);
-			inside.previewscreen.lp3.setText(canvas.dview.selectedobj.modeledge.s.b3text);
-			inside.previewscreen.lp4.setText(canvas.dview.selectedobj.modeledge.s.b4text);
+			//We don't need the following because we are setting the attributes in the minipreview using a modelnode. See the first line in this method
+			//inside.previewscreen.screentitle.setText(canvas.dview.selectedobj.modeledge.s.screentitle);
+			//inside.previewscreen.screentext.setText(canvas.dview.selectedobj.modeledge.s.screentext);
+			//inside.previewscreen.lp1.setText(canvas.dview.selectedobj.modeledge.s.b1text);
+			//inside.previewscreen.lp2.setText(canvas.dview.selectedobj.modeledge.s.b2text);
+			//inside.previewscreen.lp3.setText(canvas.dview.selectedobj.modeledge.s.b3text);
+			//inside.previewscreen.lp4.setText(canvas.dview.selectedobj.modeledge.s.b4text);
 			
 		</method>
 		<method name="applyStuff">

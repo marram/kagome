@@ -37,5 +37,34 @@
 			//returns a node given a UID
 			return this.nodes[uid];
 		</method>
+		
+		<!--  this method returns the number of edges with the same source and target -->
+		<method name="getSimilarEdgeCount" args="edge">
+		<![CDATA[
+			var count = 0;
+			for (var i=0; i < edges.length; i++)
+			{
+				var iedge = edges[i];
+				if ((iedge != null) && (iedge.s == edge.s) && (iedge.t == edge.t)) {
+					count++;
+				}
+			}
+			return count;
+		]]>
+		</method>
+		<!-- returns similar edges including the edge passed itself -->
+		<method name="getSimilarEdges" args="edge">
+		<![CDATA[
+			var simEdgeArr = new Array();
+			for (var i=0; i < edges.length; i++)
+			{
+				var iedge = edges[i];
+				if ((iedge != null) && (iedge.s == edge.s) && (iedge.t == edge.t)) {
+					simEdgeArr.push(iedge);
+				}
+			}
+			return simEdgeArr;
+		]]>	
+		</method>
 	</class>
 </library>

@@ -50,6 +50,7 @@
 				<attribute name="screenText" type="string" value=""/>
 				<attribute name="modelnode"/>
 				<bcover name="buttonCover"/>
+				<text name="st" text="${parent.screenText}" align="center" y="20" multiline="true" />
 				<text name="lp1" x="45" y="100"
 					text="${parent.bt1}" />
 				<text name="lp2" x="45" y="125"
@@ -71,6 +72,7 @@
 					setAttribute("bt2", modelnode.b2text);
 					setAttribute("bt3", modelnode.b3text);
 					setAttribute("bt4", modelnode.b4text);
+					setAttribute("screenText", modelnode.screentext);
 				</handler>
 				<method name="setButton" args="num">
 					Debug.write("Setting button to", num);

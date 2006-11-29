@@ -47,6 +47,7 @@
 			 	bt2="${parent.bt2.text}"
 			 	bt3="${parent.bt3.text}"
 			 	bt4="${parent.bt4.text}"
+			 	screenText="${parent.screentext.text}"
 			 />
 
 			<ktext>Screen Title</ktext>

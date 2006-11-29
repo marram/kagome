@@ -29,7 +29,9 @@
 </leftpane>
 <toppane name="topp" width="100%"/>
 <view name="vrule" bgcolor="0x8CC63F" y="$once{topp.topbar.y+topp.topbar.height}" width="1" height="${leftp.height}" x="${leftp.width-width}"/>
-<devview name="dview" bgcolor = "0xABCABC" width="2000" height="2000" y="-750" x="-750">
+
+<devview name="dview" width="100%" height="100%" y="$once{topp.height}" x="${leftp.width}">
+
 	<!-- text><b><i>Development Area</i></b></text-->
 </devview>
 
@@ -77,6 +79,8 @@
 		<handler name="edgeAdded" reference="dview" args="modeledge">
 			var edgeID = this.edges.push(modeledge);
 			modeledge.setAttribute('uid', edgeID);
+			//adjust hints/labels if there is more than one connecting the same nodes
+			dview.adjustSimilarConnectors(modeledge.parent);
 		</handler>
 		<handler name="nodeDeleted" reference="dview" args="modelnode">
 			/*

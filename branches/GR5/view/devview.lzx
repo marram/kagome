@@ -1,5 +1,5 @@
 <library>
-	<class name="devview" extends = "bigdraggable">
+	<class name="devview">
 	
 	<NodePropManipulation name="nManipulation" visible="false">
 	</NodePropManipulation>
@@ -19,7 +19,7 @@
 	 -->
 	 <attribute name="modeFlag" type="string"/>
 	 
-	 <attribute name="coord" type="number" value="1000" />
+	 <attribute name="coord" type="number" value="100" />
 	 
 	 <!-- 
 	 	Attributes that track the mouse. These will be used to constrain the mouse follower view to within the bounds of dview
@@ -41,10 +41,7 @@
 	<event name="edgeAdded" />
 	<event name="nodeDeleted" />
 	<event name="edgeDeleted" />		
-	
-	<handler name="oninit">
-		this.sendToBack();
-	</handler>
+
 	
 	<handler name="onselectswitch">
 		if (this.selectedobj)
@@ -108,6 +105,7 @@
 				break;
 		}
 	</handler>
+
 	<handler name="onclick">
 		//when we click on the development view somewhere outside an object
 		//unhighlight the currently selected object, if any
@@ -120,7 +118,6 @@
 		this.setAttribute('modeFlag', 'NONE');
 		Debug.write("dview clicked");
 	</handler>
-	
 	<method name="deleteSelected">
 		var obj = this.selectedobj;
 		var type = "";
@@ -169,6 +166,24 @@
 			this.nodeAdded.sendEvent(nc.modelnode);
 			//return a reference to the just added node.
 			return nc;
+	</method>
+	<method name="adjustSimilarConnectors" args="connector">
+	<![CDATA[
+		var simEdges = canvas.model.getSimilarEdges(connector.modeledge);
+		//connector is the parent container(LZX node) of edge
+		if (simEdges.length > 0) {
+			var tSize = simEdges[0].parent.thint.width;
+			var off = 2;
+			for (var i=0; i < simEdges.length; i++) {
+				if (i >0) {
+					var tSize = simEdges[i-1].parent.thint.width;
+				}
+				var nOffset = (i-Math.floor(simEdges.length/2))*(tSize+off);
+				simEdges[i].parent.animate('thintoffset',  nOffset, 700, true,{motion:'easeout', relative: false}); 
+
+			}
+		}
+	]]>
 	</method>
 	<handler name="onmouseover">
 		LzCursor.showHandCursor(false);

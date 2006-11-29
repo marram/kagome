@@ -9,7 +9,7 @@
 		<!-- Pointers to connected objects  -->
 		<attribute name="from" />
 		<attribute name="to"/>
-		
+
 		<attribute name="dx"/>
 		<attribute name="dy"/>
 		<method name="changeTarget" args="target">
@@ -58,7 +58,7 @@
 			var x2 = to.x+to.width/2;
 			var y2 = to.y+to.height/2;
 			dx = x1-x2;
-	        dy = y1 - y2
+	        dy = y1 - y2;
 		</method>
 		<method name="__calcHeight">
 			//distance between two points.
@@ -100,10 +100,12 @@
 	<class name="connector" extends="baseconnector">
 		<!--  the color of the connector -->
 		<attribute name="color" type="color" value="${kblue2}" />
+		<!--  this attribute will be used to offset the hints of edges/connectors joining the same nodes so that they can be distinguished -->
+		<attribute name="thintoffset" value="0" />
 		<!--  make sure to asign a resource for arrowhead -->
 		<view name="arrowhead" 
 
-		xoffset="0" ondblclick="parent.dodblclick()">
+		ondblclick="parent.dodblclick()" xoffset="${parent.line.xoffset+width/2}">
 			<attribute name="resource" value="arrowheadswf" />
 			<handler name="onrotation" reference="parent">
 			<![CDATA[
@@ -155,20 +157,41 @@
 			Note that rotation constraint to make sure the hint is always up straight
 			regardless of the rotation angle of the connector.
 		-->
-		<view name="thint"  
-		y="${parent.height/2}" 
+		<roundrect name="thint"  
+		y="${parent.arrowhead.y/2+parent.thintoffset}" 
 		rotation="${-parent.rotation}"
+					backgroundStartColor="$once{nodeblue}"
+					backgroundStopColor="$once{nodeblue}"
+					borderRadius="15"
+					borderColor="$once{nodedarkblue}"
+					borderWidth="1"
+		width="30"
+		height="30"
 		>
-			<text fontsize="15" text="${classroot.modeledge.sourceButton}">
-			<handler name="oninit">
-				if (classroot.modeledge.sourceButton == null)
-				{
-					setText("?");
-				}
-			</handler>
-				
+			<text fontsize="15" text="${classroot.modeledge.sourceButton}" yoffset="2" width="$once{parent.width}" >
+				<handler name="oninit">
+					if (classroot.modeledge.sourceButton == null)
+					{
+						setText("?");
+					}
+				</handler>
 			</text>
-		</view>
+			<handler name="ondblclick">
+				classroot.dodblclick();
+			</handler>
+			<method name="highlight">
+				setAttribute('backgroundStartColor', kyellow);
+				setAttribute('backgroundStopColor', kyellow);
+				setAttribute('borderColor', korange);
+				drawStructure();
+			</method>
+			<method name="unhighlight">
+				setAttribute('backgroundStartColor', nodeblue);
+				setAttribute('backgroundStopColor', nodeblue);
+				setAttribute('borderColor', nodedarkblue);
+				drawStructure();
+			</method>
+		</roundrect>
 
 		
 		
@@ -176,7 +199,7 @@
 		<view name="line" 
 			  bgcolor="${parent.color}"
 			  width="1"
-			  xoffset="$once{-parent.width/2+width}"
+			  xoffset="${-parent.width/2+width}"
 			  height="${parent.height}"
 		/>
 		<!-- 
@@ -189,12 +212,17 @@
 			line.sendToBack();
 			setAttribute('color', kyellow);
 			setBGColor(korange);
+			thint.highlight();
+			bringToFront();
+			from.bringToFront();
+			to.bringToFront();
 		</method>
 		<method name="unhighlight">
 			arrowhead.setResource("arrowheadswf");
 			line.setAttribute('width', 1);
 			setAttribute('color', kblue2);
 			setBGColor(null);
+			thint.unhighlight();
 		</method>
 		<handler name="ondblclick">
 			dodblclick();

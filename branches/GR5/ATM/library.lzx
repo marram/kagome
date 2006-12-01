@@ -1,0 +1,40 @@
+<library>
+	<resource name="bgswf" src="resources/atm.swf" />
+	<resource name="atmbutton">
+		<frame src="resources/notpressed.png" />
+		<frame src="resources/notpressed.png" />
+		<frame src="resources/pressed.png" />
+	</resource>
+	<include href="atmstates.lzx" />
+	<class name="pbutton" extends="basebutton" resource="atmbutton">
+	</class>
+	<class name="blabel" 
+			extends="text" 
+			width="220" 
+			height="60" 
+			bgcolor="0xabffab" 
+			fontsize="22"/>
+	
+
+	<class name="atm" resource="bgswf">
+			
+			<pbutton name="b1"  x="19" y="348"  onclick="parent.handlebutton1()">
+			</pbutton>
+			<pbutton name="b2" x="19" y="432" onclick="parent.handlebutton2()" />
+			<pbutton name="b3"  x="680" y="348" onclick="parent.handlebutton3()"/>
+			<pbutton name="b4" x="680" y="432" onclick="parent.handlebutton4()"/>			
+			<text name="msgview" 
+				width="450" 
+				height="150" 
+				align="center" 
+				y="100"
+				text="${parent.message}"
+				fontsize="30"
+				multiline="true"
+				/>
+			<blabel name="b1l" x="145" y="348"  text="${parent.b1label}"/>
+			<blabel name="b2l" x="145" y="432" text="${parent.b2label}"/>
+			<blabel name="b3l" x="440" y="348" text="${parent.b3label}"/>
+			<blabel name="b4l" x="440" y="432" text="${parent.b4label}"/>				
+	</class>
+</library>

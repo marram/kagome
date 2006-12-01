@@ -24,8 +24,10 @@
 		]]>
 		</method>
 		<method name="upload" args="ds">
-			ds.setQueryString({graph: JSON.stringify(getJSAttrs())});
+			var qs = JSON.stringify(getJSAttrs());
+			ds.setQueryString({graph: qs});
 			ds.doRequest();
+			Debug.write(qs);
 		</method>
 		<method name="getNodesList">
 		/*

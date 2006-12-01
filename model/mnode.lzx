@@ -41,7 +41,7 @@
 		 </handler>
 		 <!--  this class will return a dictionary with all the attributes so that we can JSON them -->
 		 <method name="getJSAttrs">
-		 	return {uid: uid, title: title, b1text: b1text, b2text: b2text, b3text: b3text, b4text: b4text};
+		 	return {uid: uid, title: title, message: screentext,b1text: b1text, b2text: b2text, b3text: b3text, b4text: b4text};
 		 </method>
 	</class>
 </library>

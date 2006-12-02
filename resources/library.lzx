@@ -24,5 +24,4 @@
 	<resource name="minipreview" src="ATM_mini_preview2.swf" />
 	
 	<resource name="topbar" src="topbar.png" />
-	<resource name="topbar_dev_buttons" src="dev_buttons.png" />
 </library>

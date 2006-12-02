@@ -27,9 +27,7 @@
 				<basebutton resource="flashicon" width="32" height="32" stretches="both"/>
 			</view>
 			<!-- view name="createT" resource="createswf" x="$once{parent.create.x+25}" y="22"/-->
-			<view name="playT" resource="playswf" x="$once{parent.play.x+3}" y="22"/>
-			<view name="shareT" resource="shareswf" x="$once{parent.share.x+3}" y="22"/>
-			
+
 			<slider name="zoomslider" x="$once{parent.share.x+60}" y="40" width="300" minvalue = "1" maxvalue = "200" value="100"/>
 		</view>
 	</class>

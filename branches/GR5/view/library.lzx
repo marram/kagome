@@ -20,4 +20,5 @@
 	<include href="templatechooser.lzx" />
 	<include href="roundrectnode.lzx" />
 	<include href="NodePropertiesManipulation.lzx" />
+	<include href="atmminipreview_manipulation.lzx" />
 </library>

@@ -6,8 +6,6 @@
 				<!-- view name="hrule" bgcolor="0x8CC63F" y="75" width="100%"
 			height="1" /-->
 		<view name="logoview" resource="logoswf" y="23" x="10" />
-		<view name="dev_buttons" resource="topbar_dev_buttons" x="$once{parent.logoview.width + 90}" y="22" />
-		
 		<view name="buttons" x="$once{parent.logoview.width + 100}" height="70">
 			<view name="create" y="37" >
 				<basebutton resource="cnodeicon" onclick="canvas.dview.addNode()">Add node</basebutton>

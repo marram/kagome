@@ -4,13 +4,13 @@
 		<attribute name="width" value="${titletext.width+10}" />
 		<attribute name="height" value="35" />
 		
-          	<animator name="anm_width_in" attribute="height" to="460" duration="500" start="false"/>
-		    <animator name="anm_height_in" attribute="width" to="280" duration="500" start="false"/>
+          	<animator name="anm_width_in" attribute="height" to="250" duration="500" start="false"/>
+		    <animator name="anm_height_in" attribute="width" to="320" duration="500" start="false"/>
           	<animator name="anm_width_out" attribute="height" to="35" duration="500" start="false"/>
 		    <animator name="anm_height_out" attribute="width" to="${parent.titletext.width+10}" duration="500" start="false"/>
 		
 		<handler name="onwidth">
-			if (width == 280) {
+			if (width == 320) {
 				parent.nManipulation.bringToFront();
 				parent.nManipulation.setVisible(true);
 				parent.nManipulation.setAttribute("x", this.x);
@@ -49,7 +49,7 @@
 					height="${parent.height}"
 					backgroundStartColor="$once{nodeblue}"
 					backgroundStopColor="$once{nodeblue}"
-					borderRadius="6"
+					borderRadius="8"
 					borderColor="$once{nodedarkblue}"
 					borderWidth="3"
 					backgroundGradientOrientation="horizontal"

@@ -4,7 +4,7 @@
 		<class name="proppane" extends="roundrect"
 			backgroundStartColor="$once{kblue1}"
 			backgroundStopColor="$once{kblue2}"
-			borderRadius="15"
+			borderRadius="8"
 			borderColor="0xffffff"
 			>
 			<attribute name="paneTitle" type="string" value="Properties"/>
@@ -27,7 +27,7 @@
 			<view name="in" y="${25}"/>
 			<view name="buttons" x="12"
 				width="$once{parent.width-40}">
-				<roundrectbutton height="20" text="Apply">
+				<roundrectbutton name="applyB" height="20" text="Apply" enabled="false">
 					<handler name="onclick">
 						classroot.applyStuff();
 					</handler>

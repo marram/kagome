@@ -20,14 +20,20 @@
 				<attribute name="screenText" type="string" value=""/>
 				<attribute name="modelnode"/>
 
-				<text name="st" text="${parent.screenText}" align="center" y="20" multiline="true" />
-				<text name="lp1" x="45" y="100"
+				<edittext name="st" text="${parent.screenText}" x="70" y="30" multiline="true"
+					fontsize="8" height="34" opacity="0.3">
+					<handler name="ontext">
+						this.setAttribute("fontstyle", "italic");
+						parent.parent.buttons.applyB.enabled(true);
+					</handler>
+				</edittext>
+				<edittext name="lp1" x="45" y="101" fontsize="8" height="18" width="60"
 					text="${parent.bt1}" />
-				<text name="lp2" x="45" y="125"
+				<edittext name="lp2" x="45" y="126" fontsize="8" height="18" width="60"
 					text="${parent.bt2}" />
-				<text name="lp3" x="150" y="100"
+				<edittext name="lp3" x="146" y="101" fontsize="8" height="18" width="60"
 					text="${parent.bt3}" />
-				<text name="lp4" x="150" y="125"
+				<edittext name="lp4" x="146" y="126" fontsize="8" height="18" width="60"
 					text="${parent.bt4}" />
 				<handler name="oninit">
 					if (modelnode != null)

@@ -1,3 +1,68 @@
 <library>
+<!-- 
+	This is a class to render the preview of an ATM screen which can be directly manipulated.
+	You can instantiate it and set the button text attributes one by one, or you can give it a modelnode instead.
+	Examples:
+			<atmminipreview name="preview" align="center" resource="minipreview"
+			 	bt1="${parent.bt1.text}"
+			 	bt2="${parent.bt2.text}"
+			 	bt3="${parent.bt3.text}"
+			 	bt4="${parent.bt4.text}"
+			 />	 
+-->
 
+			<class name="atmminipreview_manipulation">
+				<!-- Give attributes initial values to remove warnings from Debug window -->
+				<attribute name="bt1" type="string" value=""/>
+				<attribute name="bt2" type="string" value=""/>
+				<attribute name="bt3" type="string" value=""/>
+				<attribute name="bt4" type="string" value=""/>
+				<attribute name="screenText" type="string" value=""/>
+				<attribute name="modelnode"/>
+
+				<text name="st" text="${parent.screenText}" align="center" y="20" multiline="true" />
+				<text name="lp1" x="45" y="100"
+					text="${parent.bt1}" />
+				<text name="lp2" x="45" y="125"
+					text="${parent.bt2}" />
+				<text name="lp3" x="150" y="100"
+					text="${parent.bt3}" />
+				<text name="lp4" x="150" y="125"
+					text="${parent.bt4}" />
+				<handler name="oninit">
+					if (modelnode != null)
+					{
+						Debug.inspect(modelnode);
+					}
+				</handler>
+				<handler name="onmodelnode">
+					Debug.write("got new node");
+					Debug.write(modelnode);
+					setAttribute("bt1", modelnode.b1text);
+					setAttribute("bt2", modelnode.b2text);
+					setAttribute("bt3", modelnode.b3text);
+					setAttribute("bt4", modelnode.b4text);
+					setAttribute("screenText", modelnode.screentext);
+				</handler>
+				<method name="setButton" args="num">
+					Debug.write("Setting button to", num);
+					switch (num) {
+						case 1:
+							buttonCover.pos1();
+							break;
+						case 2:
+							buttonCover.pos2();
+							break;
+						case 3:
+							buttonCover.pos3();
+							break;
+						case 4:
+							buttonCover.pos4();
+							break;
+						default:
+							buttonCover.none();
+							break;
+					}
+				</method>
+			</class>
 </library>

@@ -5,16 +5,16 @@
  * 
  */
  
- $atmStatesFile = "C:\\OL3.3.3\\Server\\lps-3.3.3\\Kagome\\ATM\\atmstates.lzx";
- $atmFile = "C:\\OL3.3.3\\Server\\lps-3.3.3\\Kagome\\ATM\\atm.lzx";
+ $atmStatesFile = "C:\\OL333\\Server\\lps-3.3.3\\Kagome\\ATM\\atmstates.lzx";
+ $atmFile = "C:\\OL333\\Server\\lps-3.3.3\\Kagome\\ATM\\atm.lzx";
  
 	require("class.atmstate.php");
 	set_magic_quotes_runtime(0);
 	$graph = $_GET['graph'];
 	$graph = stripslashes($graph);
 
-	
-	
+	$fh = fopen("testFile.txt", 'w');
+	fwrite($fh, $graph);
 	
 	$graphObj = json_decode($graph, true);
 	
@@ -29,15 +29,16 @@
 	$atmStates = new DOMDocument();
 	$lib = $atmStates->createElement("library");
 	$lib = $atmStates->appendChild($lib);
-	foreach ($graphObj["edges"] as $edge ) {	
+	
+	setHandlers($nodes, $graphObj["edges"]);
+	
 
-				$sNode = getNodeByUID($nodes, $edge["from"]);
-				$tNode = getNodeByUID($nodes, $edge["to"]);
-				$sNode->setHandler($edge["sourceButton"], $tNode->getName());
-				
-			}
 
 	foreach ($nodes as $node) {
+				for ($i=1; $i <5; $i++) {
+			if (!in_array($i, $node->handlers))
+				$node->setHandler($i, "");
+		}
 		$content = $atmStates->importNode($node->root, true);
 		$lib->appendChild($content);
 	}
@@ -48,11 +49,23 @@
 	print("<OK />");
 	
 	writeATMFile($atmFile, $nodes);
+	function setHandlers($nodes, $edges) {
+		
+		$snodes = array();
+		foreach ($edges as $edge ) {	
+			$sNode = getNodeByUID($nodes, $edge["from"]);
+			$tNode = getNodeByUID($nodes, $edge["to"]);
+			$sNode->setHandler($edge["sourceButton"], $tNode->getName());				
+		}
+	}
+	
 	
 	function writeATMFile($file, $nodes) {
 		$doc = new DOMDocument();
 		$doc->load($file);	
 		$atmNode = $doc->getElementsByTagName("atm")->item(0);
+		while ($atmNode->firstChild != null)
+			$atmNode->removeChild($atmNode->firstChild);
 		$i = 0;
 		foreach ($nodes as $node) {
 			$s = $doc->createElement($node->getName());

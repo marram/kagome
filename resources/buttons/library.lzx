@@ -25,7 +25,4 @@
 		<frame src="flash2.swf" />
 		<frame src="flash3.swf" />
 	</resource>
-	<resource name="createswf" src="create_png.png" />
-	<resource name="playswf" src="play_png.png" />
-	<resource name="shareswf" src="share_png.png" />
 </library>

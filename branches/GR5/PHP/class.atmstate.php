@@ -8,6 +8,7 @@ class atmstate {
 	public $title;
 	public $message;
 	public $root; //root node
+	public $handlers;
 		
 	public function __construct() {
 		 $arr = func_get_args();
@@ -23,19 +24,24 @@ class atmstate {
 	     $this->doc = new DOMDocument();
 	     $this->root = $this->doc->createElement("class");
 	     $this->root = $this->doc->appendChild($this->root);
+	     
+	     $this->handlers = array();
 	}
 	
 	public function setHandler($num, $apply) {
+		array_push($this->handlers, $num);
 		$h = $this->doc->createElement("method");
 		$h->setAttribute("name", "handlebutton" . $num);
-		strlen($apply) > 0 ? $text = $apply . ".apply();" : $text = null;
-		if ($text != null) {
-		$txtNode = $this->doc->createTextNode($text);
-		$h->appendChild($txtNode);
-		$this->root->appendChild($h);
-		}
+		strlen($apply) > 0 ? $text = $apply . ".apply();" : $text = "      ";
 		
+		//if ($text != null) {
+			$txtNode = $this->doc->createTextNode($text);
+			$h->appendChild($txtNode);
+			$this->root->appendChild($h);
+		//}
 	}
+
+	
 	public function getName() {
 		return $this->title . $this->uid;
 	}
@@ -76,6 +82,8 @@ class atmstate {
 		$this->root->appendChild($b3);
 		$this->root->appendChild($b4);
 		$this->root->appendChild($msg);
+
+		
 	}
 	
 	public function getXML() {

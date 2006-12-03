@@ -67,12 +67,12 @@
 	
 	<handler name="onzoomMag">
 		<!-- change width, height -->
-		this.setAttribute('width', origWidth/zoomMag);
-		this.setAttribute('height', origHeight/zoomMag);
+		this.setAttribute('width', 4000/zoomMag);
+		this.setAttribute('height', 4000/zoomMag);
 		
 		<!-- change x, y using the percentages-->
-		this.setAttribute('x', ((this.xPercentage*this.width)-parent.width/2));
-		this.setAttribute('y', ((this.yPercentage*this.height)-parent.height/2));
+		this.setAttribute('x', ((this.xPercentage*this.width)+parent.width/2));
+		this.setAttribute('y', ((this.yPercentage*this.height)+parent.height/2));
 		
 		<!-- change the positions and sizes of each child -->
 		
@@ -81,10 +81,10 @@
 	
 	
 	<handler name="onx">
-		this.setAttribute("xPercentage" , (this.x + (parent.width/2))/this.width);
+		this.setAttribute("xPercentage" , (this.x - (parent.width/2))/this.width);
 	</handler>
 	<handler name="ony">
-		this.setAttribute("yPercentage" , (this.y + (parent.height/2))/this.height);
+		this.setAttribute("yPercentage" , (this.y - (parent.height/2))/this.height);
 	</handler>
 	<!-- 
 		This is a view that always follows the mouse. It has zero width and height so that it doesn't interfere with mouse clicks .. etc.

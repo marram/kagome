@@ -1,12 +1,12 @@
 <library>
 
 	<class name="bigdraggable" extends ="draggable">
-	<dragstate name="dr" 
-		  drag_min_x="$once{parent.width - this.width}"
+	<dragstate name="dr" />
+		  <!--drag_min_x="$once{parent.width - this.width}"
           drag_max_x="0"
           drag_min_y="$once{parent.height - this.height}"
           drag_max_y="0"
           drag_axis="both"
-    />
+    /> -->
 	</class>
 </library>

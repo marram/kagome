@@ -1,5 +1,5 @@
 <library>
-	<class name="devview">
+	<class name="devview" extends="bigdraggable">
 	
 	<NodePropManipulation name="nManipulation" visible="false">
 	</NodePropManipulation>
@@ -20,6 +20,15 @@
 	 <attribute name="modeFlag" type="string"/>
 	 
 	 <attribute name="coord" type="number" value="100" />
+	 
+	 <attribute name="xPercentage" type="number" />	 
+	 <attribute name="yPercentage" type="number" />
+	 
+	 <attribute name = "zoomMag" type="number" value="${parent.topp.zoomMag}" />
+	 
+	 <attribute name = "origWidth" />
+	 <attribute name = "origHeight" />
+	 
 	 
 	 <!-- 
 	 	Attributes that track the mouse. These will be used to constrain the mouse follower view to within the bounds of dview
@@ -42,6 +51,11 @@
 	<event name="nodeDeleted" />
 	<event name="edgeDeleted" />		
 
+	<handler name="oninit">
+		this.sendToBack();
+		this.setAttribute('origWidth', this.width);
+		this.setAttribute('origHeight', this.height);
+	</handler>
 	
 	<handler name="onselectswitch">
 		if (this.selectedobj)
@@ -49,6 +63,28 @@
 	</handler>
 	<handler name="onselectedobj">
 		this.selectedobj.highlight();
+	</handler>
+	
+	<handler name="onzoomMag">
+		<!-- change width, height -->
+		this.setAttribute('width', origWidth/zoomMag);
+		this.setAttribute('height', origHeight/zoomMag);
+		
+		<!-- change x, y using the percentages-->
+		this.setAttribute('x', ((this.xPercentage*this.width)-parent.width/2));
+		this.setAttribute('y', ((this.yPercentage*this.height)-parent.height/2));
+		
+		<!-- change the positions and sizes of each child -->
+		
+		
+	</handler>
+	
+	
+	<handler name="onx">
+		this.setAttribute("xPercentage" , (this.x + (parent.width/2))/this.width);
+	</handler>
+	<handler name="ony">
+		this.setAttribute("yPercentage" , (this.y + (parent.height/2))/this.height);
 	</handler>
 	<!-- 
 		This is a view that always follows the mouse. It has zero width and height so that it doesn't interfere with mouse clicks .. etc.
@@ -180,7 +216,6 @@
 				}
 				var nOffset = (i-Math.floor(simEdges.length/2))*(tSize+off);
 				simEdges[i].parent.animate('thintoffset',  nOffset, 700, true,{motion:'easeout', relative: false}); 
-
 			}
 		}
 	]]>

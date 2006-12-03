@@ -1,8 +1,17 @@
 <library>
 <!-- we'll name this knode (Kagome Node), because node is a reserved keyword -->
 	<class name="knode" extends="draggable">
+		<attribute name = "zoomMag" value = "${parent.zoomMag}"/>
+		<attribute name = "oldZoomMag" value = "1"/>
 		<mnode name="modelnode" />
 		<attribute name="title" value="${modelnode.title}" type="string"/>
+		
+		<handler name="onzoomMag">
+			this.setAttribute('x', this.x*(this.oldZoomMag/this.zoomMag));
+			this.setAttribute('y', this.y*(this.oldZoomMag/this.zoomMag));
+			this.setAttribute('oldZoomMag', this.zoomMag);
+		</handler>
+		
 		<handler name="ondblclick">
 			parent.onselectswitch.sendEvent();
 			parent.setAttribute('selectedobj', this);

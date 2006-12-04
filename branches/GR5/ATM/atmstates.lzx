@@ -1,2 +1,51 @@
 <?xml version="1.0"?>
-<library><class name="untitled11" extends="state"><attribute name="b1label" type="string" value="hello"/><attribute name="b2label" type="string" value="there "/><attribute name="b3label" type="string" value="welcome"/><attribute name="b4label" type="string" value=""/><attribute name="message" type="string" value="This is very new"/><method name="handlebutton">untitled22.apply();</method><method name="handlebutton1">      </method><method name="handlebutton2">      </method><method name="handlebutton3">      </method><method name="handlebutton4">      </method></class><class name="untitled22" extends="state"><attribute name="b1label" type="string" value="bal"/><attribute name="b2label" type="string" value="kjk"/><attribute name="b3label" type="string" value="jkj"/><attribute name="b4label" type="string" value="oioi"/><attribute name="message" type="string" value="lets see if this works"/><method name="handlebutton1">      </method><method name="handlebutton2">      </method><method name="handlebutton3">      </method><method name="handlebutton4">      </method></class></library>
+<library>
+	<class name="Welcome1" extends="state">
+		<attribute name="b1label" type="string" value="Withdrawl" />
+		<attribute name="b2label" type="string" value="Deposit" />
+		<attribute name="b3label" type="string" value="Transfer" />
+		<attribute name="b4label" type="string" value="Balance" />
+		<attribute name="message" type="string"
+			value="Welcome to Banque Du Boston. What would you like to do?" />
+		<method name="handlebutton1">Welcome1.remove(); Withdrawl2.apply();</method>
+		<method name="handlebutton3">Welcome1.remove(); Transfer3.apply();</method>
+		<method name="handlebutton2">Welcome1.remove(); Deposit4.apply();</method>
+		<method name="handlebutton4">      </method>
+	</class>
+	<class name="Withdrawl2" extends="state">
+		<attribute name="b1label" type="string" value="$40" />
+		<attribute name="b2label" type="string" value="$60" />
+		<attribute name="b3label" type="string" value="$80" />
+		<attribute name="b4label" type="string" value="$100" />
+		<attribute name="message" type="string"
+			value="How much would you like to withdraw?" />
+		<method name="handlebutton1">Withdrawl2.remove(); Welcome1.apply();</method>
+		<method name="handlebutton2">Withdrawl2.remove(); Welcome1.apply();</method>
+		<method name="handlebutton3">Withdrawl2.remove(); Welcome1.apply();</method>
+		<method name="handlebutton4">Withdrawl2.remove(); Welcome1.apply();</method>
+	</class>
+	<class name="Transfer3" extends="state">
+		<attribute name="b1label" type="string" value="Checking" />
+		<attribute name="b2label" type="string" value="Saving" />
+		<attribute name="b3label" type="string" value="IRA" />
+		<attribute name="b4label" type="string" value="401K" />
+		<attribute name="message" type="string"
+			value="This is the transfer screen." />
+		<method name="handlebutton1">      </method>
+		<method name="handlebutton2">      </method>
+		<method name="handlebutton3">      </method>
+		<method name="handlebutton4">      </method>
+	</class>
+	<class name="Deposit4" extends="state">
+		<attribute name="b1label" type="string" value="" />
+		<attribute name="b2label" type="string" value="" />
+		<attribute name="b3label" type="string" value="" />
+		<attribute name="b4label" type="string" value="Back" />
+		<attribute name="message" type="string"
+			value="This is the Deposit screen" />
+		<method name="handlebutton4">Deposit4.remove(); Welcome1.apply();</method>
+		<method name="handlebutton1">      </method>
+		<method name="handlebutton2">      </method>
+		<method name="handlebutton3">      </method>
+	</class>
+</library>

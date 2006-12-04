@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
 <canvas>
 	<include href="library.lzx"/>
-		<atm><untitled11 name="untitled11" apply="true"/><untitled22 name="untitled22" apply="false"/></atm>
+		<atm name="atmdemo"><Welcome1 name="Welcome1" apply="true"/><Withdrawl2 name="Withdrawl2" apply="false"/><Transfer3 name="Transfer3" apply="false"/><Deposit4 name="Deposit4" apply="false"/></atm>
 </canvas>

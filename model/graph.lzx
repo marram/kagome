@@ -9,13 +9,15 @@
 			var nodeArr = Array();
 			for (var i=0; i < nodes.length; i++)
 			{
-				nodeArr.push(nodes[i].getJSAttrs());
+				if (nodes[i] != null)
+					nodeArr.push(nodes[i].getJSAttrs());
 			}
 			
 			var edgeArr = Array();
 			for (var i=0; i < edges.length; i++)
 			{
-				edgeArr.push(edges[i].getJSAttrs());
+				if (edges[i] != null)
+					edgeArr.push(edges[i].getJSAttrs());
 			}	
 			
 			var ret = {nodes: nodeArr, edges: edgeArr};		

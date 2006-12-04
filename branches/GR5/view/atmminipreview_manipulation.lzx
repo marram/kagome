@@ -23,7 +23,7 @@
 				<edittext name="st" text="${parent.screenText}" x="70" y="30" multiline="true"
 					fontsize="8" height="34" opacity="0.3">
 					<handler name="ontext">
-						this.setAttribute("fontstyle", "italic");
+						this.setAttribute('fontstyle', "italic");
 						parent.parent.buttons.applyB.enabled(true);
 					</handler>
 				</edittext>
@@ -44,31 +44,12 @@
 				<handler name="onmodelnode">
 					Debug.write("got new node");
 					Debug.write(modelnode);
-					setAttribute("bt1", modelnode.b1text);
-					setAttribute("bt2", modelnode.b2text);
-					setAttribute("bt3", modelnode.b3text);
-					setAttribute("bt4", modelnode.b4text);
-					setAttribute("screenText", modelnode.screentext);
+					setAttribute('bt1', modelnode.b1text);
+					setAttribute('bt2', modelnode.b2text);
+					setAttribute('bt3', modelnode.b3text);
+					setAttribute('bt4', modelnode.b4text);
+					setAttribute('screenText', modelnode.screentext);
 				</handler>
-				<method name="setButton" args="num">
-					Debug.write("Setting button to", num);
-					switch (num) {
-						case 1:
-							buttonCover.pos1();
-							break;
-						case 2:
-							buttonCover.pos2();
-							break;
-						case 3:
-							buttonCover.pos3();
-							break;
-						case 4:
-							buttonCover.pos4();
-							break;
-						default:
-							buttonCover.none();
-							break;
-					}
-				</method>
+
 			</class>
 </library>

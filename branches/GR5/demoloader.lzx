@@ -1,0 +1,30 @@
+<!-- 
+This is to recompile the atm demo at runtime.
+
+Here is the problem: If we include a library within an OpenLaszlo
+application with a deferred stage of instantiation (state="defer"),
+it still gets compiled at runtime. We will need to
+recompile such a library at runtime without having to reload/recompile
+the whole application. To do this, we will have an external php script
+compile this simple application that only produces such a library
+and then copy it over and use it at runtime.
+
+
+
+Here is what will need to happen. The PHP script will
+have to do the following:
+1. Compile demoloader.lzx using the command line compiler:
+lzc c:\OL333\Server\lps-3.3.3\Kagome\demoloader.lzx
+2. The compiler will create the atm library in the following location:
+c:\OL333\Server\lps-3.3.3\Kagome\build\demoloader\atm.lzx.swf
+
+3. Now the script will need to overwrite the file:
+c:\OL333\Server\lps-3.3.3\Kagome\build\main\atm.lzx.swf
+with this one:
+c:\OL333\Server\lps-3.3.3\Kagome\build\demoloader\atm.lzx.swf
+
+
+-->
+<canvas>
+	<import name="atmswf" href="ATM/atm.lzx" stage="defer" />
+</canvas>

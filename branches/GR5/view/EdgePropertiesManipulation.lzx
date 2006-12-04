@@ -54,7 +54,7 @@
   			</radiogroup>
     		
     		<text> Source Button: </text>
-    		<!-- edittext width = "150" name = "buttonSelect" /-->
+    		<edittext width = "150" name = "buttonSelect" /-->
     		<combobox name="buttonSelect" width="200">
     			<handler name="oninit">
 				//moved them to setEdgeProperties

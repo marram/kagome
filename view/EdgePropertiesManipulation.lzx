@@ -49,7 +49,7 @@
 
     		<text>Event: </text>
 
-    		<radiogroup id="group1">
+    		<!-- radiogroup id="group1">
     		<radiobutton value="1" text="Button press"  selected="true"/>
   			</radiogroup>
     		

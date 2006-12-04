@@ -23,4 +23,6 @@
 	<include href="atmminipreview_manipulation.lzx" />
 	<include href="loading.lzx" />
 	<include href="kpane.lzx" />
+	<include href="EdgePropertiesManipulation.lzx" />
+	<include href="atmminipreview_manipulation_edge.lzx" />
 </library>

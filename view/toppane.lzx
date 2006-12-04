@@ -31,7 +31,7 @@
 						ld.start();
 						
 						//make a copy of the library loader
-						var z = canvas.clone(canvas.atmswf, canvas);
+						var z = canvas.clone(canvas.atmswf, canvas, "atmswfcopy");
 						
 						this.del = new LzDelegate( z, "load" );
         				LzTimer.addTimer( this.del, 7000 );

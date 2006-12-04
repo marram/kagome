@@ -1,6 +1,6 @@
 <library>
-	<class name="devview" extends="bigdraggable">
-	
+	<class name="devview" extends="bigdraggable" focusable="true">
+
 	<NodePropManipulation name="nManipulation" visible="false"/>
 	<EdgePropManipulation name="eManipulation" visible="false"/>
 
@@ -157,6 +157,7 @@
 			// Send deselect event to parent
 			this.ondeselectedobj.sendEvent();
 			this.selectedobj.unhighlight();
+			this.setAttribute('selectedobj', null);
 		}
 		//also release the modeflag
 		this.setAttribute('modeFlag', 'NONE');
@@ -267,6 +268,11 @@
 	</handler>
 	<handler name="onmouseout">
 		LzCursor.showHandCursor(true);
+	</handler>
+	<handler name="onkeydown" args="k">
+		var delKey = 46;
+		if (k==delKey)
+			deleteSelected();
 	</handler>
 </class>
 </library>

@@ -1,8 +1,8 @@
 <canvas width="100%" height="100%" oninit="projectChooser.open()">
-	<method name="clone" args="pNode, pRootNode">
+	<method name="clone" args="pNode, pRootNode, name">
 		var className = eval(pNode.constructor.classname);
 		attrs = pNode._instanceAttrs;
-		attrs.name="atmswfcopy";
+		attrs.name= name;
 		var obj = new className(pRootNode, attrs);
 		return obj;
 	</method>
@@ -109,6 +109,7 @@
 <window name="preview" x="300" y="200" width="815" height="550" visible="false" closeable="true" onclick="preview.setVisible(false)">
 	<view align="center" resource="ATMpreview" />
 </window>
+
 
 
 </canvas>

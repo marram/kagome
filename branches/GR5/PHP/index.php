@@ -4,15 +4,16 @@
  * 
  * 
  */
+ $lzdir = "C:\\OL3.3.3\\";
  
- $atmStatesFile = "C:\\OL333\\Server\\lps-3.3.3\\Kagome\\ATM\\atmstates.lzx";
- $atmFile = "C:\\OL333\\Server\\lps-3.3.3\\Kagome\\ATM\\atm.lzx";
+ $atmStatesFile = $lzdir . "Server\\lps-3.3.3\\Kagome\\ATM\\atmstates.lzx";
+ $atmFile = $lzdir . "Server\\lps-3.3.3\\Kagome\\ATM\\atm.lzx";
  
- $compiler = "C:\\OL333\\bin\\lzc";
- $demobuilder = "C:\\OL333\\Server\\lps-3.3.3\\Kagome\\demoloader.lzx";
+ $compiler = $lzdir . "bin\\lzc";
+ $demobuilder = $lzdir . "Server\\lps-3.3.3\\Kagome\\demoloader.lzx";
  
- $src = "C:\\OL333\\Server\\lps-3.3.3\\Kagome\\build\\demoloader\\atm.lzx.swf";
- $dst = "C:\\OL333\\Server\\lps-3.3.3\\Kagome\\build\\main\\atm.lzx.swf";
+ $src = $lzdir . "Server\\lps-3.3.3\\Kagome\\build\\demoloader\\atm.lzx.swf";
+ $dst = $lzdir . "Server\\lps-3.3.3\\Kagome\\build\\main\\atm.lzx.swf";
  
 	require("class.atmstate.php");
 	set_magic_quotes_runtime(0);
@@ -55,6 +56,17 @@
 	print("<OK />");
 	
 	writeATMFile($atmFile, $nodes);
+	
+	//now, compile and replace demo
+	$cmd = $compiler . " " . $demobuilder;
+	//write it to a compile batch script
+	$batchScript = fopen("compile.bat", 'w');
+	fwrite($batchScript, $cmd);
+	exec("compile.bat");
+	//overwrite compiled demo
+	$copyCmd = "copy " . $src . " " . $dst;
+	exec($copyCmd);
+
 	function setHandlers($nodes, $edges) {
 		
 		$snodes = array();

@@ -38,6 +38,17 @@
 						classroot.setStuff(canvas.dview.selectedobj.modelnode);
 					</handler>
 				</roundrectbutton>
+				<!-- button name="applyB" height="20" text="Apply" enabled="false">
+					<handler name="onclick">
+						classroot.applyStuff();
+					</handler>
+				</button>
+				<button align="right" height="20"
+					text="Cancel">
+					<handler name="onclick">
+						classroot.setStuff(canvas.dview.selectedobj.modelnode);
+					</handler>
+				</button-->
 			</view>
 		</class>
 </library>

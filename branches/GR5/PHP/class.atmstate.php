@@ -14,7 +14,7 @@ class atmstate {
 		 $arr = func_get_args();
 		 $arr = $arr[0];
 		 $this->uid = $arr["uid"];
-		 $this->title = $arr["title"];
+		 $this->title = str_replace(" ", "_", $arr["title"]);
 		 $this->message = $arr["message"];
 	     $this->b1text = $arr["b1text"];
 	     $this->b2text = $arr["b2text"];
@@ -32,7 +32,7 @@ class atmstate {
 		array_push($this->handlers, $num);
 		$h = $this->doc->createElement("method");
 		$h->setAttribute("name", "handlebutton" . $num);
-		strlen($apply) > 0 ? $text = $apply . ".apply();" : $text = "      ";
+		strlen($apply) > 0 ? $text =  $this->getName() . ".remove(); " .$apply . ".apply();" : $text = "      ";
 		
 		//if ($text != null) {
 			$txtNode = $this->doc->createTextNode($text);

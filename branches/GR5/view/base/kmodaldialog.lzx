@@ -1,5 +1,6 @@
 <library>
 	<class name="kmodaldialog" visible="false">
+		<attribute name="offset" value="160" />
 		<method name="close">
 			LzModeManager.release(this);	
 			this.blanket.destroy();
@@ -10,7 +11,7 @@
 			logo.bringToFront();
 			//put it in the middle of the page
 			setX(canvas.width/2-width/2);
-			setY(canvas.height/2-160);
+			setY(canvas.height/2-offset);
 			Debug.write(x,y);
 			
 			//blanket everything else.

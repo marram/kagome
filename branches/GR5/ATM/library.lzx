@@ -6,6 +6,7 @@
 		<frame src="resources/pressed.png" />
 	</resource>
 	<include href="atmstates.lzx" />
+	<include href="../view/base/kmodaldialog.lzx" />
 	<class name="pbutton" extends="basebutton" resource="atmbutton">
 	</class>
 	<class name="blabel" 
@@ -16,8 +17,11 @@
 			fontsize="22"/>
 	
 
-	<class name="atm" resource="bgswf">
-			
+	<class name="atm"  resource="bgswf"  extends="kmodaldialog" width="803" height="524" >			
+			<attribute name="offset" value="280" />
+			<handler name="oninit">
+				this.open();
+			</handler>
 			<pbutton name="b1"  x="19" y="348"  onclick="parent.handlebutton1()">
 			</pbutton>
 			<pbutton name="b2" x="19" y="432" onclick="parent.handlebutton2()" />

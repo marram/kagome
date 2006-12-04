@@ -37,7 +37,7 @@
 
 		 <handler name="onuid">
 		 	setAttribute('title', title+uid);
-		 	Debug.write("uid is ", uid);
+		 	//Debug.write("uid is ", uid);
 		 </handler>
 		 <!--  this class will return a dictionary with all the attributes so that we can JSON them -->
 		 <method name="getJSAttrs">

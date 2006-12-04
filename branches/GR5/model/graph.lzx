@@ -29,7 +29,7 @@
 			var qs = JSON.stringify(getJSAttrs());
 			ds.setQueryString({graph: qs});
 			ds.doRequest();
-			Debug.write(qs);
+			//Debug.write(qs);
 		</method>
 		<method name="getNodesList">
 		/*

@@ -51,7 +51,7 @@
 	<method name="select" args="button">
 			if (this.selected != null) {
 				unselect(this.selected);
-				Debug.write("unselected");
+				//Debug.write("unselected");
 			}
 			var c = kblue1;
 			button._rr.setAttribute("backgroundStartColor", c);

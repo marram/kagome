@@ -53,7 +53,7 @@
 		</handler>
 		<handler name="onselectedobj" reference="dview">
 			var ref = dview;
-			Debug.write("current selected node", ref.selectedobj);
+			//Debug.write("current selected node", ref.selectedobj);
 			if (ref.selectedobj.from != null) {
 				ppane.setVisible(false);
 				edgePane.setVisible(true);

@@ -133,7 +133,7 @@
 	]]>	
 	</handler>
 	<handler name="onmodeFlag">
-		Debug.write("current mode is", this.modeFlag);
+		//Debug.write("current mode is", this.modeFlag);
 		switch (modeFlag) {
 			case "ADD_CONNECTOR":
 				LzCursor.setCursorGlobal('concursor');

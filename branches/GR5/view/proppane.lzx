@@ -27,7 +27,7 @@
 			<view name="in" y="${25}"/>
 			<view name="buttons" x="12"
 				width="$once{parent.width-40}">
-				<roundrectbutton name="applyB" height="20" text="Apply" enabled="false">
+				<roundrectbutton name="applyB" height="20" text="Apply">
 					<handler name="onclick">
 						classroot.applyStuff();
 					</handler>

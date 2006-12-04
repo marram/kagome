@@ -5,37 +5,28 @@
 
 		<method name="setStuff" args="propnode">
 			inside.nodetitle.setText(propnode.title);
-
-			//inside.screentitle.setText(propnode.screentitle);
-
 			inside.preview.setAttribute('modelnode', propnode);
-
-			//inside.preview.setAttribute('screentext', propnode.screentext);
-			//inside.preview.setAttribute('bt1', propnode.b1text);
-			//inside.preview.bt2.setAttribute('value', propnode.b2text);
-			//inside.preview.bt3.setAttribute('value', propnode.b3text);
-			//inside.preview.bt4.setAttribute('value', propnode.b4text);
 		</method>
-
 		<method name="applyStuff">
-			canvas.dview.selectedobj.modelnode.setAttribute('title',
-			inside.nodetitle.getText());
-
+			canvas.dview.selectedobj.modelnode.setAttribute('title', inside.nodetitle.getText());
 			//canvas.dview.selectedobj.modelnode.setAttribute('screentitle',inside.screentitle.getText());
-			canvas.dview.selectedobj.modelnode.setAttribute('screentext',
-			inside.screentext.getText());
 
-			canvas.dview.selectedobj.modelnode.setAttribute('b1text',
-			inside.preview.bt1);
-			canvas.dview.selectedobj.modelnode.setAttribute('b2text',
-			inside.preview.bt2);
-			canvas.dview.selectedobj.modelnode.setAttribute('b3text',
-			inside.preview.bt3);
-			canvas.dview.selectedobj.modelnode.setAttribute('b4text',
-			inside.preview.bt4);
+			canvas.dview.selectedobj.modelnode.setAttribute('screentext', inside.preview.screenText.getText());
 
+			canvas.dview.selectedobj.modelnode.setAttribute('b1text', inside.preview.bt1.getText());
+			canvas.dview.selectedobj.modelnode.setAttribute('b2text', inside.preview.bt2.getText());
+			canvas.dview.selectedobj.modelnode.setAttribute('b3text', inside.preview.bt3.getText());
+			canvas.dview.selectedobj.modelnode.setAttribute('b4text', inside.preview.bt4.getText());
 		</method>		
-		
+
+		<handler name="onstate" reference="canvas.leftp">
+			if (canvas.leftp.state == "CLOSED") {
+				if (parent.selectedobj.from != null) {
+				this.setStuff(parent.selectedobj.modelnode);
+				}
+			}
+		</handler>
+
 		<view width="330" height="225" name="inside">
 			<wrappinglayout axis="x" spacing="5" />
 			<!--  Mini preview in a seperate class like Eric and Mahmoud

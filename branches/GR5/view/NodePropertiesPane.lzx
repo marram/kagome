@@ -14,26 +14,25 @@
 			inside.bt4.setText(propnode.b4text);
 		</method>
 		<method name="applyStuff">
-
 			canvas.dview.selectedobj.modelnode.setAttribute('title',
 			inside.nodetitle.getText());
 
-
 			//canvas.dview.selectedobj.modelnode.setAttribute('screentitle',inside.screentitle.getText());
-			canvas.dview.selectedobj.modelnode.setAttribute('screentext',
-			inside.screentext.getText());
+			canvas.dview.selectedobj.modelnode.setAttribute('screentext', inside.screentext.getText());
 
-			canvas.dview.selectedobj.modelnode.setAttribute('b1text',
-			inside.bt1.getText());
-			canvas.dview.selectedobj.modelnode.setAttribute('b2text',
-			inside.bt2.getText());
-			canvas.dview.selectedobj.modelnode.setAttribute('b3text',
-			inside.bt3.getText());
-			canvas.dview.selectedobj.modelnode.setAttribute('b4text',
-			inside.bt4.getText());
-
-
+			canvas.dview.selectedobj.modelnode.setAttribute('b1text', inside.bt1.getText());
+			canvas.dview.selectedobj.modelnode.setAttribute('b2text', inside.bt2.getText());
+			canvas.dview.selectedobj.modelnode.setAttribute('b3text', inside.bt3.getText());
+			canvas.dview.selectedobj.modelnode.setAttribute('b4text', inside.bt4.getText());
 		</method>
+
+		<handler name="onstate" reference="canvas.leftp">
+			if (canvas.leftp.state == "OPENED") {
+				if (parent.selectedobj.from != null) {
+				this.setStuff(parent.selectedobj.modelnode);
+				}
+			}
+		</handler>
 
 
 		<view width="260" height="390" name="inside">

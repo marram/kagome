@@ -8,6 +8,12 @@
  $atmStatesFile = "C:\\OL333\\Server\\lps-3.3.3\\Kagome\\ATM\\atmstates.lzx";
  $atmFile = "C:\\OL333\\Server\\lps-3.3.3\\Kagome\\ATM\\atm.lzx";
  
+ $compiler = "C:\\OL333\\bin\\lzc";
+ $demobuilder = "C:\\OL333\\Server\\lps-3.3.3\\Kagome\\demoloader.lzx";
+ 
+ $src = "C:\\OL333\\Server\\lps-3.3.3\\Kagome\\build\\demoloader\\atm.lzx.swf";
+ $dst = "C:\\OL333\\Server\\lps-3.3.3\\Kagome\\build\\main\\atm.lzx.swf";
+ 
 	require("class.atmstate.php");
 	set_magic_quotes_runtime(0);
 	$graph = $_GET['graph'];

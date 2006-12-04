@@ -57,24 +57,22 @@
 			if (ref.selectedobj.from != null) {
 				ppane.setVisible(false);
 				edgePane.setVisible(true);
-				//edgePane.setX(ref.selectedobj.x + 50);
-				//edgePane.setY(ref.selectedobj.y + 50);
 				edgePane.setEdgeProperties(ref.selectedobj.modeledge);
+				dview.eManipulation.setStuff(ref.selectedobj.modelnode);
 			}
 			else {
 				edgePane.setVisible(false);
 				ppane.setVisible(true);
-				//ppane.setX(ref.selectedobj.x + 70);
-				//ppane.setY(ref.selectedobj.y + 70);
 				ppane.setStuff(ref.selectedobj.modelnode);
 				dview.nManipulation.setStuff(ref.selectedobj.modelnode);
+				dview.nManipulation.inside.preview.resetFields();
 			}
 		</handler>
 		<handler name="ondeselectedobj" reference="dview">
 			var ref = dview;
 			Debug.write("Does is get here", ref.selectedobj);
-			ref.parent.ppane.setVisible(false);
-			ref.parent.edgePane.setVisible(false);
+			//ref.parent.ppane.setVisible(false);
+			//ref.parent.edgePane.setVisible(false);
 		</handler>	
 		<handler name="nodeAdded" reference="dview" args="modelnode">
 			//this is to make sure every node has a unique ID	

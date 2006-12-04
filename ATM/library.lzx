@@ -6,7 +6,7 @@
 		<frame src="resources/pressed.png" />
 	</resource>
 	<include href="atmstates.lzx" />
-	<include href="../view/base/kmodaldialog.lzx" />
+	<include href="../view/kpane.lzx" />
 	<class name="pbutton" extends="basebutton" resource="atmbutton">
 	</class>
 	<class name="blabel" 
@@ -17,8 +17,12 @@
 			fontsize="22"/>
 	
 
-	<class name="atm"  resource="bgswf"  extends="kmodaldialog" width="803" height="524" >			
+	<class name="atm"  extends="kpane" width="822" height="568" align="center" y="80">
+			<view name="bg" resource="bgswf" />			
+			<attribute name="closeable" value="true" />
+			<attribute name="resizable" value="true" />
 			<attribute name="offset" value="280" />
+
 			<handler name="oninit">
 				this.open();
 			</handler>

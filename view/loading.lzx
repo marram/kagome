@@ -1,0 +1,18 @@
+<library>
+	<class name="loading">
+		<attribute name="duration" value="6000" />
+		<method name="start">
+			bg.anm.doStart();
+		</method>
+		<view name="bg" width="$once{parent.cover.width}"
+			bgcolor="0xF89A1C"
+			y="${parent.cover.height-height}"
+		>
+			<animator name="anm" attribute="height" from="0" to="${classroot.cover.height}" duration="${classroot.duration}" start="false"/>
+		</view>
+		<view name="cover" resource="loadingswf">
+			
+		</view>
+		<text name="progtext" y="${classroot.cover.height}" text="${'Loading ' + Math.floor(classroot.bg.height/classroot.cover.height*100) + '%'}"/>
+	</class>
+</library>

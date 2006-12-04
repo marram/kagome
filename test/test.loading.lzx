@@ -1,0 +1,10 @@
+<canvas debug="true">
+
+	<include href="../view" />
+	<include href="../resources" />
+	<loading name="ld"/>
+	<window>
+		<simplelayout axis="y" />
+		<button onclick="ld.start()"> start </button>
+	</window>
+</canvas>

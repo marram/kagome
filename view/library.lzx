@@ -21,4 +21,6 @@
 	<include href="roundrectnode.lzx" />
 	<include href="NodePropertiesManipulation.lzx" />
 	<include href="atmminipreview_manipulation.lzx" />
+	<include href="loading.lzx" />
+	<include href="kpane.lzx" />
 </library>

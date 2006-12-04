@@ -1,40 +1,21 @@
 <library>
 <!-- 
 	This is a class to render the preview of an ATM screen which can be directly manipulated.
-	You can instantiate it and set the button text attributes one by one, or you can give it a modelnode instead.
-	Examples:
-			<atmminipreview name="preview" align="center" resource="minipreview"
-			 	bt1="${parent.bt1.text}"
-			 	bt2="${parent.bt2.text}"
-			 	bt3="${parent.bt3.text}"
-			 	bt4="${parent.bt4.text}"
-			 />	 
 -->
-
 			<class name="atmminipreview_manipulation">
 				<!-- Give attributes initial values to remove warnings from Debug window -->
-				<attribute name="bt1" type="string" value=""/>
-				<attribute name="bt2" type="string" value=""/>
-				<attribute name="bt3" type="string" value=""/>
-				<attribute name="bt4" type="string" value=""/>
-				<attribute name="screenText" type="string" value=""/>
 				<attribute name="modelnode"/>
 
-				<edittext name="st" text="${parent.screenText}" x="70" y="30" multiline="true"
-					fontsize="8" height="34" opacity="0.3">
+				<edittext name="screenText" x="70" y="30" multiline="true" fontsize="8" height="34" opacity="0.3">
 					<handler name="ontext">
-						this.setAttribute('fontstyle', "italic");
-						parent.parent.buttons.applyB.enabled(true);
+						//this.setAttribute('fontstyle', "italic");
+						//parent.parent.buttons.applyB.enabled(true);
 					</handler>
 				</edittext>
-				<edittext name="lp1" x="45" y="101" fontsize="8" height="18" width="60"
-					text="${parent.bt1}" />
-				<edittext name="lp2" x="45" y="126" fontsize="8" height="18" width="60"
-					text="${parent.bt2}" />
-				<edittext name="lp3" x="146" y="101" fontsize="8" height="18" width="60"
-					text="${parent.bt3}" />
-				<edittext name="lp4" x="146" y="126" fontsize="8" height="18" width="60"
-					text="${parent.bt4}" />
+				<edittext name="bt1" x="45" y="101" fontsize="8" height="18" width="60" />
+				<edittext name="bt2" x="45" y="126" fontsize="8" height="18" width="60" />
+				<edittext name="bt3" x="146" y="101" fontsize="8" height="18" width="60" />
+				<edittext name="bt4" x="146" y="126" fontsize="8" height="18" width="60" />
 				<handler name="oninit">
 					if (modelnode != null)
 					{
@@ -44,11 +25,11 @@
 				<handler name="onmodelnode">
 					Debug.write("got new node");
 					Debug.write(modelnode);
-					setAttribute('bt1', modelnode.b1text);
-					setAttribute('bt2', modelnode.b2text);
-					setAttribute('bt3', modelnode.b3text);
-					setAttribute('bt4', modelnode.b4text);
-					setAttribute('screenText', modelnode.screentext);
+					bt1.setAttribute('text', modelnode.b1text);
+					bt2.setAttribute('text', modelnode.b2text);
+					bt3.setAttribute('text', modelnode.b3text);
+					bt4.setAttribute('text', modelnode.b4text);
+					screenText.setAttribute('text', modelnode.screentext);
 				</handler>
 
 			</class>

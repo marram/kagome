@@ -4,14 +4,7 @@
 	<NodePropManipulation name="nManipulation" visible="false">
 	</NodePropManipulation>
 	
-	
-	<handler name="oninit">
-	/*
-	 * From now on, the devview will keep references to all created nodes and edges.
-	 */
-	 this.nodes = new Array();
-	 this.edges = new Array();
-	</handler>
+
 	<!--  this attribute gets set to the currently selected object (node or edge). -->
 	<attribute name="selectedobj" />
 	<!--  this attribute sets the shape of the nodes that will be drawn.
@@ -63,6 +56,11 @@
 		this.sendToBack();
 		this.setAttribute('origWidth', this.width);
 		this.setAttribute('origHeight', this.height);
+		/*
+		 * From now on, the devview will keep references to all created nodes and edges.
+		 */
+		this.nodes = new Array();
+		this.edges = new Array();
 	</handler>
 	
 	<handler name="onselectswitch">

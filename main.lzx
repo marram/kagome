@@ -15,7 +15,7 @@
 
 
 
-<leftpane name="leftp" height="100%" width="300" y="${topp.height-10}">
+<leftpane name="leftp" height="100%" width="300" y="${topp.height-10}" x="-1">
 <NodePropertiesPane id="ppane"  visible="false" x="$once{parent.p.width}">
 </NodePropertiesPane>
 

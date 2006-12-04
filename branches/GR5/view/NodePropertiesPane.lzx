@@ -28,7 +28,7 @@
 
 		<handler name="onstate" reference="canvas.leftp">
 			if (canvas.leftp.state == "OPENED") {
-				if (parent.selectedobj.from != null) {
+				if (parent.selectedobj.from == null) {
 				this.setStuff(parent.selectedobj.modelnode);
 				}
 			}

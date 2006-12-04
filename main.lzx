@@ -58,6 +58,7 @@
 				//ppane.setX(ref.selectedobj.x + 70);
 				//ppane.setY(ref.selectedobj.y + 70);
 				ppane.setStuff(ref.selectedobj.modelnode);
+				dview.nManipulation.setStuff(ref.selectedobj.modelnode);
 			}
 		</handler>
 		<handler name="ondeselectedobj" reference="dview">

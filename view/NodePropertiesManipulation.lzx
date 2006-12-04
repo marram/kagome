@@ -7,49 +7,43 @@
 			inside.nodetitle.setText(propnode.title);
 
 			//inside.screentitle.setText(propnode.screentitle);
-			inside.screentext.setText(propnode.screentext);
 
-			inside.bt1.setText(propnode.b1text);
-			inside.bt2.setText(propnode.b2text);
-			inside.bt3.setText(propnode.b3text);
-			inside.bt4.setText(propnode.b4text);
+			inside.preview.setAttribute('modelnode', propnode);
+
+			//inside.preview.setAttribute('screentext', propnode.screentext);
+			//inside.preview.setAttribute('bt1', propnode.b1text);
+			//inside.preview.bt2.setAttribute('value', propnode.b2text);
+			//inside.preview.bt3.setAttribute('value', propnode.b3text);
+			//inside.preview.bt4.setAttribute('value', propnode.b4text);
 		</method>
 
 		<method name="applyStuff">
 			canvas.dview.selectedobj.modelnode.setAttribute('title',
 			inside.nodetitle.getText());
 
-
 			//canvas.dview.selectedobj.modelnode.setAttribute('screentitle',inside.screentitle.getText());
 			canvas.dview.selectedobj.modelnode.setAttribute('screentext',
 			inside.screentext.getText());
 
 			canvas.dview.selectedobj.modelnode.setAttribute('b1text',
-			inside.bt1.getText());
+			inside.preview.bt1);
 			canvas.dview.selectedobj.modelnode.setAttribute('b2text',
-			inside.bt2.getText());
+			inside.preview.bt2);
 			canvas.dview.selectedobj.modelnode.setAttribute('b3text',
-			inside.bt3.getText());
+			inside.preview.bt3);
 			canvas.dview.selectedobj.modelnode.setAttribute('b4text',
-			inside.bt4.getText());
+			inside.preview.bt4);
 
-		</method>
+		</method>		
+		
 		<view width="330" height="225" name="inside">
-
 			<wrappinglayout axis="x" spacing="5" />
 			<!--  Mini preview in a seperate class like Eric and Mahmoud
 				discussed
 			 -->
-			 <atmminipreview_manipulation width="300" height="180" name="preview" align="center" resource="minipreview" stretches="both"
-			 	bt1="${parent.bt1.text}"
-			 	bt2="${parent.bt2.text}"
-			 	bt3="${parent.bt3.text}"
-			 	bt4="${parent.bt4.text}"
-			 />
+			 <atmminipreview_manipulation width="300" height="180" name="preview" align="center" resource="minipreview" stretches="both" />
 			<ktext>Screen Title</ktext>
 			<edittext width="150" name="nodetitle">
-				<method event="ontext">
-				</method>
 			</edittext>
 		</view>
 

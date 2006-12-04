@@ -1,9 +1,8 @@
 <library>
 	<class name="devview" extends="bigdraggable">
 	
-	<NodePropManipulation name="nManipulation" visible="false">
-	</NodePropManipulation>
-	
+	<NodePropManipulation name="nManipulation" visible="false"/>
+	<EdgePropManipulation name="eManipulation" visible="false"/>
 
 	<!--  this attribute gets set to the currently selected object (node or edge). -->
 	<attribute name="selectedobj" />

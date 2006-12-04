@@ -1,0 +1,39 @@
+<library>
+	<!-- We might want to make this a baseclass for proppane -->
+	<include href="incubator/roundrect.lzx" />
+	<include href="incubator/roundrectbutton.lzx" />
+		<class name="kpane" extends="roundrect"
+			backgroundStartColor="$once{kblue1}"
+			backgroundStopColor="$once{kblue1}"
+			borderRadius="8"
+			borderColor="0xffffff"
+			>
+			<dragstate name="dr" />
+			<attribute name="paneTitle" type="string" value="Properties"/>
+			<attribute name="defaultplacement" value="in" />
+			<roundrect 
+			backgroundStartColor="$once{korange}"
+			backgroundStopColor="$once{kyellow}"
+			borderRadius="8"
+			borderColor="0xffffff"
+			width="$once{parent.width - 30}" 
+			height="20"
+			x="3"
+			y="3"
+			name="trr"
+			backgroundGradientOrientation="horizontal"
+			>
+			<text name="ttext" y="${-10}" text="${classroot.paneTitle}" width="$once{parent.width}">
+			</text>
+			<view name="close" resource="closeswf" onclick="classroot.destroy()" y="${-10}" x="${parent.width-30}"/>
+			<handler name="onmousedown">
+				classroot.dr.apply();
+			</handler>
+			<handler name="onmouseup">
+				classroot.dr.remove();
+			</handler>
+			</roundrect>
+			<view name="in" y="${25}"/>
+
+		</class>
+</library>

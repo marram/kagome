@@ -21,7 +21,26 @@
 				</basebutton>
 			</view>
 			<view name="play" x="${parent.create.width+50}" y="40" >
-				<basebutton resource="playicon" width="32" height="32" stretches="both" onclick="canvas.model.upload(canvas.kServer);"/>
+
+				<basebutton resource="playicon" width="32" height="32" stretches="both">
+					<handler name="onclick">
+						canvas.model.upload(canvas.kServer);
+						//make a window with a progress bar
+						var win = new kpane(canvas, {height: 568, width: 822, align: "center", y:80, paneTitle: "Loading ATM Prototype ..."});
+						var ld = new loading(win, {duration:7000, x: win.width/2-93, y: 80, paneTitle: "ATM UI Prototype"});
+						ld.start();
+						
+						//make a copy of the library loader
+						var z = canvas.clone(canvas.atmswf, canvas);
+						
+						this.del = new LzDelegate( z, "load" );
+        				LzTimer.addTimer( this.del, 7000 );
+        				
+        				this.del2 = new LzDelegate(win, "destroy");
+        				LzTimer.addTimer(this.del2, 7000);
+					</handler>
+				</basebutton>
+
 			</view>
 			<view name="share" x="${parent.play.x + parent.play.width+50}" y="40" >
 				<basebutton resource="flashicon" width="32" height="32" stretches="both"/>

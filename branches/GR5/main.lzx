@@ -1,8 +1,16 @@
 <canvas width="100%" height="100%" oninit="projectChooser.open()">
+	<method name="clone" args="pNode, pRootNode">
+		var className = eval(pNode.constructor.classname);
+		attrs = pNode._instanceAttrs;
+		attrs.name="atmswfcopy";
+		var obj = new className(pRootNode, attrs);
+		return obj;
+	</method>
     <include href="model" />
     <include href="view" />
 	<include href="resources" />
 	<include href="resources/buttons" />
+	
 	<import name="atmswf" href="ATM/atm.lzx" stage="defer" />
 	
 	<script src="JS/json.js" />
@@ -11,7 +19,7 @@
  <!--  This is the PHP script of servlet that would receive
  		model data from Kagome.
   -->
-  <dataset name="kServer" src="http://localhost/KagomePHP/" request="false" method="post"/>
+  <dataset name="kServer" src="http://localhost/workspace/KagomePHP/" request="false" method="post"/>
 
 
 

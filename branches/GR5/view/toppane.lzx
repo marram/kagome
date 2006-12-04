@@ -27,7 +27,7 @@
 						canvas.model.upload(canvas.kServer);
 						//make a window with a progress bar
 						var win = new kpane(canvas, {height: 568, width: 822, align: "center", y:80, paneTitle: "Loading ATM Prototype ..."});
-						var ld = new loading(win, {duration:7000, x: win.width/2-93, y: 80, paneTitle: "ATM UI Prototype"});
+						var ld = new loading(win, {duration:7000, x: win.width/2-93, y: 80});
 						ld.start();
 						
 						//make a copy of the library loader

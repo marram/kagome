@@ -23,7 +23,7 @@
 					}
 				</handler>
 				<handler name="onmodelnode">
-					Debug.write("got new node");
+					//Debug.write("got new node");
 					Debug.write(modelnode);
 					bt1.setAttribute('text', modelnode.b1text);
 					bt2.setAttribute('text', modelnode.b2text);

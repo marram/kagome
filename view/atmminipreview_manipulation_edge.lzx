@@ -66,7 +66,7 @@
 					}
 				</handler>
 				<handler name="onmodelnode">
-					Debug.write("got new node");
+					//Debug.write("got new node");
 					Debug.write(modelnode);
 					setAttribute("bt1", modelnode.b1text);
 					setAttribute("bt2", modelnode.b2text);

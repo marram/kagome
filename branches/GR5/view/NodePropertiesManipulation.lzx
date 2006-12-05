@@ -1,7 +1,7 @@
 <library>
 	<include href="proppane.lzx" />
 	<class name="NodePropManipulation" extends="proppane"
-	width="330" height="290" paneTitle="Screen Properties">
+	width="330" height="290" paneTitle="Screen Properties" opacity="0.7">
 
 		<method name="setStuff" args="propnode">
 			inside.nodetitle.setText(propnode.title);
@@ -21,7 +21,7 @@
 
 		<handler name="onstate" reference="canvas.leftp">
 			if (canvas.leftp.state == "CLOSED") {
-				if (parent.selectedobj.from == null) {
+				if (canvas.dview.selectedobj.from == null) {
 				this.setStuff(parent.selectedobj.modelnode);
 				}
 			}

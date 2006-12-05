@@ -2,13 +2,16 @@
 <!-- we'll name this knode (Kagome Node), because node is a reserved keyword -->
 	<class name="knode" extends="draggable">
 		<attribute name = "zoomMag" value = "${parent.zoomMag}"/>
-		<attribute name = "oldZoomMag" value = "1"/>
+		<attribute name = "oldZoomMag" value = "$once{parent.zoomMag}"/>
+		
 		<mnode name="modelnode" />
 		<attribute name="title" value="${modelnode.title}" type="string"/>
 		
 		<handler name="onzoomMag">
 			this.setAttribute('x', this.x*(this.oldZoomMag/this.zoomMag));
 			this.setAttribute('y', this.y*(this.oldZoomMag/this.zoomMag));
+			<!-- this.setAttribute('width', this.width*(this.oldZoomMag/this.zoomMag));
+			this.setAttribute('height', this.height*(this.oldZoomMag/this.zoomMag));-->
 			this.setAttribute('oldZoomMag', this.zoomMag);
 		</handler>
 		

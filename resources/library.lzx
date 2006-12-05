@@ -29,4 +29,21 @@
 	
 	<resource name="zoom_in" src="zoom_in.png" />
 	<resource name="zoom_out" src="zoom_out.png" />
+	
+	<resource name="pb1" src="preview_buttons/1_up.png" />
+	<resource name="pb1_down" src="preview_buttons/1_down.png" />
+	<resource name="pb1_over" src="preview_buttons/1_over.png" />	
+	
+	<resource name="pb2" src="preview_buttons/2_up.png" />
+	<resource name="pb2_down" src="preview_buttons/2_down.png" />
+	<resource name="pb2_over" src="preview_buttons/2_over.png" />	
+	
+	<resource name="pb3" src="preview_buttons/3_up.png" />
+	<resource name="pb3_down" src="preview_buttons/3_down.png" />
+	<resource name="pb3_over" src="preview_buttons/3_over.png" />		
+	
+	<resource name="pb4" src="preview_buttons/4_up.png" />
+	<resource name="pb4_down" src="preview_buttons/4_down.png" />
+	<resource name="pb4_over" src="preview_buttons/4_over.png" />
+	
 </library>

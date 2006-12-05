@@ -57,24 +57,18 @@
 	<class name="EdgePropManipulation" extends="proppane" width="330" height="300" paneTitle="Edge Properties" clip="true">
 		<method name="setEdgeProperties" args="propedge">
 			inside.preview.setAttribute('modelnode', propedge.s);
-			inside.buttonSelect.empty();
-			inside.buttonSelect.addItem("?", null);
-    		inside.buttonSelect.addItem("1 " + propedge.s.b1text, 1);
-    		inside.buttonSelect.addItem("2 " + propedge.s.b2text, 2);
-    		inside.buttonSelect.addItem("3 " + propedge.s.b3text, 3);
-    		inside.buttonSelect.addItem("4 " + propedge.s.b4text, 4);
+
     		if (propedge.sourceButton != null) {
-    			inside.buttonSelect.selectItem(propedge.sourceButton);
+    			inside.preview.sourceButton.selectItem(propedge.sourceButton);
     		}
     		else {
-    			inside.buttonSelect.select(inside.buttonSelect.getItemAt(0));
-    		}
-    		inside.targetcb.selectItem(propedge.t);		
+    			inside.preview.sourceButton.clearSelection();
+    		}	
 		</method>
 
 		<method name="applyStuff">
-		canvas.dview.selectedobj.modeledge.setAttribute('sourceButton', inside.buttonSelect.getValue());
-		canvas.dview.selectedobj.changeTarget(inside.targetcb.getValue().parent);
+			canvas.dview.selectedobj.modeledge.setAttribute('sourceButton', inside.preview.sourceButton.getValue());
+			//canvas.dview.selectedobj.changeTarget(inside.targetcb.getValue().parent);
 		</method>
 		<method name="updateTargetNodesList">
 			this.inside.targetcb.update();

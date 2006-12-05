@@ -51,20 +51,30 @@
 				<attribute name="modelnode"/>
 				<bcover name="buttonCover"/>
 				<text name="st" text="${parent.screenText}" align="center" y="20" multiline="true" />
-				<text name="lp1" x="45" y="101"
+				<text name="lp1" x="50" y="101"
 					text="${parent.bt1}" />
-				<text name="lp2" x="45" y="126"
+				<text name="lp2" x="50" y="126"
 					text="${parent.bt2}" />
-				<text name="lp3" x="146" y="101"
+				<text name="lp3" x="141" y="101"
 					text="${parent.bt3}" />
-				<text name="lp4" x="146" y="126"
+				<text name="lp4" x="141" y="126"
 					text="${parent.bt4}" />
 				
-				<radiogroup name="sourceButton">
-    				<radiobutton x="45" y="101" value="1" text="Button press"  selected="true"/>
-    				<radiobutton x="45" y="126" value="1" text="Button press"  />
-    				<radiobutton x="146" y="101" value="1" text="Button press"  />
-    				<radiobutton x="146" y="126" value="1" text="Button press"  />
+				<!--  view name="pb1" x="6" y="100" width="33" height="21" stretches="both" resource="pb2" clickable="true"
+					onmouseover="this.setResource('pb2_over'); this.setWidth(33); this.setHeight(21); this.setClickable(true);"
+					onmouseout="this.setResource('pb2'); this.setWidth(33); this.setHeight(21); this.setClickable(true);"
+					onmousedown="this.setResource('pb2_down'); this.setWidth(33); this.setHeight(21); this.setClickable(true);"
+					onclick="this.setResource('pb2_down'); this.setWidth(33); this.setHeight(21); this.setClickable(true);"
+					/>
+				<view name="pb2" x="7" y="125" width="31" height="19" stretches="both" resource="pb2"/>
+				<view name="pb3" x="213" y="101" width="31" height="19" stretches="both" resource="pb3"/>			
+				<view name="pb4" x="213" y="125" width="31" height="19" stretches="both" resource="pb4"/ -->
+												
+				<radiogroup x="45" y="102" name="sourceButton" height="50" width="130" layout="class:wrappinglayout; axis:y; xspacing:124; yspacing:9">
+						<radiobutton value="1" />
+    					<radiobutton value="2" />
+	    				<radiobutton value="3" />
+    					<radiobutton value="4" />
 	  			</radiogroup>
 				
 				<handler name="oninit">
@@ -80,7 +90,7 @@
 					setAttribute("bt2", modelnode.b2text);
 					setAttribute("bt3", modelnode.b3text);
 					setAttribute("bt4", modelnode.b4text);
-					setAttribute("screenText", modelnode.screentext);
+					setAttribute("screenText", modelnode.screentext);					
 				</handler>
 				<method name="setButton" args="num">
 					Debug.write("Setting button to", num);

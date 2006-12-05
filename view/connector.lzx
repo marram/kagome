@@ -98,6 +98,7 @@
 		2. ability to highlight and unhighlight
 	 -->
 	<class name="connector" extends="baseconnector">
+		<attribute name="highlighted" value="false" />
 		<!--  the color of the connector -->
 		<attribute name="color" type="color" value="${kblue2}" />
 		<!--  this attribute will be used to offset the hints of edges/connectors joining the same nodes so that they can be distinguished -->
@@ -192,12 +193,22 @@
 				drawStructure();
 			</method>
 			<handler name="onwidth">
-				//for some reason, the roundrect doesn't redraw when dimensions chang
 				drawStructure();
 			</handler>
 			<handler name="onheight">
 				drawStructure();
 			</handler>	
+			<handler name="ony">
+				Debug.write("THINT 1?");
+				if (parent.highlighted == true) {
+					Debug.write("THINT?");
+					canvas.dview.eManipulation.setAttribute("y", parent.y - this.y * Math.sin((-parent.rotation-90)*Math.PI/180));
+					canvas.dview.eManipulationBG.setAttribute("y", parent.y - this.y * Math.sin((-parent.rotation-90)*Math.PI/180));
+					canvas.dview.eManipulation.setAttribute("x", parent.x + this.y * Math.cos((-parent.rotation-90)*Math.PI/180));
+					canvas.dview.eManipulationBG.setAttribute("x", parent.x + this.y * Math.cos((-parent.rotation-90)*Math.PI/180));
+				}
+			</handler>
+			
 		</roundrect>
 
 		
@@ -214,6 +225,7 @@
 			such as highlight, unhighlight, select, etc.
 		 -->
 		<method name="highlight">
+			this.highlighted = true;
 			arrowhead.setResource("arrowheadhswf");
 			line.setAttribute('width', 3);
 			line.sendToBack();
@@ -223,8 +235,30 @@
 			bringToFront();
 			from.bringToFront();
 			to.bringToFront();
+					
+			<!-- DJK: opens up the edge manipulation when it is highlighted -->
+			if (canvas.leftp.state == "CLOSED") {
+				var x = this.x + thint.y * Math.cos((-this.rotation-90)*Math.PI/180);
+				var y = this.y - thint.y * Math.sin((-this.rotation-90)*Math.PI/180);
+				//Debug.write("this.x is ", (this.x));
+				//Debug.write("this.y is ", (this.y));
+				//Debug.write("angle is ", (-this.rotation-90));
+				//Debug.write("x is ", x);
+				//Debug.write("y is ", y);
+				
+				canvas.dview.eManipulationBG.animateIn();
+				//dview.eManipulation.setVisible(true);
+				//dview.eManipulation.setAttribute('x', x);
+				//dview.eManipulation.setAttribute('y', y);
+			}
 		</method>
 		<method name="unhighlight">
+			<!-- DJK: closes up the edge manipulation when it is highlighted -->
+			if (canvas.leftp.state == "CLOSED") {			
+				canvas.dview.eManipulationBG.animateOut();
+			}
+			
+			this.highlighted = false;
 			arrowhead.setResource("arrowheadswf");
 			line.setAttribute('width', 1);
 			setAttribute('color', kblue2);

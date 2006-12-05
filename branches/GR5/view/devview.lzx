@@ -3,6 +3,7 @@
 
 	<NodePropManipulation name="nManipulation" visible="false"/>
 	<EdgePropManipulation name="eManipulation" visible="false"/>
+	<EdgePropManipulationBG name="eManipulationBG" visible="false"/>
 
 	<!--  this attribute gets set to the currently selected object (node or edge). -->
 	<attribute name="selectedobj" />

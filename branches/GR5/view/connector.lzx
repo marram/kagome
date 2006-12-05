@@ -199,9 +199,7 @@
 				drawStructure();
 			</handler>	
 			<handler name="ony">
-				Debug.write("THINT 1?");
-				if (parent.highlighted == true) {
-					Debug.write("THINT?");
+				if (parent.highlighted == true) {	
 					canvas.dview.eManipulation.setAttribute("y", parent.y - this.y * Math.sin((-parent.rotation-90)*Math.PI/180));
 					canvas.dview.eManipulationBG.setAttribute("y", parent.y - this.y * Math.sin((-parent.rotation-90)*Math.PI/180));
 					canvas.dview.eManipulation.setAttribute("x", parent.x + this.y * Math.cos((-parent.rotation-90)*Math.PI/180));
@@ -273,5 +271,17 @@
 			parent.onselectswitch.sendEvent();
 			parent.setAttribute('selectedobj', this);
 		</method>
+
+		<handler name="onstate" reference="canvas.leftp">
+			if (this.highlighted == true) {
+				if (canvas.leftp.state == "CLOSED") {
+					canvas.dview.eManipulationBG.animateIn();
+				}
+				else {
+					canvas.dview.eManipulationBG.animateOut();
+				}
+			}
+		</handler>
+
 		</class>
 </library>

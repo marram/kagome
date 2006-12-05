@@ -7,7 +7,7 @@
 					borderWidth="3"
 					backgroundGradientOrientation="horizontal"
 					>
-      	<animator name="anm_height_in" attribute="height" to="460" from="0" duration="500" start="false"/>
+      	<animator name="anm_height_in" attribute="height" to="300" from="0" duration="500" start="false"/>
 	    <animator name="anm_width_in" attribute="width" to="330" from="0" duration="500" start="false"/>
        	<animator name="anm_width_out" attribute="height" to="0" duration="500" start="false"/>
 		<animator name="anm_height_out" attribute="width" to="0" duration="500" start="false"/>
@@ -28,8 +28,8 @@
 		</handler>
 		<handler name="onheight">
 			drawStructure();
-		</handler>	
-
+		</handler>
+		
 		<method name="animateIn">
 			this.setAttribute("backgroundStartColor", nodehi);
 			this.setAttribute("backgroundStopColor", nodehi);
@@ -54,7 +54,7 @@
 		</method>
 	</class>
 
-	<class name="EdgePropManipulation" extends="proppane" width="330" height="460" paneTitle="Edge Properties" clip="true">
+	<class name="EdgePropManipulation" extends="proppane" width="330" height="300" paneTitle="Edge Properties" clip="true">
 		<method name="setEdgeProperties" args="propedge">
 			inside.preview.setAttribute('modelnode', propedge.s);
 			inside.buttonSelect.empty();
@@ -95,63 +95,12 @@
 			}
 		</handler>
 
-		<view width="330" height="390" name="inside">
+		<view width="330" height="230" name="inside">
 			<simplelayout axis="y" spacing="5"/>
 
   			<text>Source Screen Preview</text>
-			 <atmminipreview_manipulation_edge width="300" height="180" name="preview" align="center" resource="minipreview" stretches="both" />
+			 <atmminipreview_manipulation_edge width="305" height="180" name="preview" resource="minipreview" stretches="both" />
 
-    		<text>Event: </text>
-
-    		<radiogroup name="group1">
-    		<radiobutton value="1" text="Button press"  selected="true"/>
-  			</radiogroup>
-    		
-    		<text> Source Button: </text>
-    		<!--edittext width = "150" name = "buttonSelect" /-->
-    		<combobox name="buttonSelect" width="200">
-    			<handler name="oninit">
-				//moved them to setEdgeProperties
-    			</handler>
-    			<method name="empty">
-    				removeItemAt(4);
-    				removeItemAt(3);
-    				removeItemAt(2);
-    				removeItemAt(1);
-    				removeItemAt(0);
-    			</method>
-    			<handler name="onvalue">
-    				parent.preview.setButton(this.value);
-    			</handler>
-    		</combobox>
-
-    		<text> Target Screen: </text>
-    		<combobox name="targetcb" width="200">
-    			<attribute name="counter" type="number" value="0"/>
-    			<method name="fill">
-	    			<![CDATA[
-	    				for (var i=0; i< canvas.model.nodes.length; i++) {
-	    					var n = canvas.model.nodes[i];
-	    					if ((n!=null) && (n != parent.preview.modelnode)) {
-		    					this.addItem(n.title, n);
-		    					this.counter++;
-		    					//Debug.write(parent.preview.modelnode.uid);
-	    					}
-	    				}
-	    			]]>	
-    			</method>
-    			<method name="empty">
-	    			<![CDATA[
-	    				for (var i=this.counter-1; i>= 0; i--) {
-							removeItemAt(i);
-	    				}
-	    			]]>	
-    			</method>
-    			<method name="update">
-    			    empty();
-    				fill();
-    			</method>
-    		</combobox>
   		</view> 
 
 	</class>

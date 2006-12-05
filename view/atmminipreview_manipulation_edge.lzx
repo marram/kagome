@@ -50,7 +50,7 @@
 				<attribute name="screenText" type="string" value=""/>
 				<attribute name="modelnode"/>
 				<bcover name="buttonCover"/>
-				<text name="st" text="${parent.screenText}" align="center" y="20" multiline="true" />
+				<text name="st" text="${parent.screenText}" x="80" y="20" multiline="true" />
 				<text name="lp1" x="60" y="101"
 					text="${parent.bt1}" />
 				<text name="lp2" x="60" y="126"

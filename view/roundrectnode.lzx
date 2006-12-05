@@ -4,8 +4,8 @@
 		<attribute name="width" value="${titletext.width+10}" />
 		<attribute name="height" value="35" />
 		
-          	<animator name="anm_width_in" attribute="height" to="250" duration="500" start="false"/>
-		    <animator name="anm_height_in" attribute="width" to="320" duration="500" start="false"/>
+          	<animator name="anm_height_in" attribute="height" to="250" duration="500" start="false"/>
+		    <animator name="anm_width_in" attribute="width" to="320" duration="500" start="false"/>
           	<animator name="anm_width_out" attribute="height" to="35" duration="500" start="false"/>
 		    <animator name="anm_height_out" attribute="width" to="${parent.titletext.width+10}" duration="500" start="false"/>
 		

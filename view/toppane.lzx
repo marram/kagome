@@ -47,7 +47,7 @@
 
 			</view>
 			<view name="share" x="${parent.play.x + parent.play.width}" y="27" >
-				<basebutton resource="flashicon" width="32" height="32" stretches="both">
+				<basebutton resource="flashicon">
 					<tooltip> Share SWF</tooltip>
 				</basebutton>
 			</view>

@@ -37,7 +37,7 @@
 		</handler>
 
 
-		<view width="260" height="390" name="inside">
+		<view width="260" height="390" name="inside" resource="nshadow">
 
 			<wrappinglayout axis="x" spacing="5" yspacing="7"/>
 			<!--  Mini preview in a seperate class like Eric and Mahmoud

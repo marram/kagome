@@ -92,7 +92,7 @@
 		<view width="330" height="230" name="inside">
 			<simplelayout axis="y" spacing="5"/>
 
-  			<text>Source Screen Preview</text>
+  			<text>Source Screen Preview: Select a Source Button</text>
 			 <atmminipreview_manipulation_edge width="305" height="180" name="preview" resource="minipreview" stretches="both" />
 
   		</view> 

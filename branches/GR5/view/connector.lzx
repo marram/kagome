@@ -251,7 +251,7 @@
 			}
 		</method>
 		<method name="unhighlight">
-			<!-- DJK: closes up the edge manipulation when it is highlighted -->
+			<!-- DJK: closes up the edge manipulation when it is unhighlighted -->
 			if (canvas.leftp.state == "CLOSED") {			
 				canvas.dview.eManipulationBG.animateOut();
 			}

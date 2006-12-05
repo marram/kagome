@@ -1,6 +1,7 @@
 <library>
 	<class name="EdgePropertiesPane" extends="proppane" width="280"
 		height="460" paneTitle="Edge Properties">
+		<attribute name="enabled" type="boolean" value="${dview.selectedobj != null}"/>
 		<method name="setEdgeProperties" args="propedge">
 			inside.preview.setAttribute('modelnode', propedge.s);
 			inside.buttonSelect.empty();
@@ -52,7 +53,7 @@
     		
     		<text> Source Button: </text>
     		<!-- edittext width = "150" name = "buttonSelect" /-->
-    		<combobox name="buttonSelect" width="200">
+    		<combobox name="buttonSelect" width="200"  enabled="${classroot.enabled}">
     			<handler name="oninit">
 				//moved them to setEdgeProperties
     			</handler>
@@ -69,7 +70,7 @@
     		</combobox>
 
     		<text> Target Screen: </text>
-    		<combobox name="targetcb" width="200">
+    		<combobox name="targetcb" width="200"  enabled="${classroot.enabled}">
     			<attribute name="counter" type="number" value="0"/>
     			<method name="fill">
 	    			<![CDATA[

@@ -12,8 +12,7 @@
 	<class name="blabel" 
 			extends="text" 
 			width="220" 
-			height="60" 
-			bgcolor="0xabffab" 
+			height="60"  
 			fontsize="22"/>
 	
 
@@ -41,9 +40,9 @@
 				fontsize="30"
 				multiline="true"
 				/>
-			<blabel name="b1l" x="145" y="348"  text="${parent.b1label}"/>
-			<blabel name="b2l" x="145" y="432" text="${parent.b2label}"/>
-			<blabel name="b3l" x="440" y="348" text="${parent.b3label}"/>
-			<blabel name="b4l" x="440" y="432" text="${parent.b4label}"/>				
+			<blabel name="b1l" x="145" y="358"  text="${parent.b1label}"/>
+			<blabel name="b2l" x="145" y="442" text="${parent.b2label}"/>
+			<blabel name="b3l" x="475" y="358" text="${parent.b3label}"/>
+			<blabel name="b4l" x="475" y="442" text="${parent.b4label}"/>				
 	</class>
 </library>

@@ -47,8 +47,9 @@
 		<handler name="oninit">
 			//create an initial node
 			var initialNode = dview.addNode();
-			//highlight it
-			dview.setAttribute('selectedobj', initialNode);
+			//don't highlight it
+			//dview.setAttribute('selectedobj', initialNode);
+			canvas.leftp.close();
 		</handler>
 		<handler name="onselectedobj" reference="dview">
 			var ref = dview;

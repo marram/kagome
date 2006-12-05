@@ -28,8 +28,8 @@
 
 		<handler name="onstate" reference="canvas.leftp">
 			if (canvas.leftp.state == "OPENED") {
-				if (parent.selectedobj.from == null) {
-				this.setStuff(parent.selectedobj.modelnode);
+				if (canvas.dview.selectedobj.from == null) {
+				this.setStuff(canvas.dview.selectedobj.modelnode);
 				}
 			}
 		</handler>

@@ -4,13 +4,13 @@
 	<attribute name = "zoomMag" value = "${buttons.zoomslider.value}"/>
 		<!-- view name="topbar" resource="topbar" y="24" width="100%" stretches="both" /-->
 		<view name="hrule" bgcolor="#CCCCCC" y="74" width="100%" height="1" />
-		<view name="logoview" resource="logoswf" y="23" x="10" />
-		<view name="buttons" x="$once{parent.logoview.width + 100}" height="70">
-			<view name="create" y="37" >
+		<view name="logoview" resource="logoswf" y="23" x="18" />
+		<view name="buttons" x="$once{parent.logoview.width + 115}" height="70">
+			<view name="create" y="27" >
 				<basebutton resource="cnodeicon" onclick="canvas.dview.addNode()">Add node
 					<tooltip>Create a node</tooltip>		
 				</basebutton>
-				<basebutton x="32" resource="cedgeicon">
+				<basebutton x="40" resource="cedgeicon">
 					Add connector
 					<handler name="onclick">
 						canvas.dview.setAttribute('modeFlag', 'ADD_CONNECTOR');
@@ -18,14 +18,14 @@
 					</handler>
 					<tooltip>Create an edge</tooltip>
 				</basebutton>
-				<basebutton x="64" resource="delicon" onclick="canvas.dview.deleteSelected()">
+				<basebutton x="120" resource="delicon" onclick="canvas.dview.deleteSelected()">
 					Delete selected
 					<tooltip>Delete selection</tooltip>
 				</basebutton>
 			</view>
-			<view name="play" x="${parent.create.width+50}" y="40" >
+			<view name="play" x="${parent.create.width+40}" y="27" >
 
-				<basebutton resource="playicon" width="32" height="32" stretches="both">
+				<basebutton resource="playicon">
 					<handler name="onclick">
 						canvas.model.upload(canvas.kServer);
 						//make a window with a progress bar
@@ -46,15 +46,14 @@
 				</basebutton>
 
 			</view>
-			<view name="share" x="${parent.play.x + parent.play.width+50}" y="40" >
+			<view name="share" x="${parent.play.x + parent.play.width}" y="27" >
 				<basebutton resource="flashicon" width="32" height="32" stretches="both">
 					<tooltip> Share SWF</tooltip>
 				</basebutton>
-				
 			</view>
 			<!-- view name="createT" resource="createswf" x="$once{parent.create.x+25}" y="22"/-->
 
-			<slider name="zoomslider" x="$once{parent.share.x+60}" y="40" width="300" minvalue = "1" maxvalue = "3" value="1"/>
+			<slider name="zoomslider" x="$once{parent.share.x+parent.share.width + 40}" y="40" width="300" minvalue = "1" maxvalue = "3" value="1"/>
 		</view>
 	</class>
 </library>

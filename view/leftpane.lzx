@@ -35,7 +35,11 @@
 				this.setAttribute("state", "CLOSED");
 			}
 		</method>
-
-
+		<method name="closeNoAnim">
+			if (this.state == "OPENED") {
+				this.setAttribute('width', 18);
+				this.setAttribute("state", "CLOSED");
+			}			
+		</method>
 	</class>
 </library>

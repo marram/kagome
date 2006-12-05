@@ -51,9 +51,9 @@
 				<attribute name="modelnode"/>
 				<bcover name="buttonCover"/>
 				<text name="st" text="${parent.screenText}" align="center" y="20" multiline="true" />
-				<text name="lp1" x="50" y="101"
+				<text name="lp1" x="60" y="101"
 					text="${parent.bt1}" />
-				<text name="lp2" x="50" y="126"
+				<text name="lp2" x="60" y="126"
 					text="${parent.bt2}" />
 				<text name="lp3" x="141" y="101"
 					text="${parent.bt3}" />

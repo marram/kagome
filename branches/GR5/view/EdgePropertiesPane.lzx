@@ -49,6 +49,9 @@
 
     		<radiogroup id="group1">
     		<radiobutton value="1" text="Button press"  selected="true"/>
+    		<radiobutton value="1" text="Button + logical" enabled="false"/>
+    		<radiobutton value="1" text="Logical"  enabled="false" />
+    		<radiobutton value="1" text="Timed" enabled="false" />
   			</radiogroup>
     		
     		<text> Source Button: </text>

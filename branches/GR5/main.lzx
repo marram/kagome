@@ -37,7 +37,7 @@
 </EdgePropertiesPane>
 </leftpane>
 <toppane name="topp" width="100%"/>
-<devview name="dview" width="4000" height="4000" y="-750" x="-750">
+<devview name="dview" width="5000" height="3000" y="-750" x="-750">
 	<!-- text><b><i>Development Area</i></b></text-->
 </devview>
 

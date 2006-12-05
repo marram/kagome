@@ -46,4 +46,7 @@
 	<resource name="pb4_down" src="preview_buttons/4_down.png" />
 	<resource name="pb4_over" src="preview_buttons/4_over.png" />
 	
+	<resource name="nshadow" src="nshadow.png" />
+	<resource name="eshadow" src="eshadow.png" />
+	
 </library>

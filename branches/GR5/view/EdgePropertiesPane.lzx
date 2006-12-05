@@ -40,7 +40,7 @@
 			 */
 			updateTargetNodesList();
 		</handler>
-		<view width="260" height="390"  name="inside">
+		<view width="260" height="390"  name="inside" resource="eshadow">
     		<simplelayout axis="y" spacing="5"/>
     		
   			<text>Source Screen Preview</text>

@@ -1,6 +1,60 @@
 <library>
-	<class name="EdgePropManipulation" extends="proppane" width="330" height="290" paneTitle="Edge Properties">
+	<class name="EdgePropManipulationBG" extends="roundrect" width="0" height="0"
+					backgroundStartColor="$once{nodehi}"
+					backgroundStopColor="$once{nodehi}"
+					borderRadius="8"
+					borderColor="$once{nodehib}"
+					borderWidth="3"
+					backgroundGradientOrientation="horizontal"
+					>
+      	<animator name="anm_height_in" attribute="height" to="460" from="0" duration="500" start="false"/>
+	    <animator name="anm_width_in" attribute="width" to="330" from="0" duration="500" start="false"/>
+       	<animator name="anm_width_out" attribute="height" to="0" duration="500" start="false"/>
+		<animator name="anm_height_out" attribute="width" to="0" duration="500" start="false"/>
 
+		<handler name="onwidth">
+			<![CDATA[
+			drawStructure();
+			if (width == 330) {
+				canvas.dview.eManipulation.bringToFront();
+				canvas.dview.eManipulation.setVisible(true);
+			}
+			if (width > 1) {
+				this.setVisible(true);
+			}
+			if (width < 1) {
+				this.setVisible(false);
+			}]]>
+		</handler>
+		<handler name="onheight">
+			drawStructure();
+		</handler>	
+
+		<method name="animateIn">
+			this.setAttribute("backgroundStartColor", nodehi);
+			this.setAttribute("backgroundStopColor", nodehi);
+			this.setAttribute("borderColor", nodehib);
+			drawStructure();
+			
+			this.bringToFront();
+			this.setVisible(true);
+			anm_height_in.doStart();
+			anm_width_in.doStart();
+		</method>
+		
+		<method name="animateOut">
+			this.setAttribute("backgroundStartColor", nodeblue);
+			this.setAttribute("backgroundStopColor", nodeblue);
+			this.setAttribute("borderColor", nodedarkblue);
+			drawStructure();
+			
+			canvas.dview.eManipulation.setVisible(false);
+			anm_height_out.doStart();
+			anm_width_out.doStart();
+		</method>
+	</class>
+
+	<class name="EdgePropManipulation" extends="proppane" width="330" height="460" paneTitle="Edge Properties" clip="true">
 		<method name="setEdgeProperties" args="propedge">
 			inside.preview.setAttribute('modelnode', propedge.s);
 			inside.buttonSelect.empty();
@@ -41,7 +95,7 @@
 			}
 		</handler>
 
-		<view width="330" height="225" name="inside">
+		<view width="330" height="390" name="inside">
 			<simplelayout axis="y" spacing="5"/>
 
   			<text>Source Screen Preview</text>
@@ -49,12 +103,12 @@
 
     		<text>Event: </text>
 
-    		<!-- radiogroup id="group1">
+    		<radiogroup name="group1">
     		<radiobutton value="1" text="Button press"  selected="true"/>
   			</radiogroup>
     		
     		<text> Source Button: </text>
-    		<edittext width = "150" name = "buttonSelect" /-->
+    		<!--edittext width = "150" name = "buttonSelect" /-->
     		<combobox name="buttonSelect" width="200">
     			<handler name="oninit">
 				//moved them to setEdgeProperties

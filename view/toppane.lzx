@@ -53,7 +53,17 @@
 			</view>
 			<!-- view name="createT" resource="createswf" x="$once{parent.create.x+25}" y="22"/-->
 
-			<slider name="zoomslider" x="$once{parent.share.x+parent.share.width + 40}" y="40" width="300" minvalue = "1" maxvalue = "3" value="1"/>
+			<slider name="zoomslider" x="$once{parent.share.x+60}" y="40" width="100" minvalue = "1" maxvalue = "3" value="1"/>
+		</view>
+		
+		<!--"minimap" ... shows where the current view is on the devview-->
+		<view name="placementDisplay" x="$once{parent.buttons.x + parent.buttons.width + 100}" y = "20" width = "75" height="45">
+			<view name="leftborder" x = "0" y="0" width = "1" height = "$once{parent.height}" bgcolor = "0x000000"/>
+			<view name="rightborder" x = "$once{parent.width - 1}" y="0" width = "1" height = "$once{parent.height}" bgcolor = "0x000000" />
+			<view name="topborder" x = "0" y="0" width = "$once{parent.width}" height = "1" bgcolor = "0x000000" />
+			<view name="bottomborder" x = "0" y="$once{parent.height - 1}" width = "$once{parent.width}" height = "1" bgcolor = "0x000000" />
+		
+			<view name="viewbox" x = "${parent.width*(-dview.x/dview.width)}" y= "${parent.height*(-dview.y/dview.height)}" height = "${parent.height*(canvas.height/dview.height)}" width = "${parent.width*(canvas.width/dview.width)}" bgcolor = "0x000000" opacity = ".25"/> 
 		</view>
 	</class>
 </library>

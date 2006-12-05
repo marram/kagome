@@ -1,8 +1,8 @@
 <library>
 	<class name="roundrectnode" extends="knode">
 		<attribute name="highlighted" value="false" />
-		<attribute name="width" value="${titletext.width+10}" />
-		<attribute name="height" value="35" />
+		<attribute name="width" value="${(titletext.width+10)/parent.zoomMag}" />
+		<attribute name="height" value = "${35/parent.zoomMag}"/>
 		
           	<animator name="anm_height_in" attribute="height" to="250" duration="500" start="false"/>
 		    <animator name="anm_width_in" attribute="width" to="320" duration="500" start="false"/>

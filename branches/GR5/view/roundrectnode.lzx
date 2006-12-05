@@ -6,8 +6,8 @@
 		
           	<animator name="anm_height_in" attribute="height" to="250" duration="500" start="false"/>
 		    <animator name="anm_width_in" attribute="width" to="320" duration="500" start="false"/>
-          	<animator name="anm_width_out" attribute="height" to="35" duration="500" start="false"/>
-		    <animator name="anm_height_out" attribute="width" to="${parent.titletext.width+10}" duration="500" start="false"/>
+          	<animator name="anm_width_out" attribute="height" to="${35/parent.zoomMag}" duration="500" start="false"/>
+		    <animator name="anm_height_out" attribute="width" to="${(parent.titletext.width+10)/parent.zoomMag}" duration="500" start="false"/>
 		
 		<handler name="onwidth">
 			if (width == 320) {

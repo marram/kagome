@@ -23,9 +23,22 @@
 			<menuitem text="Paste" onselect="" />
 			<menuitem text="Delete" onselect="" />
 		</menu>
-		<menu text="View" width="100">
-			<menuitem text="Zoom In" onselect="" />
-			<menuitem text="Zoom Out" onselect="" />
+		<menu text="View" width="100" id = "ViewMenu">
+			<menuitem text="Zoom In" onselect="ViewMenu.decrementZoomSlider()" />
+			<menuitem text="Zoom Out" onselect="ViewMenu.incrementZoomSlider()" />
+			
+			<method name = "incrementZoomSlider">
+				if (3 > canvas.topp.buttons.zoomslider.value){
+					canvas.topp.buttons.zoomslider.setAttribute('value', canvas.topp.buttons.zoomslider.value + 1);
+				}
+			</method>
+			
+			<method name = "decrementZoomSlider">
+				if (canvas.topp.buttons.zoomslider.value > 0){
+					canvas.topp.buttons.zoomslider.setAttribute('value', canvas.topp.buttons.zoomslider.value - 1);
+				}
+			</method>
+			
 		</menu>
 	</class>
 </library>

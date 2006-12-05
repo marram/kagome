@@ -50,15 +50,16 @@
 				<attribute name="screenText" type="string" value=""/>
 				<attribute name="modelnode"/>
 				<bcover name="buttonCover"/>
-				<text name="st" text="${parent.screenText}" align="center" y="20" multiline="true" />
+				<text name="st" text="${parent.screenText}" align="center" y="20"
+					fontsize="9" multiline="true" width="120"/>
 				<text name="lp1" x="45" y="100"
-					text="${parent.bt1}" />
+					text="${parent.bt1}" fontsize="9" />
 				<text name="lp2" x="45" y="125"
-					text="${parent.bt2}" />
-				<text name="lp3" x="150" y="100"
-					text="${parent.bt3}" />
-				<text name="lp4" x="150" y="125"
-					text="${parent.bt4}" />
+					text="${parent.bt2}" fontsize="9" />
+				<text name="lp3" x="145" y="100"
+					text="${parent.bt3}" fontsize="9" />
+				<text name="lp4" x="145" y="125"
+					text="${parent.bt4}" fontsize="9" />
 				<handler name="oninit">
 					if (modelnode != null)
 					{

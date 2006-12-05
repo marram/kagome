@@ -202,6 +202,11 @@
 			//call clean on the object. For an example, node might want to delete all edges that are connected to them.
 			obj.clean();
 			this.__deleteObj(obj);
+			canvas.dview.nManipulation.setVisible(false);
+			canvas.dview.eManipulationBG.setVisible(false);
+			canvas.dview.eManipulationBG.setWidth(0);
+			canvas.dview.eManipulationBG.setHeight(0);
+			canvas.dview.eManipulation.setVisible(false);
 		}
 		]]>	
 	</method>

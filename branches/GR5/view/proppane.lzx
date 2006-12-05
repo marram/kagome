@@ -49,7 +49,11 @@
 				<roundrectbutton align="right" height="20"
 					text="Reset">
 					<handler name="onclick">
-						classroot.setStuff(canvas.dview.selectedobj.modelnode);
+						if (dview.selectedobj.from != null) {
+							classroot.setEdgeProperties(canvas.dview.selectedobj.modeledge);
+						} else {
+							classroot.setStuff(canvas.dview.selectedobj.modelnode);			
+						}
 					</handler>
 				</roundrectbutton>
 				<!-- button name="applyB" height="20" text="Apply" enabled="false">

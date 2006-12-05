@@ -8,8 +8,8 @@
 
 				<edittext name="screenText" x="70" y="30" multiline="true" fontsize="8" height="34" opacity="0.3">
 					<handler name="ontext">
-						this.setAttribute('bgcolor', "#CCCCCC");
-						parent.parent.parent.buttons.applyB.setAttribute('enabled', true);
+						//this.setAttribute('bgcolor', "#CCCCCC");
+						//parent.parent.parent.buttons.applyB.setAttribute('enabled', true);
 					</handler>
 				</edittext>
 				<edittext name="bt1" x="45" y="101" fontsize="8" height="18" width="60" />
@@ -24,7 +24,7 @@
 				</handler>
 				<handler name="onmodelnode">
 					//Debug.write("got new node");
-					Debug.write(modelnode);
+					//Debug.write(modelnode);
 					bt1.setAttribute('text', modelnode.b1text);
 					bt2.setAttribute('text', modelnode.b2text);
 					bt3.setAttribute('text', modelnode.b3text);

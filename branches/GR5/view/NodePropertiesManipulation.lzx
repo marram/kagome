@@ -27,6 +27,12 @@
 			}
 		</handler>
 
+		<handler name="onselectedobj" reference="dview">
+			if (dview.selectedobj == null) {
+				this.setVisible(false);
+			}
+		</handler>
+
 		<view width="330" height="225" name="inside">
 			<wrappinglayout axis="x" spacing="5" />
 			<!--  Mini preview in a seperate class like Eric and Mahmoud

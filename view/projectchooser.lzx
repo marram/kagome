@@ -7,7 +7,7 @@
 			backgroundStopColor="$once{kblue2}"
 			borderRadius="8"
 			borderWidth="0"
-			borderColor="0xffffff"
+			borderColor="0x000000"
 	>
 		<vbox spacing="5" height="100" width="$once{parent.width - 2*parent.borderRadius}">
 		<text y="20">What would you like to do? </text>

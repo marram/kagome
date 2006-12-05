@@ -25,7 +25,7 @@
 			backgroundStartColor="$once{kblue1}"
 			backgroundStopColor="$once{kblue1}"
 			borderRadius="15"
-			borderColor="0xffffff"
+			borderColor="0x000000"
 		>
 
 		</roundrect>

@@ -12,10 +12,10 @@
 						//parent.parent.parent.buttons.applyB.setAttribute('enabled', true);
 					</handler>
 				</edittext>
-				<edittext name="bt1" x="45" y="101" fontsize="8" height="18" width="60" />
-				<edittext name="bt2" x="45" y="126" fontsize="8" height="18" width="60" />
-				<edittext name="bt3" x="146" y="101" fontsize="8" height="18" width="60" />
-				<edittext name="bt4" x="146" y="126" fontsize="8" height="18" width="60" />
+				<edittext name="bt1" x="45" y="101" fontsize="8" height="18" width="63" maxlength="10"/>
+				<edittext name="bt2" x="45" y="126" fontsize="8" height="18" width="63" maxlength="10"/>
+				<edittext name="bt3" x="146" y="101" fontsize="8" height="18" width="63" maxlength="10"/>
+				<edittext name="bt4" x="146" y="126" fontsize="8" height="18" width="63" maxlength="10"/>
 				<handler name="oninit">
 					if (modelnode != null)
 					{

@@ -16,13 +16,13 @@
 		<frame src="del3.png" />
 	</resource>
 	<resource name="playicon">
-		<frame src="play1.swf" />
-		<frame src="play2.swf" />
-		<frame src="play3.swf" />
+		<frame src="play1.png" />
+		<frame src="play2.png" />
+		<frame src="play3.png" />
 	</resource>
 	<resource name="flashicon">
-		<frame src="flash1.swf" />
-		<frame src="flash2.swf" />
-		<frame src="flash3.swf" />
+		<frame src="flash1.png" />
+		<frame src="flash2.png" />
+		<frame src="flash3.png" />
 	</resource>
 </library>

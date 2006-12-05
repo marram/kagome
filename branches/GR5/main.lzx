@@ -58,7 +58,7 @@
 				ppane.setVisible(false);
 				edgePane.setVisible(true);
 				edgePane.setEdgeProperties(ref.selectedobj.modeledge);
-				dview.eManipulation.setStuff(ref.selectedobj.modelnode);
+				dview.eManipulation.setEdgeProperties(ref.selectedobj.modeledge);
 			}
 			else {
 				edgePane.setVisible(false);

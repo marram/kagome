@@ -41,5 +41,15 @@
 				this.setAttribute("state", "CLOSED");
 			}			
 		</method>
+		<!-- We give it x and y offsets that are half the size so that the view rotates around its center -->
+		<view name="arr" resource="arrowheadswf" stretches="both" height="15" width="15" xoffset="${width/2}" yoffset="${height/2}" y="13" x="10">
+			<handler name="onstate" reference="parent">
+				if (parent.state == "OPENED")
+					setRotation(90);
+				else
+					setRotation(-90);
+			</handler>
+		
+		</view>
 	</class>
 </library>

@@ -242,7 +242,12 @@
 	</method>
 	<method name="addNode">
 			//create an attributes dictionary
-			var attr = {x:this.coord, y:this.coord};
+			var offset = 0;
+			//if this is the first node. We want the first node not get covered by the leftp
+			if (this.nodes.length == 0) {
+				offset = 200;
+				}
+			var attr = {x:this.coord+offset, y:this.coord};
 				switch (nodeShapes) {
 			case 'box':
 				var nc = new box(this, attr);

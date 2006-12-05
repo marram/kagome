@@ -59,6 +59,14 @@
 					text="${parent.bt3}" />
 				<text name="lp4" x="146" y="126"
 					text="${parent.bt4}" />
+				
+				<radiogroup name="sourceButton">
+    				<radiobutton x="45" y="101" value="1" text="Button press"  selected="true"/>
+    				<radiobutton x="45" y="126" value="1" text="Button press"  />
+    				<radiobutton x="146" y="101" value="1" text="Button press"  />
+    				<radiobutton x="146" y="126" value="1" text="Button press"  />
+	  			</radiogroup>
+				
 				<handler name="oninit">
 					if (modelnode != null)
 					{

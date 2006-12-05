@@ -76,20 +76,39 @@
 		this.setAttribute('height', 4000/zoomMag);
 		
 		<!-- change x, y using the percentages-->
-		this.setAttribute('x', ((this.xPercentage*this.width)+parent.width/2));
-		this.setAttribute('y', ((this.yPercentage*this.height)+parent.height/2));
+		//this.setAttribute('x', ((this.xPercentage*this.width)+parent.width/2));
+		//this.setAttribute('y', ((this.yPercentage*this.height)+parent.height/2));
+		
+		this.setAttribute('x', this.xPercentage*this.width);
+		this.setAttribute('y', this.yPercentage*this.height);
+		
+		if (this.x >= 0){
+			this.setAttribute('x', 0);
+		}
+		if (this.y >= 0){
+			this.setAttribute('y',0);
+		}
+		
+		if ((parent.width-this.width) >= this.x){
+			this.setAttribute('x', parent.width - this.width);
+		}
+		
+		if ((parent.height-this.height) >= this.y){
+			this.setAttribute('y', parent.height - this.height);
+		}
 		
 		<!-- change the positions and sizes of each child -->
-		
 		
 	</handler>
 	
 	
 	<handler name="onx">
-		this.setAttribute("xPercentage" , (this.x - (parent.width/2))/this.width);
+		//this.setAttribute("xPercentage" , (this.x - (parent.width/2))/this.width);
+		this.setAttribute("xPercentage" , this.x/this.width);
 	</handler>
 	<handler name="ony">
-		this.setAttribute("yPercentage" , (this.y - (parent.height/2))/this.height);
+		//this.setAttribute("yPercentage" , (this.y - (parent.height/2))/this.height);
+		this.setAttribute("yPercentage" , this.y/this.height);
 	</handler>
 	<!-- 
 		This is a view that always follows the mouse. It has zero width and height so that it doesn't interfere with mouse clicks .. etc.

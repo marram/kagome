@@ -30,13 +30,6 @@
 			drawStructure();
 		</handler>
 		
-		<handler name="onselectedobj" reference="dview">
-			if (dview.selectedobj == null) {
-				this.setVisible(false);
-				canvas.dview.eManipulation.setVisible(false);
-			}
-		</handler>
-		
 		<method name="animateIn">
 			this.setAttribute("backgroundStartColor", nodehi);
 			this.setAttribute("backgroundStopColor", nodehi);

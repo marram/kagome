@@ -45,37 +45,39 @@
     		
   			<text>Source Screen Preview</text>
     		<atmminipreview name="preview" resource="minipreview"/>
-    		<text>Event: </text>
 
-    		<radiogroup id="group1">
-    		<radiobutton value="1" text="Button press"  selected="true"/>
-    		<radiobutton value="1" text="Button + logical" enabled="false"/>
-    		<radiobutton value="1" text="Logical"  enabled="false" />
-    		<radiobutton value="1" text="Timed" enabled="false" />
-  			</radiogroup>
+			<view layout="class:simplelayout; yspacing:3">
+	    		<text>Event: </text>
+    			<radiogroup id="group1">
+    				<radiobutton value="1" text="Button press"  selected="true"/>
+	    			<radiobutton value="1" text="Button + logical" enabled="false"/>
+		    		<radiobutton value="1" text="Logical"  enabled="false" />
+		    		<radiobutton value="1" text="Timed" enabled="false" />
+  				</radiogroup>
+  			</view>
     		
-    		<text> Source Button: </text>
-    		<!-- edittext width = "150" name = "buttonSelect" /-->
-    		<combobox name="buttonSelect" width="200"  enabled="${classroot.enabled}">
-    			<handler name="oninit">
-				//moved them to setEdgeProperties
-    			</handler>
-    			<method name="empty">
-    				removeItemAt(4);
-    				removeItemAt(3);
-    				removeItemAt(2);
-    				removeItemAt(1);
-    				removeItemAt(0);
-    			</method>
-    			<handler name="onvalue">
-    				parent.preview.setButton(this.value);
-    			</handler>
-    		</combobox>
+    			<text> Source Button: </text>
+	    		<!-- edittext width = "150" name = "buttonSelect" /-->
+	    		<combobox name="buttonSelect" width="200"  enabled="${classroot.enabled}">
+	    			<handler name="oninit">
+					//moved them to setEdgeProperties
+	    			</handler>
+	    			<method name="empty">
+	    				removeItemAt(4);
+	    				removeItemAt(3);
+	    				removeItemAt(2);
+	    				removeItemAt(1);
+	    				removeItemAt(0);
+	    			</method>
+	    			<handler name="onvalue">
+	    				parent.preview.setButton(this.value);
+	    			</handler>
+	    		</combobox>
 
-    		<text> Target Screen: </text>
-    		<combobox name="targetcb" width="200"  enabled="${classroot.enabled}">
-    			<attribute name="counter" type="number" value="0"/>
-    			<method name="fill">
+	    		<text> Target Screen: </text>
+		  			<combobox name="targetcb" width="200"  enabled="${classroot.enabled}">
+    				<attribute name="counter" type="number" value="0"/>
+    				<method name="fill">
 	    			<![CDATA[
 	    				for (var i=0; i< canvas.model.nodes.length; i++) {
 	    					var n = canvas.model.nodes[i];
@@ -86,21 +88,20 @@
 	    					}
 	    				}
 	    			]]>	
-    			</method>
-    			<method name="empty">
-	    			<![CDATA[
-	    				for (var i=this.counter-1; i>= 0; i--) {
-							removeItemAt(i);
-	    				}
-	    			]]>	
-    			</method>
-    			<method name="update">
-    			    empty();
-    				fill();
-    			</method>
-    		</combobox>
-  		</view> 
-		
+	    			</method>
+	    			<method name="empty">
+		    			<![CDATA[
+		    				for (var i=this.counter-1; i>= 0; i--) {
+								removeItemAt(i);
+	    					}
+	    				]]>	
+	    			</method>
+    				<method name="update">
+    				    empty();
+    					fill();
+    				</method>
+	    		</combobox>
+	    	</view>	
 
 	</class>
 </library>

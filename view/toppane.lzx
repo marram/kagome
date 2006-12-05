@@ -31,17 +31,17 @@
 						canvas.model.upload(canvas.kServer);
 						//make a window with a progress bar
 						var win = new kpane(canvas, {height: 568, width: 822, align: "center", y:80, paneTitle: "Loading ATM Prototype ..."});
-						var ld = new loading(win, {duration:7000, x: win.width/2-93, y: 80});
+						var ld = new loading(win, {duration:8000, x: win.width/2-93, y: 80});
 						ld.start();
 						
 						//make a copy of the library loader
 						var z = canvas.clone(canvas.atmswf, canvas, "atmswfcopy");
 						
 						this.del = new LzDelegate( z, "load" );
-        				LzTimer.addTimer( this.del, 7000 );
+        				LzTimer.addTimer( this.del, 8000 );
         				
         				this.del2 = new LzDelegate(win, "destroy");
-        				LzTimer.addTimer(this.del2, 7000);
+        				LzTimer.addTimer(this.del2, 8000);
 					</handler>
 					<tooltip> Play your UI Demo </tooltip>
 				</basebutton>

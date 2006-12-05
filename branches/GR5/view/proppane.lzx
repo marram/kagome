@@ -33,7 +33,7 @@
 					</handler>
 				</roundrectbutton>
 				<roundrectbutton align="right" height="20"
-					text="Cancel">
+					text="Reset">
 					<handler name="onclick">
 						classroot.setStuff(canvas.dview.selectedobj.modelnode);
 					</handler>

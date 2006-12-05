@@ -49,7 +49,8 @@
 			var initialNode = dview.addNode();
 			//don't highlight it
 			//dview.setAttribute('selectedobj', initialNode);
-			canvas.leftp.close();
+			canvas.leftp.closeNoAnim();
+			ppane.setVisible(true);
 		</handler>
 		<handler name="onselectedobj" reference="dview">
 			var ref = dview;

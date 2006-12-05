@@ -23,7 +23,7 @@
 					<tooltip>Delete selection</tooltip>
 				</basebutton>
 			</view>
-			<view name="play" x="${parent.create.width+40}" y="27" >
+			<view name="play" x="${parent.create.width+50}" y="27" >
 
 				<basebutton resource="playicon">
 					<handler name="onclick">
@@ -53,11 +53,15 @@
 			</view>
 			<!-- view name="createT" resource="createswf" x="$once{parent.create.x+25}" y="22"/-->
 
-			<slider name="zoomslider" x="$once{parent.share.x+60}" y="40" width="100" minvalue = "1" maxvalue = "3" value="1"/>
+
+			<view name="zoomin" resource="zoom_in" x="$once{parent.share.x+parent.share.width+60}" y="35" />
+			<slider name="zoomslider" x="$once{parent.zoomin.x+25}" y="40" width="100" minvalue = "1" maxvalue = "3" value="1"/>
+			<view name="zoomout" resource="zoom_out" x="$once{parent.zoomslider.x+parent.zoomslider.width+5}" y="35" />
 		</view>
+
 		
 		<!--"minimap" ... shows where the current view is on the devview-->
-		<view name="placementDisplay" x="$once{parent.buttons.x + parent.buttons.width + 100}" y = "20" width = "75" height="45">
+		<view name="placementDisplay" x="$once{parent.buttons.x + parent.buttons.width + 20}" y="25" width = "75" height="45">
 			<view name="leftborder" x = "0" y="0" width = "1" height = "$once{parent.height}" bgcolor = "0x000000"/>
 			<view name="rightborder" x = "$once{parent.width - 1}" y="0" width = "1" height = "$once{parent.height}" bgcolor = "0x000000" />
 			<view name="topborder" x = "0" y="0" width = "$once{parent.width}" height = "1" bgcolor = "0x000000" />

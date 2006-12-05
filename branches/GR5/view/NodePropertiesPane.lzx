@@ -39,7 +39,7 @@
 
 		<view width="260" height="390" name="inside">
 
-			<wrappinglayout axis="x" spacing="4" />
+			<wrappinglayout axis="x" spacing="5" yspacing="8"/>
 			<!--  Mini preview in a seperate class like Eric and Mahmoud
 				discussed
 			 -->
@@ -63,16 +63,16 @@
 			<ktext>Screen Text</ktext>
 			<kedittext enabled="${classroot.enabled}" height="50" width="150" name="screentext" multiline="true" />
 
-			<wrappinglayout axis="x" spacing="2"/>
-			<ktext>Button Label 1</ktext>
-			<kedittext enabled="${classroot.enabled}" width="150" name="bt1" maxlength="10"/>
-			<ktext>Button Label 2</ktext>
-			<kedittext enabled="${classroot.enabled}" width="150" name="bt2" maxlength="10"/>
-			<ktext>Button Label 3</ktext>
-			<kedittext enabled="${classroot.enabled}" width="150" name="bt3" maxlength="10"/>
-			<ktext>Button Label 4</ktext>
-			<kedittext enabled="${classroot.enabled}" width="150" name="bt4" maxlength="10"/>
-
+			<view layout="class:wrappinglayout; axis:x; xspacing:5; yspacing:3" width="260">
+				<ktext>Button Label 1</ktext>
+				<kedittext enabled="${classroot.enabled}" width="150" name="bt1" maxlength="10"/>
+				<ktext>Button Label 2</ktext>
+				<kedittext enabled="${classroot.enabled}" width="150" name="bt2" maxlength="10"/>
+				<ktext>Button Label 3</ktext>
+				<kedittext enabled="${classroot.enabled}" width="150" name="bt3" maxlength="10"/>
+				<ktext>Button Label 4</ktext>
+				<kedittext enabled="${classroot.enabled}" width="150" name="bt4" maxlength="10"/>
+			</view>
 		</view>
 
 	</class>

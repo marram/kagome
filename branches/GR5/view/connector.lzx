@@ -165,8 +165,8 @@
 					borderRadius="15"
 					borderColor="$once{nodedarkblue}"
 					borderWidth="1"
-		width="30"
-		height="30"
+		width="${30/parent.parent.zoomMag}"
+		height="${30/parent.parent.zoomMag}"
 		>
 			<text fontsize="15" text="${classroot.modeledge.sourceButton}" yoffset="2" width="$once{parent.width}" >
 				<handler name="oninit">
@@ -191,6 +191,13 @@
 				setAttribute('borderColor', nodedarkblue);
 				drawStructure();
 			</method>
+			<handler name="onwidth">
+				//for some reason, the roundrect doesn't redraw when dimensions chang
+				drawStructure();
+			</handler>
+			<handler name="onheight">
+				drawStructure();
+			</handler>	
 		</roundrect>
 
 		

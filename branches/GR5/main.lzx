@@ -37,7 +37,6 @@
 </EdgePropertiesPane>
 </leftpane>
 <toppane name="topp" width="100%"/>
-<view name="vrule" bgcolor="0x8CC63F" y="$once{topp.topbar.y+topp.topbar.height}" width="1" height="${leftp.height}" x="${leftp.width-width}"/>
 <devview name="dview" width="4000" height="4000" y="-750" x="-750">
 	<!-- text><b><i>Development Area</i></b></text-->
 </devview>

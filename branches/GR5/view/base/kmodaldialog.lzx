@@ -15,7 +15,7 @@
 			Debug.write(x,y);
 			
 			//blanket everything else.
-			this.blanket = new LzView(canvas,{bgcolor: 0x000000, opacity:0.5, width: canvas.width, height: canvas.height});
+			this.blanket = new LzView(canvas,{bgcolor: 0xffffff, opacity:0.8, width: canvas.width, height: canvas.height});
 			bringToFront();	
 			LzModeManager.makeModal(this);	
 		</method>

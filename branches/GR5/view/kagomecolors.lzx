@@ -10,7 +10,7 @@
 		var kblue1 =  0xA2DDF2;			//gradient start in proppane
 		var kblue2 =  0x2BAAE1;			//gradient stop in proppane
 		
-		var korange = 0xFF8930;
+		var korange = 0xffae4f;
 		var kyellow = 0xFFE630;
 		
 		var nodehi	= 0xFFE630;			//highlight color for roundrectnode		

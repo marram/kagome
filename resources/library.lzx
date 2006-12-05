@@ -26,4 +26,7 @@
 	<resource name="topbar" src="topbar.png" />
 	<resource name="loadingswf" src="loading.swf" />
 	<resource name="closeswf" src="close.swf" />
+	
+	<resource name="zoom_in" src="zoom_in.png" />
+	<resource name="zoom_out" src="zoom_out.png" />
 </library>

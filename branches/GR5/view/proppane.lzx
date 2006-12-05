@@ -1,6 +1,20 @@
 <library>
 	<include href="incubator/roundrect.lzx" />
 	<include href="incubator/roundrectbutton.lzx" />
+	<class name="kedittext" extends="edittext" bgcolor="0xffffff">
+		<handler name="onenabled">
+			if (enabled == false) {
+					this._face.setAttribute('bgcolor', 0xc4c8c5);
+					this._face.setAttribute('opacity', 1); 
+					this.field.setAttribute('bgcolor', 0xc4c8c5);
+				}
+			else {
+					this._face.setAttribute('bgcolor', null);
+					this._face.setAttribute('opacity', 0.65);
+					this.field.setAttribute('bgcolor', null);			
+			}
+		</handler>
+	</class>
 		<class name="proppane" extends="roundrect"
 			backgroundStartColor="$once{kblue1}"
 			backgroundStopColor="$once{kblue2}"

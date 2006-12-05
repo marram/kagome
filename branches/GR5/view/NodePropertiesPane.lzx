@@ -2,8 +2,10 @@
 	<include href="proppane.lzx" />
 	<class name="ktext" extends="text" width="90" clip="true"
 		fontsize="10" />
+
 	<class name="NodePropertiesPane" extends="proppane" width="280"
 		height="460" paneTitle="Screen Properties">
+		<attribute name="enabled" type="boolean" value="${dview.selectedobj != null}"/>
 		<method name="setStuff" args="propnode">
 			inside.nodetitle.setText(propnode.title);
 			inside.screentext.setText(propnode.screentext);
@@ -50,25 +52,25 @@
 			 />
 
 			<ktext>Screen Title</ktext>
-			<edittext width="150" name="nodetitle">
+			<kedittext enabled="${classroot.enabled}" width="150" name="nodetitle">
 				<method event="ontext">
 
 				</method>
-			</edittext>
+			</kedittext>
 
 			<!-- ktext>Screen Title</ktext>
 			<edittext width="150" name="screentitle" /-->
 			<ktext>Screen Text</ktext>
-			<edittext width="150" name="screentext" />
+			<kedittext enabled="${classroot.enabled}" width="150" name="screentext" />
 
 			<ktext>Button Label 1</ktext>
-			<edittext width="150" name="bt1" />
+			<kedittext enabled="${classroot.enabled}" width="150" name="bt1" />
 			<ktext>Button Label 2</ktext>
-			<edittext width="150" name="bt2" />
+			<kedittext enabled="${classroot.enabled}" width="150" name="bt2" />
 			<ktext>Button Label 3</ktext>
-			<edittext width="150" name="bt3" />
+			<kedittext enabled="${classroot.enabled}" width="150" name="bt3" />
 			<ktext>Button Label 4</ktext>
-			<edittext width="150" name="bt4" />
+			<kedittext enabled="${classroot.enabled}" width="150" name="bt4" />
 
 		</view>
 

@@ -221,6 +221,7 @@
 				 		}
 				 }
 				 this.nodeDeleted.sendEvent(obj.modelnode);	
+				 this.setAttribute('selectedobj', null);
 				 
 		]]>	
 	</method>

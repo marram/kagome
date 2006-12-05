@@ -19,7 +19,7 @@
  <!--  This is the PHP script of servlet that would receive
  		model data from Kagome.
   -->
-  <dataset name="kServer" src="http://localhost/workspace/KagomePHP/" request="false" method="post"/>
+  <dataset name="kServer" src="http://localhost/KagomePHP/" request="false" method="post"/>
 
 
 
@@ -60,7 +60,7 @@
 				edgePane.setEdgeProperties(ref.selectedobj.modeledge);
 				dview.eManipulation.setEdgeProperties(ref.selectedobj.modeledge);
 			}
-			else {
+			else if (ref.selectedobj != null){
 				edgePane.setVisible(false);
 				ppane.setVisible(true);
 				ppane.setStuff(ref.selectedobj.modelnode);

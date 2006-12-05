@@ -73,8 +73,8 @@
 	
 	<handler name="onzoomMag">
 		<!-- change width, height -->
-		this.setAttribute('width', 4000/zoomMag);
-		this.setAttribute('height', 4000/zoomMag);
+		this.setAttribute('width', 5000/zoomMag);
+		this.setAttribute('height', 3000/zoomMag);
 		
 		<!-- change x, y using the percentages-->
 		//this.setAttribute('x', ((this.xPercentage*this.width)+parent.width/2));
@@ -284,6 +284,19 @@
 		}
 	]]>
 	</method>
+	
+	<method name="zoomIn">
+		if (canvas.topp.buttons.zoomslider.value > 0){
+			canvas.topp.buttons.zoomslider.setAttribute('value', canvas.topp.buttons.zoomslider.value - 1);
+		}
+	</method>
+	
+	<method name= "zoomOut">
+		if (3 > canvas.topp.buttons.zoomslider.value){
+			canvas.topp.buttons.zoomslider.setAttribute('value', canvas.topp.buttons.zoomslider.value + 1);
+		}
+	</method>
+	
 	<handler name="onmouseover">
 		LzCursor.showHandCursor(false);
 	</handler>
@@ -292,8 +305,15 @@
 	</handler>
 	<handler name="onkeydown" args="k">
 		var delKey = 46;
+		var plusKey = 187;
+		var minusKey = 189;
 		if (k==delKey)
 			deleteSelected();
+		else if (k==plusKey)
+			zoomIn();
+		else if (k==minusKey)
+			zoomOut();
+			
 	</handler>
 </class>
 </library>

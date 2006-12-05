@@ -1,7 +1,7 @@
 <library>
 	<include href="proppane.lzx" />
 	<class name="NodePropManipulation" extends="proppane"
-	width="330" height="290" paneTitle="Screen Properties" opacity="0.7">
+	width="330" height="290" paneTitle="Screen Properties">
 
 		<method name="setStuff" args="propnode">
 			inside.nodetitle.setText(propnode.title);
